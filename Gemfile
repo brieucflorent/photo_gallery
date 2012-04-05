@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.0'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -19,16 +19,23 @@ group :production do
 #  gem 'pg'
 end
 
+gem 'sprockets'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'therubyracer'              
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
+  gem 'compass-rails'
+  gem 'compass-h5bp'
 end
+gem 'haml-rails' # Optional - to generate haml
 
 gem 'jquery-rails'
+gem 'html5-rails'
+
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

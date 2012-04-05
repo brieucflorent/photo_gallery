@@ -115,3 +115,10 @@ form label {
 form #submit {
   margin-left: 150px;
 }
+
+#helloCanvas {
+	-webkit-box-shadow: rgba(60,60,70,0.7) 2px 2px 8px;
+	-moz-box-shadow: rgba(60,60,70,0.7) 2px 2px 8px;
+	box-shadow: rgba(60,60,70,0.7) 2px 2px 8px;
+	border: thin solid cornflowerblue;
+}
