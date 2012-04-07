@@ -46,3 +46,4 @@ gem 'html5-rails'
 # To use debugger
 gem 'haml'
 gem 'pg'
+gem 'mechanize'
