@@ -71,7 +71,7 @@ task :checkimdb => :environment do
       title = search_results.parser.xpath('//h1[@itemprop="name"]').text.gsub(/\r\n|\n|\r|\(.*/,'')
       rating = search_results.parser.xpath('//span[@itemprop="ratingValue"]').text
     end
-    if BigDecimal.new(rating) > 6.8
+    if BigDecimal.new(rating) > 5.1
       puts movie + " " + rating
       download(movie,rating,imdblink)
     end
@@ -81,7 +81,7 @@ task :checkimdb => :environment do
     page.links_with(:href => /title\/tt/).each do |link|
       imdblink= "http://www.imdb.com" + link.uri.to_s
       rating =link.click.parser.xpath('//span[@itemprop="ratingValue"]').text
-      if BigDecimal.new(rating) > 6.8 then
+      if BigDecimal.new(rating) > 5.1 then
         puts link.text + " " + rating
         download(link.text,rating,imdblink)
       end
