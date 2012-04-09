@@ -27,8 +27,8 @@
         
         %title= movie.title 
         %link= movie.reference 
-        %category{ :domain => 'http://eztv.it/shows/40/californication/'} DVD
-        %pubDate Sun, 23 Jan 2011 20:57:42 -0500
+        %category DVD
+        %pubDate= movie.release_date
         %description= "Show Name: " + movie.title
         %enclosure
         %comments http://eztv.it/forum/discuss/25272/

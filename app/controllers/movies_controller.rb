@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
     id = params[:id] # retrieve movie ID from URI route
     #@movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
-    @movies = Movie.where("rating >=?",id)
+    @movies = Movie.where("rating >=?",id).order("release_date DESC, title ASC")
   end
 
   def index
@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
       session[:ratings] = @selected_ratings
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
-    @movies = Movie.all
+    @movies = Movie.order("release_date DESC, title ASC")
   end
 
   def new

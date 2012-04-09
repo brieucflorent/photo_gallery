@@ -8,6 +8,7 @@ class CreateMovies < ActiveRecord::Migration
       t.string :filename
       t.string :imdblink
       t.datetime :release_date
+      t.integer :cweek
       # Add fields that let Rails automatically keep track
       # of when movies are added or modified:
       t.timestamps
