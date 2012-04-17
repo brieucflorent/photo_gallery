@@ -1,10 +1,19 @@
 class MoviesController < ApplicationController
+  layout :resolve_layout
+  def resolve_layout
+    case action_name
+    when "show"
+      "rss"
+    else
+      "application"
+    end
+  end
 
   def show
     id = params[:id] # retrieve movie ID from URI route
     #@movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
-    @movies = Movie.where("rating >=?",id).order("release_date DESC, title ASC")
+    @movies = Movie.where("rating >=? and cweek = ?",id,Date.today.cweek).order("release_date DESC, title ASC")
   end
 
   def index
@@ -15,7 +24,6 @@ class MoviesController < ApplicationController
     when 'release_date'
       ordering,@date_header = {:order => :release_date}, 'hilite'
     end
-    @all_ratings = Movie.all_ratings
     @selected_ratings = params[:ratings] || session[:ratings] || {}
 
     if params[:sort] != session[:sort]

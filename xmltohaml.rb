@@ -1,7 +1,7 @@
 require "xml-to-haml"
 
 
-f=File.open("myxml.xml","r") 
+f=File.open("index.html","r") 
 content=""
 f.each do |line|
  content << line
