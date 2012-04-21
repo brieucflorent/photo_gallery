@@ -1,0 +1,8 @@
+%h1 New photo
+
+= form_for @photo, :html => {:multipart => true} do |f|
+   = f.file_field :imagefile,:multipe => true
+   = f.submit
+
+= link_to 'Back', photos_path
+

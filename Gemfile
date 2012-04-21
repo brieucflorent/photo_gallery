@@ -49,3 +49,7 @@ gem 'pg'
 gem 'mechanize'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rack-raw-upload', :git => 'git://github.com/newbamboo/rack-raw-upload.git'
+gem 'fog', "~> 1.3.1"
+gem 'omniauth-facebook'
+gem 'omniauth-google'

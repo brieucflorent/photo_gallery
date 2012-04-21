@@ -1,4 +1,7 @@
 Rottenpotatoes::Application.routes.draw do
+  get "photos/uploader"
+  post "photos/uploader"
+
   resources :photos
 
   # The priority is based upon order of creation:
@@ -19,6 +22,7 @@ Rottenpotatoes::Application.routes.draw do
   resources :albums do
      resources :photo, :only => [:create, :destroy]
   end
+  
 
   # Sample resource route with options:
   #   resources :products do
@@ -48,11 +52,13 @@ Rottenpotatoes::Application.routes.draw do
   #   end
 
   # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  namespace :admin do
+       # Directs /admin/products/* to Admin::ProductsController
+       # (app/controllers/admin/products_controller.rb)
+     get "photos/uploader"
+     post "photos/uploader"
+     resources :photos,:albums
+  end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
