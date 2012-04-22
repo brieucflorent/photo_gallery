@@ -1,8 +1,15 @@
 Rottenpotatoes::Application.routes.draw do
-  get "photos/uploader"
-  post "photos/uploader"
 
-  resources :photos
+  #devise_for :users,:controllers => {:registrations => 'registrations' }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  #match '/auth/:provider/callback', :to => 'authentications#create'  
+  
+  devise_scope :user do
+     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
+  
+  resources :photos, :only => :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

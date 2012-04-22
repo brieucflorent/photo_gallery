@@ -14,6 +14,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'thin'
 end
 group :production do
 #  gem 'pg'
@@ -52,4 +53,6 @@ gem 'mini_magick'
 gem 'rack-raw-upload', :git => 'git://github.com/newbamboo/rack-raw-upload.git'
 gem 'fog', "~> 1.3.1"
 gem 'omniauth-facebook'
-gem 'omniauth-google'
+#gem 'omniauth-google'
+gem 'omniauth-google-apps'
+gem 'devise', "2.0"

@@ -3,6 +3,8 @@
 = form_tag movies_path, :method => :get, :id => 'ratings_form' do
   = hidden_field_tag "title_sort", true if @title_header
   = hidden_field_tag ":release_date_sort", true if @date_header
+  
+= link_to "sign in with google", user_omniauth_authorize_path(:google)
 %table#movies
   %thead
     %tr
