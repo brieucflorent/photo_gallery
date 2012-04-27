@@ -23,6 +23,9 @@ end
 gem 'sprockets'
 # Gems used only for assets and not required
 # in production environments by default.
+#
+
+gem 'zurb-foundation', "2.1.5.1"
 group :assets do
   gem 'therubyracer'              
   gem 'sass-rails'
