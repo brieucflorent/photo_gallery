@@ -46,35 +46,40 @@ class Admin::PhotosController < ApplicationController
     end
   end
   
-  def uploader
-    if params.include?(:file)
-       @photo = Photo.new(:imagefile => params[:file])  
-       if @photo.save     
-         respond_to do |format|
-           format.json {render json:{:success => true}}
-         end
-       else
-         respond_to do |format|
-           format.json {render json:{:error => "unable to save"}}
-         end       
-       end      
-    elsif params.include?(:qqfile)
-       @photo = Photo.new(:imagefile => params[:qqfile])
-       if @photo.save     
-         respond_to do |format|
-           format.json {render json:{:success => true}}
-         end
-       else
-         respond_to do |format|
-           format.json {render json:{:error => "unable to save"}}
-         end       
-       end
+ def uploader
+    if not current_user.blank?
+      @user=current_user
+      if params.include?(:file)
+        @photo = Photo.new(:imagefile => params[:file])
+        if @photo.save
+          respond_to do |format|
+            format.json {render json:{:success => true}}
+          end
+        else
+          respond_to do |format|
+            format.json {render json:{:error => "unable to save"}}
+          end
+        end
+      elsif params.include?(:qqfile)
+        @photo = Photo.new(:imagefile => params[:qqfile])
+        if @photo.save
+          respond_to do |format|
+            format.json {render json:{:success => true}}
+          end
+        else
+          respond_to do |format|
+            format.json {render json:{:error => "unable to save"}}
+          end
+        end
+      else
+
+        respond_to do |format|
+          format.html # new.html.erb
+          format.json { render json: @photo }
+        end
+      end
     else
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @photo }
-    end
+      redirect_to user_session_url
     end
   end
 

@@ -9,7 +9,7 @@ Rottenpotatoes::Application.routes.draw do
      get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
   
-  resources :photos, :only => :get
+  get '/photos' => 'photos#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -24,7 +24,15 @@ Rottenpotatoes::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :movies, :id => /\d+(\.\d+)?/
+  
+  resources :movies, :id => /\d+(\.\d+)?/, :only => [:index,:show]
+
+  #resources :movies,:only => [:index]
+  
+  namespace :rss do
+     resources :movies, :id => /\d+(\.\d+)?/, :only => [:index,:show] 
+  end
+  
   
   resources :albums do
      resources :photo, :only => [:create, :destroy]

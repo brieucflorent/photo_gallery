@@ -1,13 +1,6 @@
-class MoviesController < ApplicationController
-  # layout :resolve_layout
-  # def resolve_layout
-  # case action_name
-  # when "show"
-  # "rss"
-  # else
-  # "application"
-  # end
-  # end
+class Rss::MoviesController < ApplicationController
+  layout "rss"
+
   def show
 
     id = params[:id] # retrieve movie ID from URI route

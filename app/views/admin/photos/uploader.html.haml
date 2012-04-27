@@ -14,3 +14,8 @@
       id: '#{params[:id]}'
     }
   });
+  
+
+= @user.first_name
+
+= link_to "sign_out", destroy_user_session_url, :method => 'delete'

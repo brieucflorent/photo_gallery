@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
   layout "photo"
-  
-   # GET /photos
+  # GET /photos
   # GET /photos.json
   def index
     @photos = Photo.all
@@ -11,15 +10,14 @@ class PhotosController < ApplicationController
     #  end
     #end
     if @photos.length == 0
-      redirect_to photos_uploader_url
+      redirect_to admin_photos_uploader_url
     else
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @photos }
-      end  
+      end
     end
 
-    
   end
 
   # GET /photos/1
@@ -44,38 +42,8 @@ class PhotosController < ApplicationController
       format.json { render json: @photo }
     end
   end
-  
-  def uploader
-    if params.include?(:file)
-       @photo = Photo.new(:imagefile => params[:file])  
-       if @photo.save     
-         respond_to do |format|
-           format.json {render json:{:success => true}}
-         end
-       else
-         respond_to do |format|
-           format.json {render json:{:error => "unable to save"}}
-         end       
-       end      
-    elsif params.include?(:qqfile)
-       @photo = Photo.new(:imagefile => params[:qqfile])
-       if @photo.save     
-         respond_to do |format|
-           format.json {render json:{:success => true}}
-         end
-       else
-         respond_to do |format|
-           format.json {render json:{:error => "unable to save"}}
-         end       
-       end
-    else
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @photo }
-    end
-    end
-  end
+
+ 
 
   # GET /photos/1/edit
   def edit
