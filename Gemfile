@@ -14,7 +14,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
-  gem 'thin'
+ #gem 'thin'
 end
 group :production do
 #  gem 'pg'
