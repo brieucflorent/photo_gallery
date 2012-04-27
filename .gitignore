@@ -9,4 +9,3 @@ config/initializers/omniauth.rb
 rename.sh
 public/uploads/tmp/
 tmp/
-devise.rb
