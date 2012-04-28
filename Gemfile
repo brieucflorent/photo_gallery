@@ -27,13 +27,14 @@ gem 'sprockets'
 
 gem 'zurb-foundation', "2.1.5.1"
 group :assets do
-  gem 'therubyracer'              
-  gem 'sass-rails'
+  gem 'therubyracer'       
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'compass-rails'
-  gem 'compass-h5bp'
-end
+end       
+gem 'sass-rails'
+gem 'compass-rails'
+gem 'compass-h5bp'
+
 gem 'haml-rails' # Optional - to generate haml
 
 gem 'jquery-rails'
