@@ -19,7 +19,7 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
   require 'openid/store/filesystem' 
 
-  config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
+  #config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
   config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
 
   config.omniauth :facebook,'297603910317240', 'fd4b4cb3a41d58f0a7e35b4f39ffa189'

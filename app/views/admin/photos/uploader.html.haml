@@ -2,6 +2,9 @@
   = javascript_include_tag 'fileuploader'
   = stylesheet_link_tag    'fileuploader'
 
+= link_to image_tag( 'facebook.png'), '/users/auth/facebook'
+= link_to image_tag( 'google.png'), '/users/auth/google'
+
 #file-uploader
   %noscript
     %p Please enable JavaScript to use file uploader
@@ -15,7 +18,7 @@
     }
   });
   
-
+    
 = @user.first_name
 
 = link_to "sign_out", destroy_user_session_url, :method => 'delete'
