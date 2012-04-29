@@ -2,23 +2,27 @@
   = javascript_include_tag 'fileuploader'
   = stylesheet_link_tag    'fileuploader'
 
-= link_to image_tag( 'facebook.png'), '/users/auth/facebook'
-= link_to image_tag( 'google.png'), '/users/auth/google'
+%nav
+  %ul
+    %li Home
+    %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+    %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
 
-#file-uploader
-  %noscript
-    %p Please enable JavaScript to use file uploader
+%body
+  %container_right
+    #file-uploader
+      %noscript
+        %p Please enable JavaScript to use file uploader
 
 :javascript
   var uploader = new qq.FileUploader({
     element: document.getElementById('file-uploader'),
-    action: '/photos/uploader',
+    action: '/admin/photos/uploader',
     params: {
       id: '#{params[:id]}'
     }
   });
   
     
-= @user.first_name
 
 = link_to "sign_out", destroy_user_session_url, :method => 'delete'
