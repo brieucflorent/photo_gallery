@@ -5,8 +5,9 @@
 %nav
   %ul
     %li Home
-    %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
-    %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
+    - if current_user.blank?
+      %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+      %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
 
 %body
   %container_right
@@ -24,5 +25,6 @@
   });
   
     
-
-= link_to "sign_out", destroy_user_session_url, :method => 'delete'
+- if not current_user.blank?
+  = link_to "sign_out", destroy_user_session_url, :method => 'delete'
+  = current_user.first_name
