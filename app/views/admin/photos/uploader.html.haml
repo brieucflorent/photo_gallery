@@ -19,6 +19,7 @@
   var uploader = new qq.FileUploader({
     element: document.getElementById('file-uploader'),
     action: '/admin/photos/uploader',
+    token: getMetaContents('csrf-token'),
     params: {
       id: '#{params[:id]}'
     }

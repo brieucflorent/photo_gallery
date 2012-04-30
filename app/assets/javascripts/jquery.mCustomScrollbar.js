@@ -361,7 +361,8 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 	$('body').hide().fadeIn(2500);
 /* Simple script to cache images */
 	$(window).load(function() {
-			var imageArray = ['/assets/gallery/2.jpg', '/assets/gallery/3.jpg', '/assets/gallery/4.jpg', '/assets/gallery/5.jpg', '/assets/gallery/6.jpg'];
+		    var firstimage = '<%= escape_javascript(@photos.first.imagefile_url) %>';
+			var imageArray = ['<%= escape_javascript(@photos.first.imagefile_url) %>', '<%= @photos.last.imagefile_url %>', '<%= @photos.last.imagefile_url %>', '<%= @photos.last.imagefile_url %>', '<%= @photos.last.imagefile_url %>'];
 			var hidden = $('body').append('<div id="img-cache" style="display:none/>').children('#img-cache');
 			$.each(imageArray, function (i, val) {
 			  $('<img/>').attr('src', val).appendTo(hidden);

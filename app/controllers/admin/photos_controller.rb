@@ -47,7 +47,7 @@ class Admin::PhotosController < ApplicationController
   end
   
  def uploader
-    #if not current_user.blank?
+    if not current_user.blank?
       if params.include?(:file)
         @photo = Photo.new(:imagefile => params[:file])
         if @photo.save
@@ -65,14 +65,14 @@ class Admin::PhotosController < ApplicationController
           format.json { render json: @photo }
         end
       end
-    # else
-        # flash[:notice] = "not logged in"
-        # respond_to do |format|
-          # format.html 
-          # format.json { render json: @photo }
-        # end
+    else
+         flash[:notice] = "not logged in"
+         respond_to do |format|
+           format.html 
+           format.json { render json: @photo }
+         end
       # #redirect_to user_session_url
-    # end
+    end
  end
 
   # GET /photos/1/edit

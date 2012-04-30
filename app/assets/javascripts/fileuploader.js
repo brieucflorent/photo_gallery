@@ -11,6 +11,15 @@
 // Helper functions
 //
 
+function getMetaContents(mn){
+  var m = document.getElementsByTagName('meta');
+  for(var i in m){
+   if(m[i].name == mn){
+     return m[i].content;
+   }
+  }
+}
+
 var qq = qq || {};
 
 /**
@@ -253,6 +262,7 @@ qq.FileUploaderBasic = function(o){
         // set to true to see the server response
         debug: false,
         action: '/server/upload',
+        token: 'test',
         params: {},
         button: null,
         multiple: true,
@@ -322,7 +332,8 @@ qq.FileUploaderBasic.prototype = {
 
         var handler = new qq[handlerClass]({
             debug: this._options.debug,
-            action: this._options.action,         
+            action: this._options.action,
+            token: this._options.token,         
             maxConnections: this._options.maxConnections,   
             onProgress: function(id, fileName, loaded, total){                
                 self._onProgress(id, fileName, loaded, total);
@@ -856,6 +867,7 @@ qq.UploadHandlerAbstract = function(o){
     this._options = {
         debug: false,
         action: '/upload.php',
+        token: 'test',
         // maximum number of concurrent uploads        
         maxConnections: 999,
         onProgress: function(id, fileName, loaded, total){},
@@ -1196,8 +1208,12 @@ qq.extend(qq.UploadHandlerXhr.prototype, {
         params = params || {};
         params['qqfile'] = name;
         var queryString = qq.obj2url(params, this._options.action);
-
+ 
         xhr.open("POST", queryString, true);
+        //var csrf_meta_tag = $$('meta[name=csrf-token]')[0];
+        //var header = 'X-CSRF-Token',
+        //  token = csrf_meta_tag.readAttribute('content');
+        xhr.setRequestHeader("X-CSRF-Token", this._options.token);
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         xhr.setRequestHeader("X-File-Name", encodeURIComponent(name));
         xhr.setRequestHeader("Content-Type", "application/octet-stream");

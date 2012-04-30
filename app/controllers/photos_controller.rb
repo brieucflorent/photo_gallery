@@ -1,5 +1,13 @@
 class PhotosController < ApplicationController
-  layout "photo"
+  layout :resolve_layout
+  def resolve_layout
+    case action_name
+    when "index"
+     "photo_index"
+    else
+     "photo"
+    end
+  end
   # GET /photos
   # GET /photos.json
   def index
