@@ -4,7 +4,7 @@
 
 %nav
   %ul
-    %li Home
+    %li= link_to "Home", home_index_url
     - if current_user.blank?
       %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
       %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
@@ -15,17 +15,19 @@
       %noscript
         %p Please enable JavaScript to use file uploader
 
-:javascript
-  var uploader = new qq.FileUploader({
-    element: document.getElementById('file-uploader'),
-    action: '/admin/photos/uploader',
-    token: getMetaContents('csrf-token'),
-    params: {
-      id: '#{params[:id]}'
-    }
-  });
+- if not current_user.blank?
+  :javascript
+    var uploader = new qq.FileUploader({
+      element: document.getElementById('file-uploader'),
+      action: '/admin/photos/uploader',
+      token: getMetaContents('csrf-token'),
+      params: {
+        id: '#{params[:id]}'
+      }
+    });
   
     
 - if not current_user.blank?
   = link_to "sign_out", destroy_user_session_url, :method => 'delete'
   = current_user.first_name
+%p#notice= notice

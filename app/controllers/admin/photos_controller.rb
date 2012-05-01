@@ -48,32 +48,42 @@ class Admin::PhotosController < ApplicationController
   
  def uploader
     if not current_user.blank?
-      if params.include?(:file)
-        @photo = Photo.new(:imagefile => params[:file])
-        if @photo.save
-          respond_to do |format|
-            format.json {render json:{:success => true}}
+      if ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
+        if params.include?(:file)
+          @photo = Photo.new(:imagefile => params[:file])
+          if @photo.save
+            @photo.title=@photo.imagefile.to_s.split('/').last.split('.jpg').first
+            @photo.save
+            respond_to do |format|
+              format.json {render json:{:success => true}}
+            end
+          else
+            respond_to do |format|
+              format.json {render json:{:error => "unable to save"}}
+            end
           end
         else
           respond_to do |format|
-            format.json {render json:{:error => "unable to save"}}
+            format.html
+            format.json { render json: @photo }
           end
         end
       else
+        flash[:notice] = "you must have admin rights to upload files"        
         respond_to do |format|
           format.html
           format.json { render json: @photo }
         end
       end
     else
-         flash[:notice] = "not logged in"
-         respond_to do |format|
-           format.html 
-           format.json { render json: @photo }
-         end
-      # #redirect_to user_session_url
+      flash[:notice] = "you must log in to upload files"
+      respond_to do |format|
+        format.html
+        format.json { render json: @photo }
+      end
+    # #redirect_to user_session_url
     end
- end
+  end
 
   # GET /photos/1/edit
   def edit

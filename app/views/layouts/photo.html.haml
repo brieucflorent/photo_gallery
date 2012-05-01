@@ -11,7 +11,9 @@
 -#      = render "flashes"
 
 = stylesheet_link_tag 'photos'
--#= javascript_include_tag 'application'
+
+-# necessary to make the sign_out working:
+= javascript_include_tag 'application'
 -#= javascript_include_tag 'jquery.snippet.js'
 = csrf_meta_tag
 
