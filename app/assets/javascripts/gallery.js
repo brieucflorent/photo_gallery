@@ -1,7 +1,7 @@
 /* Background gallery by http://manos.malihu.gr */
 //config
 //set default images view mode
-$defaultViewMode="full"; //full, normal, original
+$defaultViewMode="normal"; //full, normal, original
 $tsMargin=30; //first and last thumbnail margin (for better cursor interaction) 
 $scrollEasing=600; //scroll easing amount (0 for no easing) 
 $scrollEasingType="easeOutCirc"; //scroll easing type 
