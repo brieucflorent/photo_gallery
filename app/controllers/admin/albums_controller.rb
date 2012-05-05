@@ -1,4 +1,4 @@
-class AlbumsController < ApplicationController
+class Admin::AlbumsController < ApplicationController
   layout "album"
   
    # GET /albums

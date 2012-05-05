@@ -61,3 +61,4 @@ gem 'omniauth-facebook'
 #gem 'omniauth-google'
 gem 'omniauth-google-apps'
 gem 'devise', "2.0"
+gem 'best_in_place'

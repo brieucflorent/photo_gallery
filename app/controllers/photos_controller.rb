@@ -11,7 +11,11 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.find(:all, :order => "ordering")
+    
+    @album = Album.all.first
+    #@photos = Photo.find(:all, :order => "ordering")
+    @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
+    
     #Dir.entries("app/assets/images/gallery/").each do |entry|
     #  if entry =~ /\d+\.jpg/
     #    @photos << Photo.new(:mainfile=>"/assets/gallery/" + entry,:thumbfile => "/assets/gallery/" + entry.gsub(/\.jpg/,'') + "_thumb.jpg" )

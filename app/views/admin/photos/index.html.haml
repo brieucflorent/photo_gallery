@@ -6,11 +6,14 @@
   %thead
     %tr
       %th title
-      %th imagfile
+      %th ordering
+      %th album
+      %th imagefile
       %th More Info
   %tbody
     - @photos.each do |photo|
       %tr
-        %td= photo.title  
+        %td= best_in_place photo, :title, :path => [:admin,photo]          
+        %td= best_in_place photo, :ordering, :path => [:admin,photo] 
         %td= image_tag photo.imagefile_url(:thumb)
-        %td= link_to "More about #{photo.title}", edit_admin_photo_path(photo)
+        %td= link_to "Edit this photo", edit_admin_photo_path(photo)

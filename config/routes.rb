@@ -75,9 +75,12 @@ Rottenpotatoes::Application.routes.draw do
        # (app/controllers/admin/products_controller.rb)
        
      root :to => "albums#index"
+     
      get "photos/uploader"
      post "photos/uploader"
-     resources :photos,:albums
+     resources :photos
+     resources :albums
+     
   end
 
   # You can have the root of your site routed with "root"

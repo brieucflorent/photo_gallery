@@ -1,6 +1,8 @@
 %p#notice= notice
 
+%p
+  = best_in_place @photo, :title,:path => [:admin,@photo]  
 = image_tag @photo.imagefile_url(:thumb).to_s
-= link_to 'Edit', edit_photo_path(@photo)
+= link_to 'Edit', edit_admin_photo_path(@photo)
 \|
-= link_to 'Back', photos_path
+= link_to 'Back', admin_photos_path

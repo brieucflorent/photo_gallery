@@ -7,6 +7,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require h5bp
+//= require jquery.purr
+//= require best_in_place
+
 function drawcanvas(){
     text = 'Hello';
     paused=0;

@@ -11,3 +11,15 @@
 <td><a href="/posts/2" class="delete_post" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Destroy</a></td>
 </tr>
 </table>
+<%= form_for(@task) do |f| %>
+  <div class="field">
+      <%= f.label :name %><br />
+          <%= f.text_field :name %>
+            </div>
+              <div class="select">
+                  <%= collection_select(:task, :project_id, Project.all, :id, :name) %>
+                    </div>
+                      <div class="actions">
+                          <%= f.submit %>
+                            </div>
+                            <% end %>
