@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  layout "photo"
+  layout "album"
   
    # GET /albums
   # GET /albums.json

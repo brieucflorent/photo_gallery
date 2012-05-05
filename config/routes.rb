@@ -37,9 +37,9 @@ Rottenpotatoes::Application.routes.draw do
   end
   
   
-  resources :albums do
-     resources :photo, :only => [:create, :destroy]
-  end
+  # resources :albums do
+     # resources :photo, :only => [:create, :destroy]
+  # end
   
 
   # Sample resource route with options:
@@ -73,6 +73,8 @@ Rottenpotatoes::Application.routes.draw do
   namespace :admin do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
+       
+     root :to => "albums#index"
      get "photos/uploader"
      post "photos/uploader"
      resources :photos,:albums

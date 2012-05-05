@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%table
+  %thead
+    %tr
+      %td album name
+      %td Description
+      %td
+      %td
+  %tbody
+    %tr
+      %td= @album.name
+      %td= @album.description
+      %td= link_to "Edit", edit_album_path(@album)
+      %td= link_to 'Back', albums_path
+  

@@ -15,6 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+
 module Rottenpotatoes
   class Application < Rails::Application
     require 'rack/raw_upload'

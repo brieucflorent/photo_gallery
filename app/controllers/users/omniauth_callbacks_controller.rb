@@ -13,9 +13,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if @user.persisted?
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
 
-        render :text => omniauth.extra.raw_info.email +  "first: " + omniauth.extra.raw_info.first_name.to_s + " last: " + omniauth.extra.raw_info.last_name.to_s + " uid " + omniauth["uid"]
+        #render :text => omniauth.extra.raw_info.email +  "first: " + omniauth.extra.raw_info.first_name.to_s + " last: " + omniauth.extra.raw_info.last_name.to_s + " uid " + omniauth["uid"]
 
-      #sign_in_and_redirect @user, :event => :authentication
+        sign_in_and_redirect @user, :event => :authentication
       else
         session["devise.facebook_data"] = request.env["omniauth.auth"]
         render :text => omniauth.extra.raw_info.email + " " + omniauth.info.raw_info.nickname + " " + omniauth.info.raw_info.first_name + " " + omniauth.info.raw_info.last_name
@@ -38,8 +38,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if @user.persisted?
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
 
-        render :text => omniauth.info.last_name + omniauth.info.first_name + " uid " + omniauth["uid"]
-      #sign_in_and_redirect @user, :event => :authentication
+        #render :text => omniauth.info.last_name + omniauth.info.first_name + " uid " + omniauth["uid"]
+        sign_in_and_redirect @user, :event => :authentication
       else
         session["devise.google_data"] = request.env["omniauth.auth"]
         redirect_to new_user_registration_url
@@ -68,4 +68,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # raise ActionController::RoutingError.new('Not Found')
   end
 
+  #application_controller
+  def after_sign_in_path_for(resource)
+    #session_return_to = session[:return_to]
+    #session[:return_to] = nil
+    #stored_location_for(resource) || session_return_to || root_path
+    if request.env['omniauth.origin']
+      request.env['omniauth.origin']
+    end
+  end
+  
 end
