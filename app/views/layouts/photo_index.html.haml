@@ -15,18 +15,18 @@
 -# necessary to make the sign_out function working
 -#= javascript_include_tag 'application'
 
-= stylesheet_link_tag 'style','jquery.mCustomScrollbar'
-= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
-= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
-= javascript_include_tag 'jquery.easing.1.3.js','jquery.mousewheel.min.js'
-= javascript_include_tag 'pop-ups.js'
-= javascript_include_tag 'nav.js'
 = csrf_meta_tag
 
 
 -#= javascript_include_tag 'jquery.rails.js'
 -#= javascript_include_tag 'gallery.js','jquery.mCustomScrollbar.js'
 
+
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+= javascript_include_tag 'jquery.easing.1.3.js','jquery.mousewheel.min.js','jquery.rails.js'
+= javascript_include_tag 'pop-ups.js'
+= javascript_include_tag 'nav.js'
 
 = yield :head
 = yield
