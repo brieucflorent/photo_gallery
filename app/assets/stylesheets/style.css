@@ -137,6 +137,7 @@ hgroup a:hover {
 	position: fixed;
 	top: 0px;
 	left: 0px;
+	background: url(dotted.png);
 	opacity: 0.3;
 }
 #bgimg {

@@ -54,54 +54,49 @@ class Admin::PhotosController < ApplicationController
       format.json { render json: @photo }
     end
   end
-
-  def uploader
+  
+ def uploader
     @albums=Album.all
-    if not current_user.blank?
-      if session[:album].blank?
-        flash[:notice] = "you must first select an album"
-        respond_to do |format|
-          format.html
-          format.json { render json: @photo }
-        end
-      else
-        @album=Album.find(session[:album])
-        if ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
-          if params.include?(:file)
-            @photo = Photo.new(:imagefile => params[:file])
-            @photo.album=@album
-            if @photo.save
-              @photo.title=@photo.imagefile.to_s.split('/').last.split('.jpg').first
-              @photo.save
-              respond_to do |format|
-                format.json {render json:{:success => true}}
-              end
-            else
-              respond_to do |format|
-                format.json {render json:{:error => "unable to save"}}
-              end
-            end
-          else
-            respond_to do |format|
-              format.html
-              format.json { render json: @photo }
-            end
-          end
-        else
-          flash[:notice] = "you must have admin rights to upload files"
-          respond_to do |format|
-            format.html
-            format.json { render json: @photo }
-          end
-        end
-      end
-    else
-      flash[:notice] = "you must log in to upload files"
+    if current_user.blank?
+      flash[:notice] = "Please log in to upload files"
       respond_to do |format|
         format.html
         format.json { render json: @photo }
       end
-    # #redirect_to user_session_url
+    elsif not ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
+      flash[:notice] = "You must have admin rights to upload files"
+      respond_to do |format|
+        format.html
+        format.json { render json: @photo }
+      end
+    elsif session[:album].blank?
+      flash[:notice] = "First select an album"
+      respond_to do |format|
+        format.html
+        format.json { render json: @photo }
+      end
+    else
+      @album=Album.find(session[:album])
+      if params.include?(:file)
+        @photo = Photo.new(:imagefile => params[:file])
+        @photo.album=@album
+        if @photo.save
+          @photo.title=@photo.imagefile.to_s.split('/').last.split('.jpg').first
+          @photo.save
+          respond_to do |format|
+            format.json {render json:{:success => true}}
+          end
+        else
+          respond_to do |format|
+            format.json {render json:{:error => "unable to save"}}
+          end
+        end
+      else
+        respond_to do |format|
+          format.html
+          format.json { render json: @photo }
+        end
+      end
     end
   end
 

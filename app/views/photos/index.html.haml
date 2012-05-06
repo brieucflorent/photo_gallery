@@ -5,7 +5,7 @@
     %title Photo
   %body
     %hgroup
-      %h1 Irvine
+      %h1= @album.name
     %nav
       %ul#menu.menu
         %li
@@ -27,7 +27,6 @@
               %span.link Contact
               %span.descr Get in touch
     %section#bg
-      %section#overlay
       %a.nextImageBtn{:href => "#", :title => "next"}
       %a.prevImageBtn{:href => "#", :title => "previous"}
       %img#bgimg{:alt => @photos.first.title, :src => @photos.first.imagefile_url, :title => @photos.first.title}/
@@ -52,10 +51,14 @@
           .content
             %a#popupAboutClose
               %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
-            %h1 About:
-            %p
-              %img.image{:alt => "", :src =>  @photos.first.imagefile_url(:thumb)}/
-              About
+            - @albums.each do |album|  
+              %h1 About:
+              %p
+                %img.image{:alt => "", :src => album.photos.first.imagefile_url(:thumb)}/
+                - if not album.description.blank?
+                  = album.description.html_safe
+                %br/
+              .border    
         .dragger_container
           .dragger
         %a.scrollUpBtn{:href => "#"}
@@ -66,44 +69,14 @@
           .content
             %a#popupProjectsClose
               %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
-            %h1 Projects: 
-            %h2 Project1
-            %p.nomargin
-              %img.image{:alt => "", :src => @photos.first.imagefile_url(:thumb)}>/
-              Description
-              %br/
-            .border
-            %h2 Project2
-            %p.nomargin
-              %img.image{:alt => "", :src => @photos.first.imagefile_url(:thumb)}>/
-              Description
-              %br/
-            .border
-        .dragger_container
-          .dragger
-        %a.scrollUpBtn{:href => "#"}
-        %a.scrollDownBtn{:href => "#"}
-    %article#popupBlog.popupBlog
-      .customScrollBox
-        .container
-          .content
-            %a#popupBlogClose
-              %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
-            %h1 Blog
-            %h2 title of the blog
-            .date
-              %span.day 24
-              %span.month May
-              %span.year 2011
-            %p details
-            .border
-            %h2 title of the second blog
-            .date
-              %span.day 22
-              %span.month May
-              %span.year 2011
-            %p Details2
-            .border
+            %h1 Projects:
+            - @projects.each do |project| 
+              %h2= project.name
+              %p.nomargin
+                %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/
+                = project.description.html_safe
+                %br/
+              .border
         .dragger_container
           .dragger
         %a.scrollUpBtn{:href => "#"}
