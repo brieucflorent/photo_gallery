@@ -1,7 +1,15 @@
 class Admin::PhotosController < ApplicationController
-  layout "photo"
-  
-   # GET /photos
+  layout :resolve_layout
+  def resolve_layout
+    case action_name
+    when "uploader"
+      "uploader"
+    else
+    "photo"
+    end
+  end
+
+  # GET /photos
   # GET /photos.json
   def index
     @albums = Album.all
@@ -19,10 +27,9 @@ class Admin::PhotosController < ApplicationController
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @photos }
-      end  
+      end
     end
 
-    
   end
 
   # GET /photos/1
@@ -47,34 +54,45 @@ class Admin::PhotosController < ApplicationController
       format.json { render json: @photo }
     end
   end
-  
- def uploader
+
+  def uploader
+    @albums=Album.all
     if not current_user.blank?
-      if ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
-        if params.include?(:file)
-          @photo = Photo.new(:imagefile => params[:file])
-          if @photo.save
-            @photo.title=@photo.imagefile.to_s.split('/').last.split('.jpg').first
-            @photo.save
-            respond_to do |format|
-              format.json {render json:{:success => true}}
+      if session[:album].blank?
+        flash[:notice] = "you must first select an album"
+        respond_to do |format|
+          format.html
+          format.json { render json: @photo }
+        end
+      else
+        @album=Album.find(session[:album])
+        if ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
+          if params.include?(:file)
+            @photo = Photo.new(:imagefile => params[:file])
+            @photo.album=@album
+            if @photo.save
+              @photo.title=@photo.imagefile.to_s.split('/').last.split('.jpg').first
+              @photo.save
+              respond_to do |format|
+                format.json {render json:{:success => true}}
+              end
+            else
+              respond_to do |format|
+                format.json {render json:{:error => "unable to save"}}
+              end
             end
           else
             respond_to do |format|
-              format.json {render json:{:error => "unable to save"}}
+              format.html
+              format.json { render json: @photo }
             end
           end
         else
+          flash[:notice] = "you must have admin rights to upload files"
           respond_to do |format|
             format.html
             format.json { render json: @photo }
           end
-        end
-      else
-        flash[:notice] = "you must have admin rights to upload files"        
-        respond_to do |format|
-          format.html
-          format.json { render json: @photo }
         end
       end
     else
@@ -128,10 +146,11 @@ class Admin::PhotosController < ApplicationController
   # DELETE /photos/1.json
   def destroy
     @photo = Photo.find(params[:id])
+    @album = @photo.album
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to photos_url }
+      format.html { redirect_to admin_admin_url(album) }
       format.json { head :no_content }
     end
   end

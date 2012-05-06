@@ -21,6 +21,7 @@ class Admin::AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @albums= Album.all
     @album = Album.find(params[:id])
 
     respond_to do |format|
@@ -52,8 +53,8 @@ class Admin::AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'album was successfully created.' }
-        format.json { render json: @album, status: :created, location: @album }
+        format.html { redirect_to admin_albums_url, notice: 'album was successfully created.' }
+        format.json { render json: admin_albums_url, status: :created, location: @album }
       else
         format.html { render action: "new" }
         format.json { render json: @album.errors, status: :unprocessable_entity }
@@ -84,8 +85,17 @@ class Admin::AlbumsController < ApplicationController
     @album.destroy
 
     respond_to do |format|
-      format.html { redirect_to albums_url }
+      format.html { redirect_to admin_albums_url }
       format.json { head :no_content }
     end
   end
+  
+  def select_album
+    session[:album]=params[:id]
+    respond_to do |format|
+      format.html { redirect_to admin_albums_url }
+      format.json { head :no_content }
+    end
+  end
+  
 end

@@ -1,16 +1,15 @@
 %p#notice= notice
 
-%table
-  %thead
-    %tr
-      %td album name
-      %td Description
-      %td
-      %td
+%h1= @album.name
+      
+%table#photos
   %tbody
-    %tr
-      %td= @album.name
-      %td= @album.description
-      %td= link_to "Edit", edit_album_path(@album)
-      %td= link_to 'Back', albums_path
-  
+    - @album.photos.sort { |a,b| a.ordering <=> b.ordering }.each do |photo|
+      %tr
+        %td= best_in_place photo, :title, :path => [:admin,photo]          
+        %td= best_in_place photo, :ordering, :path => [:admin,photo]
+        %td= image_tag photo.imagefile_url(:thumb)
+        %td
+          %a.delete_post{"data-confirm" => "Are you sure you want to delete this album?", "data-method" => "delete", :href => admin_photo_path(photo), :rel => "nofollow"} Destroy
+        
+= link_to 'Back', admin_albums_path

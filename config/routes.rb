@@ -78,6 +78,7 @@ Rottenpotatoes::Application.routes.draw do
      
      get "photos/uploader"
      post "photos/uploader"
+     get "albums/:id/select_album",:controller => 'albums',:action => 'select_album'
      resources :photos
      resources :albums
      
