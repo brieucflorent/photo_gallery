@@ -112,6 +112,61 @@
 					disablePopupProjects();
 			});
 			});
+//Photos Page Pop Up
+			var popupPhotosStatus = 0;
+			
+			function loadPopupPhotos(){
+				if(popupPhotosStatus==0){
+					$("#popupPhotos").fadeIn("slow");
+					popupPhotosStatus = 1;
+				}
+			}
+			
+			function disablePopupPhotos(){
+				if(popupPhotosStatus==1){
+					$("#popupPhotos").fadeOut("slow");
+					popupPhotosStatus = 0;
+				}
+			}
+			
+			function centerPopupPhotos(){
+				var windowWidth = document.documentElement.clientWidth;
+				var windowHeight = document.documentElement.clientHeight;
+				var popupPhotosHeight = $("#popupPhotos").height();
+				var popupPhotosWidth = $("#popupPhotos").width();
+				$("#popupPhotos").css({
+					"position": "absolute",
+					"top": windowHeight/2-popupPhotosHeight/2,
+					"left": windowWidth/2-popupPhotosWidth/2
+				});
+			}
+			
+			
+			$(document).ready(function(){
+				$("#popupPhotos").fadeOut();
+				popupPhotosStatus = 0;
+				$("#photos").click(function(){
+				$("#popupPhotos").css({
+					"visibility": "visible"	});
+					disablePopupAbout();
+					disablePopupContact();
+					disablePopupBlog();					
+					centerPopupPhotos();
+					loadPopupPhotos();
+				    $("#popupPhotos").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);						
+				});
+				$("#popupPhotosClose").click(function(){
+					disablePopupPhotos();
+				});
+				$("#bg").click(function(){
+					disablePopupPhotos();
+				});
+				$(document).keyup(function(e){
+				if(e.keyCode === 27)
+					disablePopupPhotos();
+			});
+			});
+			
 //Contact Page Pop Up
 			var popupContactStatus = 0;
 			

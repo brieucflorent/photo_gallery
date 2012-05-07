@@ -14,19 +14,21 @@
             %span.active
             %span.wrap
               %span.link About me
-              %span.descr Know me
         %li
           %a#projects{:href => "#"}
             %span.active
             %span.wrap
               %span.link Projects
-              %span.descr My work
+        %li
+          %a#photos{:href => "#"}
+            %span.active
+            %span.wrap
+              %span.link Photos
         %li
           %a#contact{:href => "#"}
             %span.active
             %span.wrap
               %span.link Contact
-              %span.descr Get in touch
     %section#bg
       %a.nextImageBtn{:href => "#", :title => "next"}
       %a.prevImageBtn{:href => "#", :title => "previous"}
@@ -75,13 +77,33 @@
               %h2= project.name
               %p.nomargin
                 %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/
-                = project.description.html_safe
+                - if not project.description.blank?
+                  = project.description.html_safe
                 %br/
               .border
         .dragger_container
           .dragger
         %a.scrollUpBtn{:href => "#"}
         %a.scrollDownBtn{:href => "#"}
+    %article#popupPhotos.popupPhotos
+      .customScrollBox
+        .container
+          .content
+            %a#popupPhotosClose
+              %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
+            %h1 Photos:
+            - @albumphotos.each do |albumphoto| 
+              %h2= albumphoto.name
+              %p.nomargin
+                %img.image{:alt => "", :src => albumphoto.photos.first.imagefile_url(:thumb)}>/
+                - if not albumphoto.description.blank?
+                  = albumphoto.description.html_safe
+                %br/
+              .border
+        .dragger_container
+          .dragger
+        %a.scrollUpBtn{:href => "#"}
+        %a.scrollDownBtn{:href => "#"}      
 %script#my_photos_json{:type => "text/json"}
   = @photos.to_json.html_safe
 %script{:src => "/assets/gallery.js", :type => "text/javascript"}
