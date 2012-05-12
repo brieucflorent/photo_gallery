@@ -1,16 +1,28 @@
 class Admin::AlbumsController < ApplicationController
   layout "album"
   
+  before_filter :require_admin, :except => :index
+  
+  
+  def require_admin
+      if current_user.blank?
+        flash[:notice] = "Please log in first"
+        redirect_to admin_albums_url
+      elsif not ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
+        flash[:notice] = "You must have admin rights"
+        redirect_to admin_albums_url
+      end
+  end
+  private :require_admin
    # GET /albums
   # GET /albums.json
   def index
+    
+    if current_user.blank?
+      flash[:notice] = "You must login to make updates"
+    end
+    
     @albums = Album.all
-    #@albums = album.all
-    #Dir.entries("app/assets/images/gallery/").each do |entry|
-    #  if entry =~ /\d+\.jpg/
-    #    @albums << album.new(:mainfile=>"/assets/gallery/" + entry,:thumbfile => "/assets/gallery/" + entry.gsub(/\.jpg/,'') + "_thumb.jpg" )
-    #  end
-    #end
 
     respond_to do |format|
       format.html # index.html.erb

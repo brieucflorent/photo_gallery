@@ -1,25 +1,37 @@
-%h1 Albums
-%table
-  %thead
-    %tr
-      %td Title
-      %td description
-      %td ordering
-      %td menu
-      %td More Info
-  %tbody
-    - @albums.each do |album|
-      %tr
-        %td= best_in_place album, :name, :path => [:admin,album]  
-        %td= best_in_place album, :description,type: :textarea, :path => [:admin,album],sanitize: false  
-        %td= best_in_place album, :ordering,:path => [:admin,album]  
-        %td= best_in_place album, :menu,:path => [:admin,album],:type => :select, :collection => [["about", "about"], ["projects", "projects"],["photos", "photos"], ["", "unspecified"]]  
-        %td= link_to "View photos", admin_album_path(album)
-        %td
-          %a.delete_post{"data-confirm" => "Are you sure you want to delete this album?", "data-method" => "delete", :href => admin_album_path(album), :rel => "nofollow"} Destroy
+%nav
+  %ul
+    %li= link_to "Home", root_url
+    - if not current_user.blank?
+      %li= link_to "Albums", admin_albums_url
+      %li= link_to current_user.first_name + "_sign_out", destroy_user_session_url, :method => 'delete'
+    - if current_user.blank?
+      %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+      %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
 
+%h1 Albums
+%p#notice= notice
+.content
+  %table
+    %thead
+      %tr
+        %td Title
+        %td description
+        %td ordering
+        %td menu
+        %td More Info
+    %tbody
+      - @albums.each do |album|
+        %tr
+          %td= best_in_place album, :name, :path => [:admin,album]  
+          %td= best_in_place album, :description,type: :textarea, :path => [:admin,album],sanitize: false  
+          %td= best_in_place album, :ordering,:path => [:admin,album]  
+          %td= best_in_place album, :menu,:path => [:admin,album],:type => :select, :collection => [["about", "about"], ["projects", "projects"],["photos", "photos"], ["", "unspecified"]]  
+          %td= link_to "View photos", admin_album_path(album)
+          %td
+            %a.delete_post{"data-confirm" => "Are you sure you want to delete this album?", "data-method" => "delete", :href => admin_album_path(album), :rel => "nofollow"} Destroy
 
 = link_to 'Add new album', new_admin_album_path
-
-
 = link_to 'Upload photos', admin_photos_uploader_path 
+
+
+  

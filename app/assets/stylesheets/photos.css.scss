@@ -303,11 +303,9 @@ footer {
 nav {
   position: absolute;
   width: 534px;
-  top: 38px;
-  left: 450px;
+  top: 20px;
+  left: 400px;
   background: transparent;
-  border-top: 1px solid #A3A3A3;
-  border-bottom: 1px solid #A3A3A3;
   ul li {
     float: left;
     margin-left: 16px;
@@ -320,9 +318,9 @@ nav {
       display: block;
       /* IE6, IE7 line height fix */
       padding-bottom: 10px;
-      padding-top: 5px;
+      padding-top: 0px;
       background-color: transparent;
-      margin-top: 5px;
+      margin-top: 0px;
       margin-right: 6px;
       text-decoration: none;
       &:hover, &.current {

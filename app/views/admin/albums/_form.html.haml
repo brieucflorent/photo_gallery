@@ -1,3 +1,13 @@
+%nav
+  %ul
+    %li= link_to "Home", root_url
+    - if not current_user.blank?
+      %li= link_to "Albums", admin_albums_url
+      %li= link_to current_user.first_name + "_sign_out", destroy_user_session_url, :method => 'delete'
+    - if current_user.blank?
+      %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+      %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
+
 = form_for ([@album, @photo])  do |f|
   -if @photo.errors.any?
     #error_explanation

@@ -1,4 +1,18 @@
 class Admin::PhotosController < ApplicationController
+  before_filter :require_admin
+  
+  
+  def require_admin
+      if current_user.blank?
+        flash[:notice] = "Please log in first"
+        redirect_to admin_albums_url
+      elsif not ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
+        flash[:notice] = "You must have admin rights"
+        redirect_to admin_albums_url
+      end
+  end
+  private :require_admin
+  
   layout :resolve_layout
   def resolve_layout
     case action_name
@@ -55,21 +69,11 @@ class Admin::PhotosController < ApplicationController
     end
   end
   
+  
  def uploader
     @albums=Album.all
-    if current_user.blank?
-      flash[:notice] = "Please log in to upload files"
-      respond_to do |format|
-        format.html
-        format.json { render json: @photo }
-      end
-    elsif not ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
-      flash[:notice] = "You must have admin rights to upload files"
-      respond_to do |format|
-        format.html
-        format.json { render json: @photo }
-      end
-    elsif session[:album].blank?
+   
+    if session[:album].blank?
       flash[:notice] = "First select an album"
       respond_to do |format|
         format.html

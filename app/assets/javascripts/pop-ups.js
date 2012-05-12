@@ -182,16 +182,9 @@
 	                    GetNextPrevImages($this);
 	                    $img_title.data("imageTitle", myPhotos[0].title); 
 	                    $('#albumname h1').text(albumname);
-	                    //newcontent="<div class='container'>";
                         totalContent=0;
 	                    $thumbScroller_container.empty();
-	                    //var theImages=new Array();
-	                    //var count=0;
 	                    $.each(myPhotos, function (i, val) {
-	                    	//var inner=jQuery("<div class='content'><div><a href='"+ val.imagefile.url+"'><img alt='"+val.title+"' class='thumb' src='"+val.imagefile.thumb.url + "' title='" + val.title + "'></a></div></div>")
-	                    	//alert("innersize" + inner.offsetWidth);
-	                    	//newcontent=$("<div class='content'><div><a href='"+ val.imagefile.url+"'><img alt='"+val.title+"' class='thumb' src='"+val.imagefile.thumb.url + "' title='" + val.title + "'></a></div></div>");
-	                    	//newcontent=$("<div class='content'><div><a href='"+ val.imagefile.url+"'></a></div></div>");
 	                    	var myImg = new Image();
 	                    	$(myImg).attr("alt", val.title);
 	                    	$(myImg).addClass('thumb');
@@ -217,27 +210,13 @@
                               }); 
                             });
                             myImg.src=val.imagefile.thumb.url;
-                            //var testwrap=$("<div>").append($(myImg).wrap("<a href='"+ val.imagefile.url+"'></a>" ));
-                            //alert("<a href='"+ val.imagefile.url+"'></a>");
-                            //testwrap.wrap("<a href='"+ val.imagefile.url+"'></a>");
-                            //$thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append($(myImg).wrap($("a").attr("href",val.imagefile.url)))));
                             $thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append($(myImg))));
-                            //$thumbScroller_container.append($("<div>").addClass("content").append(testwrap));
-                            //$thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append("<a href='"+ val.imagefile.url+"'>"+myImg + "</a>")));
-                            //newcontent.append(myImg);
-	   
-                        	//$thumbScroller_container.append(newcontent);                 	
 	                    		               		   
 		                });
 		                
-		                
-		                //newcontent= newcontent + "</div>";
-		                //alert("setting new content" + newcontent);
-                        //$thumbScroller_container.replaceWith(newcontent);
-	
+		                	
 	                    var $the_outer_container=document.getElementById("outer_container");
 	                    var $placement=findPos($the_outer_container);
-	                    //alert("entering content compute");	                    
 	                    
                         disablePopupPhotos();
                         
