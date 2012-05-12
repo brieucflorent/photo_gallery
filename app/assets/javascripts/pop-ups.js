@@ -53,6 +53,7 @@
 				$("#bg").click(function(){
 					disablePopupAbout();
 				});
+				
 				$(document).keyup(function(e){
 				if(e.keyCode === 27)
 					disablePopupAbout();
@@ -140,11 +141,15 @@
 					"left": windowWidth/2-popupPhotosWidth/2
 				});
 			}
+
 			
 			
 			$(document).ready(function(){
 				$("#popupPhotos").fadeOut();
 				popupPhotosStatus = 0;
+				
+      			var myAlbumsJSON = $("#my_albums_json").html(),
+                myAlbums     = $.parseJSON(myAlbumsJSON);
 				$("#photos").click(function(){
 				$("#popupPhotos").css({
 					"visibility": "visible"	});
@@ -158,6 +163,93 @@
 				$("#popupPhotosClose").click(function(){
 					disablePopupPhotos();
 				});
+		        $('.photosclass').click(function(event){
+                         
+			        var myPhotosJSON = $("#my_albumphotos_json"+ event.target.id).html(),
+                    myPhotos     = $.parseJSON(myPhotosJSON);
+                    var albumname="test";
+                	$.each(myAlbums, function (i, val) {
+                		if (val.id == event.target.id){
+                			albumname=val.name;
+                		}
+                		   
+		            });
+                    
+                    if ($bgimg.attr("src").split("Signature")[0] != myPhotos[0].imagefile.url.split("Signature")[0]){
+                        event.preventDefault();
+	                    SwitchImage(myPhotos[0].imagefile.url);
+	                    var $this=$("#outer_container a[href='"+myPhotos[0].imagefile.url+"']");
+	                    GetNextPrevImages($this);
+	                    $img_title.data("imageTitle", myPhotos[0].title); 
+	                    $('#albumname h1').text(albumname);
+	                    //newcontent="<div class='container'>";
+                        totalContent=0;
+	                    $thumbScroller_container.empty();
+	                    //var theImages=new Array();
+	                    //var count=0;
+	                    $.each(myPhotos, function (i, val) {
+	                    	//var inner=jQuery("<div class='content'><div><a href='"+ val.imagefile.url+"'><img alt='"+val.title+"' class='thumb' src='"+val.imagefile.thumb.url + "' title='" + val.title + "'></a></div></div>")
+	                    	//alert("innersize" + inner.offsetWidth);
+	                    	//newcontent=$("<div class='content'><div><a href='"+ val.imagefile.url+"'><img alt='"+val.title+"' class='thumb' src='"+val.imagefile.thumb.url + "' title='" + val.title + "'></a></div></div>");
+	                    	//newcontent=$("<div class='content'><div><a href='"+ val.imagefile.url+"'></a></div></div>");
+	                    	var myImg = new Image();
+	                    	$(myImg).attr("alt", val.title);
+	                    	$(myImg).addClass('thumb');
+	                    	$(myImg).attr("title",val.title);
+                            $(myImg).load(function() {  	
+                      		  var $this=$(this);
+                       		  //alert('loading');
+		                      totalContent+=$this.innerWidth();
+		                      $this.wrap("<a href='"+ val.imagefile.url+"'></a>" )
+		                      $thumbScroller_container.css("width",totalContent);
+		                      $this.fadeTo(fadeSpeed, $thumbnailsOpacity);
+		                      
+	                          $outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
+	                          $outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
+                        
+                              $("#outer_container a").click(function(event){
+                             	event.preventDefault();
+	                            var $this=$(this);
+	                            GetNextPrevImages($this);
+	                            GetImageTitle($this);
+	                            SwitchImage(this);
+	                            ShowHideNextPrev("show");
+                              }); 
+                            });
+                            myImg.src=val.imagefile.thumb.url;
+                            //var testwrap=$("<div>").append($(myImg).wrap("<a href='"+ val.imagefile.url+"'></a>" ));
+                            //alert("<a href='"+ val.imagefile.url+"'></a>");
+                            //testwrap.wrap("<a href='"+ val.imagefile.url+"'></a>");
+                            //$thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append($(myImg).wrap($("a").attr("href",val.imagefile.url)))));
+                            $thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append($(myImg))));
+                            //$thumbScroller_container.append($("<div>").addClass("content").append(testwrap));
+                            //$thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append("<a href='"+ val.imagefile.url+"'>"+myImg + "</a>")));
+                            //newcontent.append(myImg);
+	   
+                        	//$thumbScroller_container.append(newcontent);                 	
+	                    		               		   
+		                });
+		                
+		                
+		                //newcontent= newcontent + "</div>";
+		                //alert("setting new content" + newcontent);
+                        //$thumbScroller_container.replaceWith(newcontent);
+	
+	                    var $the_outer_container=document.getElementById("outer_container");
+	                    var $placement=findPos($the_outer_container);
+	                    //alert("entering content compute");	                    
+	                    
+                        disablePopupPhotos();
+                        
+	                       //GetImageTitle($this);
+                    }
+         			//var hidden = $('body').append('<div id="img-cache" style="display:none/>').children('#img-cache');
+		        	//$.each(myPhotos, function (i, val) {
+		        		//alert(val.imagefile.url);
+			        //  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
+			        //});
+                });
+                
 				$("#bg").click(function(){
 					disablePopupPhotos();
 				});

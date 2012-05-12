@@ -145,7 +145,7 @@ class Admin::PhotosController < ApplicationController
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_admin_url(album) }
+      format.html { redirect_to admin_album_url(@album) }
       format.json { head :no_content }
     end
   end

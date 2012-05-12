@@ -11,12 +11,13 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @albums = Album.where("menu = :about",:about => "about").order(:ordering)
-    @album = @albums.first    
+    @albums = Album.where("menu = :about",:about => "about").order(:ordering)    
     @albumphotos = Album.where("menu = :photos",:photos => "photos").order(:ordering)
     @projects = Album.where(:menu => "projects")    
     #@photos = Photo.find(:all, :order => "ordering")
+    @album = @albumphotos.first
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
+    @allphotos = Photo.all
     
     #Dir.entries("app/assets/images/gallery/").each do |entry|
     #  if entry =~ /\d+\.jpg/
