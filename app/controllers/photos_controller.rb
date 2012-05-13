@@ -11,7 +11,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @albums = Album.where("menu = :about",:about => "about").order(:ordering)    
+    @abouts = Album.where("menu = :about",:about => "about").order(:ordering)    
     @albumphotos = Album.where("menu = :photos",:photos => "photos").order(:ordering)
     @projects = Album.where(:menu => "projects")    
     #@photos = Photo.find(:all, :order => "ordering")
