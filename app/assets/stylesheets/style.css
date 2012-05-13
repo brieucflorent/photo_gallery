@@ -427,7 +427,7 @@ ul.menuleft li span.active {
 	border-bottom-left-radius: 15px;
 	-moz-border-radius-bottomleft: 15px;
 }
-ul.menuleft li span span.link, ul.menu li span span.descr, ul.menu li div.box a {
+ul.menuleft li span span.link, ul.menuleft li span span.descr, ul.menuleft li div.box a {
 	margin-left:15px;
 	text-transform:uppercase;
 	text-shadow:1px 1px 1px #000;
