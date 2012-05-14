@@ -286,6 +286,97 @@ function ImageViewMode(theMode){
 	}
 }
 
+
+function selectAlbum(albumid) {
+
+	var myAlbumsJSON = $("#my_albums_json").html(), myAlbums = $.parseJSON(myAlbumsJSON);
+	var myPhotosJSON = $("#my_albumphotos_json" + albumid).html(), myPhotos = $.parseJSON(myPhotosJSON);
+	var albumname = "test";
+	$.each(myAlbums, function(i, val) {
+		if(val.id == albumid) {
+			albumname = val.name;
+		}
+
+	});
+	if($bgimg.attr("src").split("Signature")[0] != myPhotos[0].imagefile.url.split("Signature")[0]) {
+		event.preventDefault();
+		SwitchImage(myPhotos[0].imagefile.url);
+		var $this = $("#outer_container a[href='" + myPhotos[0].imagefile.url + "']");
+		$img_title.data("imageTitle", myPhotos[0].title);
+		$('#albumname h1').text(albumname);
+		totalContent = 0;
+		//var numPhotos=myPhotos.count
+		//alert(myPhotos.length);
+		var count = 0;
+		$thumbScroller_container.empty();
+		$.each(myPhotos, function(i, val) {
+			var myImg = new Image();
+			$(myImg).attr("alt", val.title);
+			$(myImg).addClass('thumb');
+			$(myImg).attr("title", val.title);
+			//alert(val.title);
+			$(myImg).load(function() {
+				var $this = $(this);
+				count++;
+				//alert('loading');
+				totalContent += $this.innerWidth();
+				$this.wrap("<a href='" + val.imagefile.url + "'></a>")
+				$this.fadeTo(fadeSpeed, $thumbnailsOpacity);
+
+				if(count == myPhotos.length) {
+					//alert("equal clause");
+					$thumbScroller_container.css("width", totalContent);
+
+					$("#outer_container a").click(function(event) {
+						event.preventDefault();
+						var $this = $(this);
+						GetNextPrevImages($this);
+						GetImageTitle($this);
+						SwitchImage(this);
+						ShowHideNextPrev("show");
+					});
+					$thumbScroller.mousemove(function(e) {
+						if($thumbScroller_container.width() > sliderWidth) {
+							var mouseCoords = (e.pageX - $placement[1]);
+							var mousePercentX = mouseCoords / sliderWidth;
+							var destX = -((((totalContent + ($tsMargin * 2)) - (sliderWidth)) - sliderWidth) * (mousePercentX));
+							var thePosA = mouseCoords - destX;
+							var thePosB = destX - mouseCoords;
+							if(mouseCoords > destX) {
+								$thumbScroller_container.stop().animate({
+									left : -thePosA
+								}, $scrollEasing, $scrollEasingType);
+								//with easing
+							} else if(mouseCoords < destX) {
+								$thumbScroller_container.stop().animate({
+									left : thePosB
+								}, $scrollEasing, $scrollEasingType);
+								//with easing
+							} else {
+								$thumbScroller_container.stop();
+							}
+						}
+					});
+					
+				$outer_container.data("nextImage", $(".thumbScroller .content").first().next().find("a").attr("href"));
+				$outer_container.data("prevImage", $(".thumbScroller .content").last().find("a").attr("href"));
+				//alert($(".thumbScroller .content").first().next().find("a").attr("href"));
+				//alert($(".thumbScroller .content").last().find("a").attr("href")); 
+				}
+
+			});
+			myImg.src = val.imagefile.thumb.url;
+			$thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append($(myImg))));
+
+		});
+		var $the_outer_container = document.getElementById("outer_container");
+		var $placement = findPos($the_outer_container);
+
+		disablePopupPhotos();
+
+	}
+}
+
 //function to find element Position
 	function findPos(obj) {
 		var curleft = curtop = 0;

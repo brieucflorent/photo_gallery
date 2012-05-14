@@ -1,19 +1,8 @@
-class Admin::AlbumsController < ApplicationController
+class Admin::AlbumsController < Admin::AdminController
   layout "album"
   
-  before_filter :require_admin, :except => :index
+  skip_before_filter :require_admin, :only => :index
   
-  
-  def require_admin
-      if current_user.blank?
-        flash[:notice] = "Please log in first"
-        redirect_to admin_albums_url
-      elsif not ['zita_oravecz','nicolas_auvillain','brieuc_florent'].include?(current_user.first_name.downcase + "_" + current_user.last_name.downcase)
-        flash[:notice] = "You must have admin rights"
-        redirect_to admin_albums_url
-      end
-  end
-  private :require_admin
    # GET /albums
   # GET /albums.json
   def index
