@@ -319,14 +319,16 @@ function selectAlbum(albumid) {
 				var $this = $(this);
 				count++;
 				//alert('loading');
-				totalContent += $this.innerWidth();
 				$this.wrap("<a href='" + val.imagefile.url + "'></a>")
+				totalContent += $this.parents(".content").innerWidth();
+			    $thumbScroller_container.css("width", totalContent);
+	
 				$this.fadeTo(fadeSpeed, $thumbnailsOpacity);
 
 				if(count == myPhotos.length) {
 					//alert("equal clause");
-					$thumbScroller_container.css("width", totalContent);
-
+					
+	
 					$("#outer_container a").click(function(event) {
 						event.preventDefault();
 						var $this = $(this);
