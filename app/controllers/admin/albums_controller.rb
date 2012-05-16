@@ -8,7 +8,7 @@ class Admin::AlbumsController < Admin::AdminController
   def index
     
     if current_user.blank?
-      flash[:notice] = "You must login to make updates"
+      flash[:notice] = "Please make sure to login before making any updates"
     end
     
     @albums = Album.all

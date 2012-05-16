@@ -106,72 +106,6 @@
 					disablePopupProjects();
 				});
 				
-      			var myProjectsJSON = $("#my_projects_json").html(),
-                myProjects     = $.parseJSON(myProjectsJSON);
-				$('.projectsclass').click(function(event){
-                    //alert(event.target.id); 
-                    var target = event.target || event.srcElement;
-                    while (target && !target.id) {
-                       target = target.parentNode;
-                    }
-			        var myPhotosJSON = $("#my_projectsphotos_json"+ event.target.id).html(),
-                    myPhotos     = $.parseJSON(myPhotosJSON);
-                    var albumname="test";
-                	$.each(myProjects, function (i, val) {
-                		if (val.id == event.target.id){
-                			albumname=val.name;
-                		}
-                		   
-		            });
-                    
-                    alert(myPhotos[0].imagefile.url);
-                    if ($bgimg.attr("src").split("Signature")[0] != myPhotos[0].imagefile.url.split("Signature")[0]){
-                        event.preventDefault();
-	                    SwitchImage(myPhotos[0].imagefile.url);
-	                    var $this=$("#outer_container a[href='"+myPhotos[0].imagefile.url+"']");
-	                    GetNextPrevImages($this);
-	                    $img_title.data("imageTitle", myPhotos[0].title); 
-	                    $('#albumname h1').text(albumname);
-                        totalContent=0;
-	                    $thumbScroller_container.empty();
-	                    $.each(myPhotos, function (i, val) {
-	                    	var myImg = new Image();
-	                    	$(myImg).attr("alt", val.title);
-	                    	$(myImg).addClass('thumb');
-	                    	$(myImg).attr("title",val.title);
-                            $(myImg).load(function() {  	
-                      		  var $this=$(this);
-                       		  //alert('loading');
-		                      totalContent+=$this.innerWidth();
-		                      $this.wrap("<a href='"+ val.imagefile.url+"'></a>" )
-		                      $thumbScroller_container.css("width",totalContent);
-		                      $this.fadeTo(fadeSpeed, $thumbnailsOpacity);
-		                      
-	                          $outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
-	                          $outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
-                        
-                              $("#outer_container a").click(function(event){
-                             	event.preventDefault();
-	                            var $this=$(this);
-	                            GetNextPrevImages($this);
-	                            GetImageTitle($this);
-	                            SwitchImage(this);
-	                            ShowHideNextPrev("show");
-                              }); 
-                            });
-                            myImg.src=val.imagefile.thumb.url;
-                            $thumbScroller_container.append($("<div>").addClass("content").append($("<div>").append($(myImg))));
-	                    		               		   
-		                });
-		                
-		                	
-	                    //var $the_outer_container=document.getElementById("outer_container");
-	                    //var $placement=findPos($the_outer_container);
-	                    
-                        disablePopupProjects();
-                        
-	                }
-         		});
          		
 				$("#bg").click(function(){
 					disablePopupProjects();
@@ -179,7 +113,7 @@
 				$(document).keyup(function(e){
 				if(e.keyCode === 27)
 					disablePopupProjects();
-			});
+			    });
 			});
 //Photos Page Pop Up
 			var popupPhotosStatus = 0;
