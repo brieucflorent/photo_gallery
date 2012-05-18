@@ -69,6 +69,37 @@
           .dragger
         %a.scrollUpBtn{:href => "#"}
         %a.scrollDownBtn{:href => "#"}
+    %article#popupContact.popupContact
+      .customScrollBox
+        .container
+          .content
+            %a#popupContactClose
+              %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
+            %h1 Contact:
+            %p.nomargin
+              #mysession  
+                - if current_user.blank?              
+                  Login via facebook 
+                  = link_to image_tag('facebook_32.png'), '/users/auth/facebook'
+                  or via google 
+                  = link_to image_tag('google_32.png'), '/users/auth/google'
+                - else 
+                  = link_to current_user.first_name + "_sign_out", photos_contacts_logoff_path, :method => 'delete', :remote => 'true'
+              = form_tag photos_contacts_path, :method => :post, :remote => true do
+                %br
+                = label_tag 'subject'
+                = text_field_tag 'subject'
+                = label_tag 'message'
+                = text_area_tag 'body',nil, :rows => 10,:cols => 25
+                = submit_tag 'Send', :confirm => 'Are you sure?'
+              #notice     
+            %br/
+            %iframe.map{:width => "425",:height => "350", :src => "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Irvine,+CA,+United+States&aq=0&oq=irvine&sll=33.683947,-117.794694&sspn=0.198548,0.418854&t=h&g=Irvine,+CA,+United+States&ie=UTF8&hq=&hnear=Irvine,+Orange,+California&ll=33.669783,-117.846909&spn=0.099719,0.146255&z=12&iwloc=A&output=embed"}
+            .border
+        .dragger_container
+          .dragger
+        %a.scrollUpBtn{:href => "#"}
+        %a.scrollDownBtn{:href => "#"}          
     %article#popupProjects.popupProjects
       .customScrollBox
         .container
@@ -77,17 +108,16 @@
               %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
             %h1 Projects:
             - @projects.each do |project|
-              %span{:id => project.id.to_s,:class => "projectsclass"}   
-                %h2= project.name
-                %p.nomargin       
-                  - if project.photos.length > 1
-                    %a{:href => "#", :onclick => "selectProject('" + project.id.to_s + "')", :title => "Let's have a look"}  
-                      %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/
-                  - else
-                    %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/    
-                  - if not project.description.blank?
-                    = project.description.html_safe
-                  %br/
+              %h2= project.name
+              %p.nomargin       
+                - if project.photos.length > 1
+                  %a{:href => "#", :onclick => "selectProject('" + project.id.to_s + "')", :title => "Let's have a look"}  
+                    %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/
+                - else
+                  %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/    
+                - if not project.description.blank?
+                  = project.description.html_safe
+                %br/
               .border
         .dragger_container
           .dragger

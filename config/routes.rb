@@ -13,6 +13,9 @@ Rottenpotatoes::Application.routes.draw do
   end
   
   get '/photos' => 'photos#index'
+  
+  post "photos/contacts"
+  delete "photos/contacts_logoff"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
