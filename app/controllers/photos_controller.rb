@@ -112,14 +112,14 @@ class PhotosController < ApplicationController
   def contacts
     respond_to :html,:js
     if current_user.blank?
-    flash[:notice] = "Please log in to send a message" 
+    @noticemsg = "Please log in to send a message" 
     elsif params[:body].blank? or params[:subject].blank?
-    flash[:notice] = "Missing subject or message"
+    @noticemsg = "Missing subject or message"
     else
     body=params[:body]
     subject=params[:subject]
     UserMailer.sendmail_to_contact(current_user,subject,body).deliver  
-    flash[:notice] = "Message successfully sent "    
+    @noticemsg = "Message successfully sent "    
     end
   end
   
@@ -127,7 +127,7 @@ class PhotosController < ApplicationController
     respond_to :html,:js
     reset_session
     if current_user.blank?
-      flash[:notice] = "user logged off" 
+      @noticemsg = "user logged off" 
     end
   end
   
