@@ -510,6 +510,7 @@ article {
 }
 #popupContact a {	
 	color: #FFF;
+	margin-left: 25px;
 }
 
 #popupAbout h1, #popupProjects h1, #popupContact h1, #popupPhotos h1 {
