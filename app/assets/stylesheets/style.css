@@ -508,6 +508,10 @@ article {
 	font-size: 16px;
 	line-height: 24px;
 }
+#popupContact a {	
+	color: #FFF;
+}
+
 #popupAbout h1, #popupProjects h1, #popupContact h1, #popupPhotos h1 {
 	text-align: left;
 	font-size: 30px;
