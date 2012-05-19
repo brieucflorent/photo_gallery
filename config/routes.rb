@@ -1,6 +1,5 @@
 Rottenpotatoes::Application.routes.draw do
 
-  get "home/index"
 
   root :to => "photos#index"
   #devise_for :users,:controllers => {:registrations => 'registrations' }
@@ -31,13 +30,9 @@ Rottenpotatoes::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
-  resources :movies, :id => /\d+(\.\d+)?/, :only => [:index,:show]
 
   #resources :movies,:only => [:index]
   
-  namespace :rss do
-     resources :movies, :id => /\d+(\.\d+)?/, :only => [:index,:show] 
-  end
   
   
   # resources :albums do
