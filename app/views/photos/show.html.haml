@@ -1,0 +1,6 @@
+%p#notice= notice
+
+= image_tag @photo.imagefile_url(:thumb).to_s
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path

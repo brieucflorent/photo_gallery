@@ -1,0 +1,161 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %link{:href => "/assets/style.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    %title Photo
+  %body
+    %hgroup
+      #albumname
+        %h1= @album.name
+    %nav
+      %ul#menuleft.menuleft
+        %li
+          %a#about{:href => "#"}
+            %span.active
+            %span.wrap
+              %span.link About me
+        %li
+          %a#contact{:href => "#"}
+            %span.active
+            %span.wrap
+              %span.link Contact      
+      %ul#menu.menu
+        %li
+          %a#projects{:href => "#"}
+            %span.active
+            %span.wrap
+              %span.link Projects              
+        %li
+          %a#photos{:href => "#"}
+            %span.active
+            %span.wrap
+              %span.link Photos        
+    %section#bg
+      %a.nextImageBtn{:href => "#", :title => "next"}
+      %a.prevImageBtn{:href => "#", :title => "previous"}
+      %img#bgimg{:alt => @photos.first.title, :src => @photos.first.imagefile_url, :title => @photos.first.title}/
+    #preloader
+      %img{:alt => "", :height => "32", :src => "/assets/ajax-loader_dark.gif", :width => "32"}/
+    #img_title
+    #toolbar
+      %a{:href => "#", :onclick => "ImageViewMode('full');return false", :title => "Maximise"}
+        %img{:alt => "", :height => "50", :src => "/assets/toolbar_fs_icon.png", :width => "50"}/
+    #thumbnails_wrapper
+      #outer_container
+        .thumbScroller
+          .container  
+            - @photos.each do |photo|
+              .content
+                %div
+                  %a{:href => photo.imagefile_url}
+                    %img.thumb{:alt => photo.title, :src => photo.imagefile_url(:thumb), :title => photo.title}/
+    %article#popupAbout.popupAbout
+      .customScrollBox
+        .container
+          .content
+            %a#popupAboutClose
+              %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
+            - @abouts.each do |album|
+              %span{:id => album.id.to_s,:class => "aboutclass"}  
+                %h1= album.name
+                %p
+                  %img.image{:alt => "", :src => album.photos.first.imagefile_url(:thumb)}/
+                  - if not album.description.blank?
+                    = album.description.html_safe
+                  %br/
+                .border    
+        .dragger_container
+          .dragger
+        %a.scrollUpBtn{:href => "#"}
+        %a.scrollDownBtn{:href => "#"}
+    %article#popupContact.popupContact
+      .customScrollBox
+        .container
+          .content
+            %a#popupContactClose
+              %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
+            %h1 Contact:
+            %p.nomargin
+              #mysession  
+                - if current_user.blank?              
+                  To send a message, login via 
+                  = link_to image_tag('facebook_32.png'), '/users/auth/facebook'
+                  or via google 
+                  = link_to image_tag('google_32.png'), '/users/auth/google'
+                - else 
+                  = link_to current_user.first_name + "_sign_out", photos_contacts_logoff_path, :method => 'delete', :remote => 'true'
+              = form_tag photos_contacts_path, :method => :post, :remote => true do
+                %br
+                = label_tag 'subject'
+                = text_field_tag 'subject'
+                = label_tag 'message'
+                = text_area_tag 'body',nil, :rows => 10,:cols => 25
+                = submit_tag 'Send', :confirm => 'Are you sure?'
+              #notice     
+            %br/
+            %iframe.map{:width => "425",:height => "350", :src => "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Irvine,+CA,+United+States&aq=0&oq=irvine&sll=33.683947,-117.794694&sspn=0.198548,0.418854&t=h&g=Irvine,+CA,+United+States&ie=UTF8&hq=&hnear=Irvine,+Orange,+California&ll=33.669783,-117.846909&spn=0.099719,0.146255&z=12&iwloc=A&output=embed"}
+            .border
+        .dragger_container
+          .dragger
+        %a.scrollUpBtn{:href => "#"}
+        %a.scrollDownBtn{:href => "#"}          
+    %article#popupProjects.popupProjects
+      .customScrollBox
+        .container
+          .content
+            %a#popupProjectsClose
+              %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
+            %h1 Projects:
+            - @projects.each do |project|
+              %h2= project.name
+              %p.nomargin       
+                - if project.photos.length > 1
+                  %a{:href => "#", :onclick => "selectProject('" + project.id.to_s + "')", :title => "Let's have a look"}  
+                    %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/
+                - else
+                  %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/    
+                - if not project.description.blank?
+                  = project.description.html_safe
+                %br/
+              .border
+        .dragger_container
+          .dragger
+        %a.scrollUpBtn{:href => "#"}
+        %a.scrollDownBtn{:href => "#"}
+    %article#popupPhotos.popupPhotos
+      .customScrollBox
+        .container
+          .content
+            %a#popupPhotosClose
+              %img{:alt => "", :src => "/assets/cross.png", :width => "20"}/
+            %h1 Photos:
+            - @albumphotos.each do |albumphoto|
+              %h2= albumphoto.name
+              %p.nomargin
+                %a{:href => "#", :onclick => "selectAlbum('" + albumphoto.id.to_s + "')", :title => "Let's have a look"}  
+                  %img.image{:alt => "", :src => albumphoto.photos.order(:ordering).first.imagefile_url(:thumb)}>/
+                - if not albumphoto.description.blank?
+                  = albumphoto.description.html_safe
+                %br/
+              .border
+        .dragger_container
+          .dragger
+        %a.scrollUpBtn{:href => "#"}
+        %a.scrollDownBtn{:href => "#"}      
+%script#my_photos_json{:type => "text/json"}
+  = @photos.to_json.html_safe
+%script#my_albums_json{:type => "text/json"}
+  =  @albumphotos.to_json.html_safe
+- @albumphotos.each do |album|      
+  %script{:id => "my_albumphotos_json" + album.id.to_s,:type => "text/json"}
+    = album.photos.order(:ordering).to_json.html_safe
+%script#my_projects_json{:type => "text/json"}
+  =  @projects.to_json.html_safe
+- @projects.each do |album|        
+  %script{:id => "my_projectphotos_json" + album.id.to_s,:type => "text/json"}
+    = album.photos.order(:ordering).to_json.html_safe    
+%script{:src => "/assets/gallery.js", :type => "text/javascript"}
+%script{:src => "/assets/jquery.mCustomScrollbar.js", :type => "text/javascript"}
+
+

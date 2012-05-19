@@ -1,0 +1,18 @@
+%nav
+  %ul
+    %li= link_to "Home", root_url
+    - if not current_user.blank?
+      %li= link_to "Albums", admin_albums_url
+      %li= link_to current_user.first_name + "_sign_out", destroy_user_session_url, :method => 'delete'
+    - if current_user.blank?
+      %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+      %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
+
+%h1 Editing photo
+
+
+%p
+  = best_in_place @photo, :title,:path => [:admin,@photo]  
+
+
+= link_to 'Back', admin_photos_path
