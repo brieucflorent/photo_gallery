@@ -22,6 +22,7 @@ hgroup {
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size: 30px;
 	letter-spacing: 1px;
+  color:#591015;
       background-image: -webkit-gradient(linear,
         left top, left bottom,
         from(#A41030),
@@ -77,6 +78,7 @@ hgroup a:hover {
 	right:10px;
 	bottom: 60%;
 	padding:10px;
+  color:#591015;
       background-image: -webkit-gradient(linear,
         left top, left bottom,
         from(#A41030),
@@ -289,7 +291,7 @@ ul.menu li span span.link, ul.menu li span span.descr, ul.menu li div.box a {
     -webkit-text-stroke-color: #240606;
 }
 ul.menu li span span.link {
-	color:#fff;
+  color:#591015;
 	font-size:26px;
 	float:left;
 	clear:both;
@@ -406,7 +408,6 @@ ul.menuleft li span.active {
 ul.menuleft li span span.link, ul.menuleft li span span.descr, ul.menuleft li div.box a {
 	margin-left:15px;
 	text-transform:uppercase;
-	
       background-image: -webkit-gradient(linear,
         left top, left bottom,
         from(#A41030),
@@ -418,7 +419,7 @@ ul.menuleft li span span.link, ul.menuleft li span span.descr, ul.menuleft li di
     -webkit-text-stroke-color: #240606;
 }
 ul.menuleft li span span.link {
-	color:#fff;
+  color:#591015;
 	font-size:26px;
 	float:left;
 	clear:both;
