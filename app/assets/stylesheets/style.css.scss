@@ -1,3 +1,7 @@
+$main-color:#A41030;
+$ligthdark-color:#591015;
+$dark-color:#240606;
+
 html, body {
 	height:100%;
 }
@@ -22,16 +26,16 @@ hgroup {
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size: 30px;
 	letter-spacing: 1px;
-  color:#591015;
-      background-image: -webkit-gradient(linear,
+    color:$ligthdark-color;
+    background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from(#A41030),
-        to(#591015)
+        from($main-color),
+        to($ligthdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;  
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #240606;
+    -webkit-text-stroke-color: $dark-color;
     
 }
 hgroup h1 {
@@ -78,16 +82,16 @@ hgroup a:hover {
 	right:10px;
 	bottom: 60%;
 	padding:10px;
-  color:#591015;
+  color:$ligthdark-color;
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from(#A41030),
-        to(#591015)
+        from($main-color),
+        to($ligthdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #240606;  
+    -webkit-text-stroke-color: $dark-color;  
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	text-transform:uppercase;
 	font-size: 30px;
@@ -157,7 +161,7 @@ hgroup a:hover {
 	height:100%;
 }
 #outer_container .thumbScroller img {
-	border:3px solid #591015;
+	border:3px solid $ligthdark-color;
 }
 #outer_container .thumbScroller .content div a {
 	display:block;
@@ -282,16 +286,16 @@ ul.menu li span span.link, ul.menu li span span.descr, ul.menu li div.box a {
 	
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from(#A41030),
-        to(#591015)
+        from($main-color),
+        to($ligthdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #240606;
+    -webkit-text-stroke-color: $dark-color;
 }
 ul.menu li span span.link {
-  color:#591015;
+  color:$ligthdark-color;
 	font-size:26px;
 	float:left;
 	clear:both;
@@ -410,16 +414,16 @@ ul.menuleft li span span.link, ul.menuleft li span span.descr, ul.menuleft li di
 	text-transform:uppercase;
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from(#A41030),
-        to(#591015)
+        from($main-color),
+        to($ligthdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #240606;
+    -webkit-text-stroke-color: $dark-color;
 }
 ul.menuleft li span span.link {
-  color:#591015;
+  color:$ligthdark-color;
 	font-size:26px;
 	float:left;
 	clear:both;

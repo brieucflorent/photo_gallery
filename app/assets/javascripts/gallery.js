@@ -26,6 +26,34 @@ $img_title=$("#img_title");
 $nextImageBtn=$(".nextImageBtn");
 $prevImageBtn=$(".prevImageBtn");
 
+//alert("templatecol"+$("body").attr("template_color"));
+
+var RED=0;
+var GREEN=1;
+var PINK=2;
+var colors=[["#A41030","#591015","#240606"],["#0DA096","#134A32","#0D2712"],["#D789E3","#931D69","#30172A"]];
+function apply_color(albumcolor){	
+	$('hgroup').css("color", colors[albumcolor][1]);	
+	$('hgroup').css("background-image", "-webkit-gradient(linear,left top, left bottom,from("+ colors[albumcolor][0]+"),to("+ colors[albumcolor][1]+"))");
+	$('hgroup').css("-webkit-text-stroke-color", colors[albumcolor][2]);
+
+	$('#img_title').css("color", colors[albumcolor][1]);	
+	$('#img_title').css("background-image", "-webkit-gradient(linear,left top, left bottom,from("+ colors[albumcolor][0]+"),to("+ colors[albumcolor][1]+"))");
+	$('#img_title').css("-webkit-text-stroke-color", colors[albumcolor][2]);
+	
+	$('ul.menu li span span.link').css("color", colors[albumcolor][1]);
+	$('ul.menu li span span.link, ul.menu li span span.descr, ul.menu li div.box a').css("background-image", "-webkit-gradient(linear,left top, left bottom,from("+ colors[albumcolor][0]+"),to("+ colors[albumcolor][1]+"))");
+	$('ul.menu li span span.link, ul.menu li span span.descr, ul.menu li div.box a').css(colors[albumcolor][2]);
+	
+	$('ul.menuleft li span span.link').css("color", colors[albumcolor][1]);
+	$('ul.menuleft li span span.link, ul.menu li span span.descr, ul.menu li div.box a').css("background-image", "-webkit-gradient(linear,left top, left bottom,from("+ colors[albumcolor][0]+"),to("+ colors[albumcolor][1]+"))");
+	$('ul.menuleft li span span.link, ul.menu li span span.descr, ul.menu li div.box a').css(colors[albumcolor][2]);
+	
+	$('#outer_container .thumbScroller img').css("border",'3px solid '+ colors[albumcolor][1]);
+	
+}
+apply_color($("body").attr("template_color"));
+
 $(window).load(function() {
 	$toolbar.data("imageViewMode",$defaultViewMode); //default view mode
 	if($defaultViewMode=="full"){
@@ -108,6 +136,7 @@ $(window).load(function() {
 	the1stImg.src = $bgimg.attr("src");
 	$outer_container.data("nextImage",$(".content").first().next().find("a").attr("href"));
 	$outer_container.data("prevImage",$(".content").last().find("a").attr("href"));
+	
 });
 
 function BackgroundLoad($this,imageWidth,imageHeight,imgSrc){
@@ -295,10 +324,12 @@ function selectAlbum(albumid) {
 	$.each(myAlbums, function(i, val) {
 		if(val.id == albumid) {
 			albumname = val.name;
+			albumcolor = val.template_color;
 		}
 
 	});
 	loadthumbs(albumname,myPhotos);
+	apply_color(albumcolor);
 	disablePopupPhotos();
 }
 
