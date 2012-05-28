@@ -32,6 +32,7 @@ var RED=0;
 var GREEN=1;
 var PINK=2;
 var colors=[["#A41030","#591015","#240606"],["#0DA096","#134A32","#0D2712"],["#D789E3","#931D69","#30172A"]];
+
 function apply_color(albumcolor){	
 	$('hgroup').css("color", colors[albumcolor][1]);	
 	$('hgroup').css("background-image", "-webkit-gradient(linear,left top, left bottom,from("+ colors[albumcolor][0]+"),to("+ colors[albumcolor][1]+"))");
@@ -350,7 +351,7 @@ function selectProject(albumid) {
 
 function loadthumbs(albumname,myPhotos){	
 	if($bgimg.attr("src").split("Signature")[0] != myPhotos[0].imagefile.url.split("Signature")[0]) {
-	    event.preventDefault();
+	    //event.preventDefault();
 		SwitchImage(myPhotos[0].imagefile.url);
 		var $this = $("#outer_container a[href='" + myPhotos[0].imagefile.url + "']");
 		$img_title.data("imageTitle", myPhotos[0].title);
