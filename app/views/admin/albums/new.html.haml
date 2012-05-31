@@ -11,7 +11,7 @@
 %h1 New album
 
 = form_for @album, :url => admin_albums_path  do |f|
-   = f.text_field :name
-   = f.text_field :description
-   = f.submit
+  = f.text_field :name
+  = f.text_field :description
+  = f.submit
 

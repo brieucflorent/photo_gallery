@@ -113,7 +113,7 @@
                 - if project.photos.length > 1
                   %a{:href => "#", :onclick => "selectProject('" + project.id.to_s + "')", :title => "Let's have a look"}  
                     %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/
-                - else
+                - elsif project.photos.length > 0
                   %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/    
                 - if not project.description.blank?
                   = project.description.html_safe
