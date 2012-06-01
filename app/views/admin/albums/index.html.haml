@@ -27,7 +27,7 @@
           %td= best_in_place album, :description,type: :textarea, :path => [:admin,album],sanitize: false  
           %td= best_in_place album, :ordering,:path => [:admin,album]  
           %td= best_in_place album, :menu,:path => [:admin,album],:type => :select, :collection => [["about", "about"], ["projects", "projects"],["photos", "photos"], ["", "unspecified"]]  
-          %td= best_in_place album, :template_color,:path => [:admin,album],:type => :select, :collection => [["0", "red"], ["1", "green"],["2", "pink"]] 
+          %td= best_in_place album, :template_color,:path => [:admin,album],:type => :select, :collection => [[0, "red"], [1, "green"],[2, "pink"]] 
           %td= link_to "View photos", admin_album_path(album)
           %td
             %a.delete_post{"data-confirm" => "Are you sure you want to delete this album?", "data-method" => "delete", :href => admin_album_path(album), :rel => "nofollow"} Destroy

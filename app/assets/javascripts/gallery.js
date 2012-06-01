@@ -329,8 +329,8 @@ function selectAlbum(albumid) {
 		}
 
 	});
-	loadthumbs(albumname,myPhotos);
 	apply_color(albumcolor);
+	loadthumbs(albumname,myPhotos,albumcolor);
 	disablePopupPhotos();
 }
 
@@ -342,14 +342,16 @@ function selectProject(albumid) {
 	$.each(myAlbums, function(i, val) {
 		if(val.id == albumid) {
 			albumname = val.name;
+			albumcolor = val.template_color;
 		}
 
 	});
-	loadthumbs(albumname,myPhotos);
+	apply_color(albumcolor);
+	loadthumbs(albumname,myPhotos,albumcolor);
     disablePopupProjects();
 }
 
-function loadthumbs(albumname,myPhotos){	
+function loadthumbs(albumname,myPhotos,albumcolor){	
 	if($bgimg.attr("src").split("Signature")[0] != myPhotos[0].imagefile.url.split("Signature")[0]) {
 	    //event.preventDefault();
 		SwitchImage(myPhotos[0].imagefile.url);
@@ -377,6 +379,7 @@ function loadthumbs(albumname,myPhotos){
 				$this.fadeTo(fadeSpeed, $thumbnailsOpacity);
 
 				if(count == myPhotos.length) {
+        			$('#outer_container .thumbScroller img').css("border",'3px solid '+ colors[albumcolor][1]);
 					$("#outer_container a").click(function(event) {
 						event.preventDefault();
 						var $this = $(this);
