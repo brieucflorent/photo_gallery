@@ -277,7 +277,7 @@ function theNewImg_onload(){
 function FullScreenBackground(theItem,imageWidth,imageHeight){
 	var winWidth=$(window).width();
 	var winHeight=$(window).height();
-	if($toolbar.data("imageViewMode")!="original"){ //scale
+	/*if($toolbar.data("imageViewMode")!="original"){ //scale
 		var picHeight = imageHeight / imageWidth;
 		var picWidth = imageWidth / imageHeight;
 		if($toolbar.data("imageViewMode")=="full"){ //fullscreen size image mode
@@ -304,7 +304,11 @@ function FullScreenBackground(theItem,imageWidth,imageHeight){
 		$(theItem).attr("height",imageHeight);
 		$(theItem).css("margin-left",(winWidth-imageWidth)/2);
 		$(theItem).css("margin-top",(winHeight-imageHeight)/2);
-	}
+	}*/
+	$(theItem).attr("width",imageWidth);
+	$(theItem).attr("height",imageHeight);
+	$(theItem).css("margin-left",(winWidth-imageWidth)/2);
+	$(theItem).css("margin-top",(winHeight-imageHeight)/2);
 }
 
 //Image view mode function - fullscreen or normal size
