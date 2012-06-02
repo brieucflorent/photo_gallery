@@ -84,7 +84,7 @@
                   or via google 
                   = link_to image_tag('google_32.png'), '/users/auth/google'
                 - else 
-                  = link_to current_user.first_name + "_sign_out", photos_contacts_logoff_path, :method => 'delete', :remote => 'true'
+                  = link_to current_user.first_name + " sign out", photos_contacts_logoff_path, :method => 'delete', :remote => 'true'
               = form_tag photos_contacts_path, :method => :post, :remote => true do
                 %br
                 = label_tag 'subject'

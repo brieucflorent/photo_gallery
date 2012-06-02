@@ -73,6 +73,16 @@ hgroup a:hover {
 	-ms-transition: all 1s ease-out;
 	transition: all 1s ease-out;
 }
+
+
+span.template_color0 a {
+  color: $mainred-color;
+}
+
+span.template_color1 a {
+  color: $main-color;
+}
+
 #toolbar {
 	position:fixed;
 	z-index:3;
@@ -518,20 +528,6 @@ article {
 	font-size: 16px;
 	line-height: 24px;
 }
-#popupContact a {	
-	//color: #FFF;
-	//color: $main-color;
-	  color:$lightdark-color;
-  
-      background-image: -webkit-gradient(linear,
-        left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
-      );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-	margin-left: 25px;
-}
 
 #popupAbout h1, #popupProjects h1, #popupContact h1, #popupPhotos h1 {
 	text-align: left;
@@ -601,8 +597,33 @@ span.template_color2 p{
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  
+  border-bottom: 1px dashed #FFF;
 }
 
+#mysession a { 
+  //color: #FFF;
+  color: $main-color;
+  border-bottom: 1px solid $main-color;
+    //color:$lightdark-color;
+  
+  margin-left: 25px;
+}
+
+span.template_color0 a{
+  color: $mainred-color;
+  border-bottom: 1px solid $mainred-color; 
+}
+
+span.template_color1 a{
+  color: $main-color;
+  border-bottom: 1px solid $main-color; 
+}
+
+span.template_color2 a{
+  color: $mainpink-color;
+  border-bottom: 1px solid $mainpink-color; 
+}
 
 span.template_color0 h2{
   color:$lightdarkred-color;
