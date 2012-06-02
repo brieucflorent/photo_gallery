@@ -1,6 +1,14 @@
+$mainred-color:#A41030;
+$lightdarkred-color:#591015;
+$darkred-color:#240606;
+
 $main-color:#0DA096;
-$ligthdark-color:#134A32;
+$lightdark-color:#134A32;
 $dark-color:#0D2712;
+
+$mainpink-color:#D789E3;
+$lightdarkpink-color:#931D69;
+$darkpink-color:#30172A;
 
 html, body {
 	height:100%;
@@ -26,11 +34,11 @@ hgroup {
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size: 30px;
 	letter-spacing: 1px;
-    color:$ligthdark-color;
+    color:$lightdark-color;
     background-image: -webkit-gradient(linear,
         left top, left bottom,
         from($main-color),
-        to($ligthdark-color)
+        to($lightdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;  
@@ -82,11 +90,11 @@ hgroup a:hover {
 	right:10px;
 	bottom: 60%;
 	padding:10px;
-  color:$ligthdark-color;
+  color:$lightdark-color;
       background-image: -webkit-gradient(linear,
         left top, left bottom,
         from($main-color),
-        to($ligthdark-color)
+        to($lightdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -161,7 +169,7 @@ hgroup a:hover {
 	height:100%;
 }
 #outer_container .thumbScroller img {
-	border:3px solid $ligthdark-color;
+	border:3px solid $lightdark-color;
 }
 #outer_container .thumbScroller .content div a {
 	display:block;
@@ -287,7 +295,7 @@ ul.menu li span span.link, ul.menu li span span.descr, ul.menu li div.box a {
       background-image: -webkit-gradient(linear,
         left top, left bottom,
         from($main-color),
-        to($ligthdark-color)
+        to($lightdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -295,7 +303,7 @@ ul.menu li span span.link, ul.menu li span span.descr, ul.menu li div.box a {
     -webkit-text-stroke-color: $dark-color;
 }
 ul.menu li span span.link {
-  color:$ligthdark-color;
+  color:$lightdark-color;
 	font-size:26px;
 	float:left;
 	clear:both;
@@ -415,7 +423,7 @@ ul.menuleft li span span.link, ul.menuleft li span span.descr, ul.menuleft li di
       background-image: -webkit-gradient(linear,
         left top, left bottom,
         from($main-color),
-        to($ligthdark-color)
+        to($lightdark-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -423,7 +431,7 @@ ul.menuleft li span span.link, ul.menuleft li span span.descr, ul.menuleft li di
     -webkit-text-stroke-color: $dark-color;
 }
 ul.menuleft li span span.link {
-  color:$ligthdark-color;
+  color:$lightdark-color;
 	font-size:26px;
 	float:left;
 	clear:both;
@@ -477,10 +485,22 @@ article {
 	width: 900px;
 	overflow: auto;
 	background-color: rgba(0, 0, 0, 0.80);
-	border: 1px solid #cecece;
+	//background-color: rgba(13, 160, 150, 0.80);//main-color
+	//border: 1px solid #cecece;
+	border: 1px solid $main-color;
 	z-index: 15;
 	padding: 20px;
-	color: #FFF;
+	//color: #FFF;
+	//color: $main-color;
+	  color:$lightdark-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($main-color),
+        to($lightdark-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 	-webkit-box-shadow: 0px 0px 4px #000 inset;
 	-moz-box-shadow: 0px 0px 4px #000 inset;
 	box-shadow: 0px 0px 4px #000 inset;
@@ -499,7 +519,17 @@ article {
 	line-height: 24px;
 }
 #popupContact a {	
-	color: #FFF;
+	//color: #FFF;
+	//color: $main-color;
+	  color:$lightdark-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($main-color),
+        to($lightdark-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 	margin-left: 25px;
 }
 
@@ -507,10 +537,115 @@ article {
 	text-align: left;
 	font-size: 30px;
 	letter-spacing: 1px;
-	border-bottom: 1px dotted #D3D3D3;
+  color:$lightdark-color;
+	
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($main-color),
+        to($lightdark-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $dark-color;
+    
+	border-bottom: 1px dotted $main-color;
 	padding-bottom: 2px;
 	margin: 0;
 }
+
+
+span.template_color0 .image {
+  border: 2px solid $lightdarkred-color;
+}
+
+span.template_color1 .image {
+  border: 2px solid $lightdark-color;
+}
+
+span.template_color2 .image {
+  border: 2px solid $lightdarkpink-color;
+}
+
+span.template_color0 p{
+  color:$lightdarkred-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainred-color),
+        to($lightdarkred-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.template_color1 p{
+  color:$lightdark-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($main-color),
+        to($lightdark-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.template_color2 p{
+  color:$lightdarkpink-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainpink-color),
+        to($lightdarkpink-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+span.template_color0 h2{
+  color:$lightdarkred-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainred-color),
+        to($lightdarkred-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $darkred-color;
+}
+
+span.template_color1 h2{
+  color:$lightdark-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($main-color),
+        to($lightdark-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $dark-color;
+}
+
+span.template_color2 h2{
+  color:$lightdarkpink-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainpink-color),
+        to($lightdarkpink-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $darkpink-color;
+}
+
 #popupAboutClose, #popupProjectsClose, #popupContactClose, #popupPhotosClose {
 	right: 0;
 	top: 15px;
@@ -534,7 +669,8 @@ article {
 .border {
 	height: 3px;
 	clear: both;
-	border-bottom: 1px dotted #FFF;
+	//border-bottom: 1px dotted #FFF;
+	border-bottom: 1px dotted $main-color;
 }
 *:focus {
 	outline: none;/* Prevents blue border in Webkit */
@@ -546,8 +682,10 @@ form {
 }
 input, textarea {
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
-	background-color: #fff;
-	border: 1px solid #ccc;
+	//background-color: #fff;
+	background-color: $main-color;
+	//border: 1px solid #ccc;
+	border: 1px solid $lightdark-color;
 	width: 300px;
 	min-height: 30px;
 	display: block;
@@ -564,7 +702,17 @@ input, textarea {
 	-o-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
-	color: #fff;
+	//color: #fff;
+	//color: $main-color;
+	  color:$lightdark-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($main-color),
+        to($lightdark-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 textarea {
 	min-height: 200px;
@@ -621,7 +769,8 @@ input[type=submit] {
 .map {
 	margin-top: -400px;
 	margin-right: 25px;
-	border: 5px solid rgba(255, 255, 255, 0.30);
+	//border: 5px solid rgba(255, 255, 255, 0.30);
+	border: 5px solid rgba(19, 74, 50, 0.30); //light-darkgreen
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-o-border-radius: 5px;

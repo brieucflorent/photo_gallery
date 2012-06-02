@@ -52,6 +52,8 @@ function apply_color(albumcolor){
 	
 	$('#outer_container .thumbScroller img').css("border",'3px solid '+ colors[albumcolor][1]);
 	
+	
+	
 }
 apply_color($("body").attr("template_color"));
 
@@ -348,7 +350,13 @@ function selectProject(albumid) {
 	});
 	apply_color(albumcolor);
 	loadthumbs(albumname,myPhotos,albumcolor);
+	//setTimeout(apply_colorthumbs(albumcolor), 3000);
     disablePopupProjects();
+}
+
+function apply_colorthumbs(albumcolor){
+	alert("zita");
+	$('#outer_container .thumbScroller img').css("border",'3px solid '+ colors[albumcolor][1]);
 }
 
 function loadthumbs(albumname,myPhotos,albumcolor){	
@@ -377,10 +385,10 @@ function loadthumbs(albumname,myPhotos,albumcolor){
 				totalContent += $this.parents(".content").innerWidth();
 			    $thumbScroller_container.css("width", totalContent);
 				$this.fadeTo(fadeSpeed, $thumbnailsOpacity);
-
-				if(count == myPhotos.length) {
-        			$('#outer_container .thumbScroller img').css("border",'3px solid '+ colors[albumcolor][1]);
-					$("#outer_container a").click(function(event) {
+		
+				if(count == myPhotos.length) {				
+     			    //$('#outer_container .thumbScroller img').css("border",'3px solid '+ colors[albumcolor][1]);
+        			$("#outer_container a").click(function(event) {
 						event.preventDefault();
 						var $this = $(this);
 						GetNextPrevImages($this);
