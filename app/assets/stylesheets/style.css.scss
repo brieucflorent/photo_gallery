@@ -665,6 +665,34 @@ span.template_color2 h2{
     -webkit-text-stroke-color: $darkpink-color;
 }
 
+.border {
+  height: 3px;
+  clear: both;
+  //border-bottom: 1px dotted #FFF;
+  border-bottom: 1px dotted $main-color;
+}
+
+span.template_color0 .border{
+   height: 3px;
+  clear: both;
+  //border-bottom: 1px dotted #FFF;
+  border-bottom: 1px dotted $mainred-color;
+}
+
+span.template_color1 .border{
+   height: 3px;
+  clear: both;
+  //border-bottom: 1px dotted #FFF;
+  border-bottom: 1px dotted $main-color;
+}
+
+span.template_color2 .border{
+   height: 3px;
+  clear: both;
+  //border-bottom: 1px dotted #FFF;
+  border-bottom: 1px dotted $mainpink-color;
+}
+
 #popupAboutClose, #popupProjectsClose, #popupContactClose, #popupPhotosClose {
 	right: 0;
 	top: 15px;
@@ -685,12 +713,7 @@ span.template_color2 h2{
 	-ms-transition:all .25s linear;
 	transition:all .25s linear;
 }
-.border {
-	height: 3px;
-	clear: both;
-	//border-bottom: 1px dotted #FFF;
-	border-bottom: 1px dotted $main-color;
-}
+
 *:focus {
 	outline: none;/* Prevents blue border in Webkit */
 }
