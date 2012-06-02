@@ -133,7 +133,8 @@ span.template_color1 a {
 }
 #bgimg {
 	display:none;
-	//-ms-interpolation-mode: bicubic;
+	image-rendering: optimizeQuality; 
+	-ms-interpolation-mode: bicubic;
 }
 #preloader {
 	position:relative;
