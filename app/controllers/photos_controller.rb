@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
   def index
     @abouts = Album.where("menu = :about",:about => "about").order(:ordering)    
     @albumphotos = Album.where("menu = :photos",:photos => "photos").order(:ordering)
-    @projects = Album.where(:menu => "projects")    
+    @projects = Album.where(:menu => "projects").order(:ordering)    
     #@photos = Photo.find(:all, :order => "ordering")
     @album = @albumphotos.first
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
