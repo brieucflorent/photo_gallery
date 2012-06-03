@@ -503,15 +503,7 @@ article {
 	padding: 20px;
 	//color: #FFF;
 	//color: $main-color;
-	  color:$lightdark-color;
-  
-      background-image: -webkit-gradient(linear,
-        left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
-      );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	color:$lightdark-color;
 	-webkit-box-shadow: 0px 0px 4px #000 inset;
 	-moz-box-shadow: 0px 0px 4px #000 inset;
 	box-shadow: 0px 0px 4px #000 inset;
