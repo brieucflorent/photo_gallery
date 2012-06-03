@@ -333,6 +333,7 @@ function selectAlbum(albumid) {
 	});
 	apply_color(albumcolor);
 	loadthumbs(albumname,myPhotos,albumcolor);
+	apply_colorthumbs(albumcolor);
 	disablePopupPhotos();
 }
 
@@ -350,12 +351,14 @@ function selectProject(albumid) {
 	});
 	apply_color(albumcolor);
 	loadthumbs(albumname,myPhotos,albumcolor);
+	apply_colorthumbs(albumcolor);
 	//setTimeout(apply_colorthumbs(albumcolor), 3000);
     disablePopupProjects();
 }
 
 function apply_colorthumbs(albumcolor){
-	alert("zita");
+	//alert("zita");
+	//alert(albumcolor);
 	$('#outer_container .thumbScroller img').css("border",'3px solid '+ colors[albumcolor][1]);
 }
 
@@ -384,6 +387,7 @@ function loadthumbs(albumname,myPhotos,albumcolor){
 				$this.wrap("<a href='" + val.imagefile.url + "'></a>")
 				totalContent += $this.parents(".content").innerWidth();
 			    $thumbScroller_container.css("width", totalContent);
+			    $thumbScroller_container.css("left", "0px");
 				$this.fadeTo(fadeSpeed, $thumbnailsOpacity);
 		
 				if(count == myPhotos.length) {				
