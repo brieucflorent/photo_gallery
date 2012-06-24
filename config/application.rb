@@ -16,6 +16,7 @@ if defined?(Bundler)
 end
 
 
+
 module Rottenpotatoes
   class Application < Rails::Application
     require 'rack/raw_upload'
@@ -53,5 +54,7 @@ module Rottenpotatoes
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    
   end
 end

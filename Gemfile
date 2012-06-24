@@ -63,3 +63,4 @@ gem 'omniauth-google-apps'
 gem 'devise', "2.0"
 gem 'best_in_place'
 gem 'newrelic_rpm'
+gem "rack-offline", :git => "git://github.com/wycats/rack-offline.git"

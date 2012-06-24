@@ -15,6 +15,27 @@ Rottenpotatoes::Application.routes.draw do
   
   post "photos/contacts"
   delete "photos/contacts_logoff"
+  
+  offline = Rack::Offline.configure do
+      cache "assets/facebook_32.png"
+      Dir["app/assets/javascripts/*.js"].each do |file|
+      #cache file.relative_path_from(public_path)
+        cache file.gsub("app/","").gsub("javascripts/","") 
+      end
+      
+      Dir["app/assets/images/*.*"].each do |file|
+      #cache file.relative_path_from(public_path)
+        cache file.gsub("app/","").gsub("images/","") 
+      end
+      
+      Dir["app/assets/stylesheets/*.*"].each do |file|
+        #cache file.relative_path_from(public_path)
+        cache file.gsub("app/","").gsub("images/","") 
+      end
+
+      network "/"
+  end
+  get '/application.manifest' => offline
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

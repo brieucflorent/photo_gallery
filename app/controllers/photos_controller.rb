@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
     #@photos = Photo.find(:all, :order => "ordering")
     @album = @albumphotos.first
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
-    @allphotos = Photo.all
+    @allphotos = Photo.where("album_id !=?",@album.id ).order(:ordering)
     
     #Dir.entries("app/assets/images/gallery/").each do |entry|
     #  if entry =~ /\d+\.jpg/
