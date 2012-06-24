@@ -17,6 +17,7 @@ Rottenpotatoes::Application.routes.draw do
   delete "photos/contacts_logoff"
   
   offline = Rack::Offline.configure do
+      cache "/"
       cache "assets/facebook_32.png"
       Dir["app/assets/javascripts/*.js"].each do |file|
       #cache file.relative_path_from(public_path)
@@ -30,7 +31,7 @@ Rottenpotatoes::Application.routes.draw do
       
       Dir["app/assets/stylesheets/*.*"].each do |file|
         #cache file.relative_path_from(public_path)
-        cache file.gsub("app/","").gsub("images/","") 
+        cache file.gsub("app/","").gsub("stylesheets/","") 
       end
 
       network "/"
