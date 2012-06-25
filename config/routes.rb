@@ -34,7 +34,7 @@ Rottenpotatoes::Application.routes.draw do
         #cache file.relative_path_from(public_path)
       #  cache file.gsub("app/","").gsub("stylesheets/","") 
       #end
-
+      network "http://*"      
   end
   get '/application.manifest' => offline
 
