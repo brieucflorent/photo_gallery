@@ -20,20 +20,26 @@ Rottenpotatoes::Application.routes.draw do
       #cache "/"
       #cache "assets/facebook_32.png"
       cache "http://personal.zitaoravecz.net/assets/jquery.mCustomScrollbar.js"
-      #Dir["app/assets/javascripts/*.js"].each do |file|
+      Dir["app/assets/javascripts/*.js"].each do |file|
       #cache file.relative_path_from(public_path)
-      #  cache file.gsub("app/","").gsub("javascripts/","") 
-      #end
+        cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("javascripts/","") 
+      end
       
-      #Dir["app/assets/images/*.*"].each do |file|
+      Dir["app/assets/images/*.*"].each do |file|
       #cache file.relative_path_from(public_path)
-      #  cache file.gsub("app/","").gsub("images/","") 
-      #end
+        cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("images/","") 
+      end
       
-      #Dir["app/assets/stylesheets/*.*"].each do |file|
+      Dir["app/assets/stylesheets/*.*"].each do |file|
         #cache file.relative_path_from(public_path)
-      #  cache file.gsub("app/","").gsub("stylesheets/","") 
-      #end
+        cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("stylesheets/","") 
+      end
+      
+      Photo.all.each do |photo|
+        cache photo.imagefile_url
+        cache photo.imagefile_url(:thumb)
+      end
+      
       network "http://*"      
   end
   get '/application.manifest' => offline
