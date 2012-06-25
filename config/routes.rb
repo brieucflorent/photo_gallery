@@ -19,7 +19,7 @@ Rottenpotatoes::Application.routes.draw do
   offline = Rack::Offline.configure do
       cache "/"
       #cache "assets/facebook_32.png"
-      cache "assets/jquery.mCustomScrollbar.js"
+      cache "/assets/jquery.mCustomScrollbar.js"
       #Dir["app/assets/javascripts/*.js"].each do |file|
       #cache file.relative_path_from(public_path)
       #  cache file.gsub("app/","").gsub("javascripts/","") 
