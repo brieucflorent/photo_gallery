@@ -9,4 +9,5 @@ class Photo < ActiveRecord::Base
     def default_values
       self.ordering ||= Photo.maximum(:ordering) + 1
     end
+  
 end

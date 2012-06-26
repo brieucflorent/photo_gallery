@@ -19,20 +19,33 @@ Rottenpotatoes::Application.routes.draw do
   offline = Rack::Offline.configure do
       #cache "/"
       #cache "assets/facebook_32.png"
-      cache "http://personal.zitaoravecz.net/assets/jquery.mCustomScrollbar.js"
       Dir["app/assets/javascripts/*.js"].each do |file|
       #cache file.relative_path_from(public_path)
-        cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("javascripts/","") 
+        if Rails.env == "production"
+           cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("javascripts/","")  
+        else
+           cache "http://localhost:3000/" + file.gsub("app/","").gsub("javascripts/","") 
+        end
       end
       
       Dir["app/assets/images/*.*"].each do |file|
       #cache file.relative_path_from(public_path)
-        cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("images/","") 
+       if Rails.env == "production"
+           cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("images/","")
+        else
+           cache "http://localhost:3000/" + file.gsub("app/","").gsub("images/","")   
+       end
+        
       end
       
       Dir["app/assets/stylesheets/*.*"].each do |file|
         #cache file.relative_path_from(public_path)
-        cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("stylesheets/","") 
+         if Rails.env == "production"
+            cache "http://personal.zitaoravecz.net/" + file.gsub("app/","").gsub("stylesheets/","")   
+          else
+            cache "http://localhost:3000/" + file.gsub("app/","").gsub("stylesheets/","")    
+         end      
+         
       end
       
       Photo.all.each do |photo|
@@ -40,7 +53,7 @@ Rottenpotatoes::Application.routes.draw do
         cache photo.imagefile_url(:thumb)
       end
       
-      network "http://*"      
+      network "http://*","https://*"      
   end
   get '/application.manifest' => offline
 
