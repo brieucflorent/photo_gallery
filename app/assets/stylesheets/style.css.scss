@@ -10,6 +10,14 @@ $mainpink-color:#D789E3;
 $lightdarkpink-color:#931D69;
 $darkpink-color:#30172A;
 
+$mainblue-color:#00BCD6;
+$lightdarkblue-color:#00677C;
+$darkblue-color:#005364;
+
+$mainsarga-color:#F9E05B;
+$lightdarksarga-color:#CDAF07;
+$darksarga-color:#CDAF07;
+
 html, body {
 	height:100%;
 }
@@ -718,10 +726,96 @@ span.template_color2 .border{
   border-bottom: 1px dotted $mainpink-color;
 }
 
+
+span.template_color3 .image {
+  border: 2px solid $lightdarkblue-color;
+}
+
+span.template_color3 p{
+  color:$lightdarkblue-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainblue-color),
+        to($lightdarkblue-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.template_color3 a{
+  color: $mainblue-color;
+  border-bottom: 1px solid $mainblue-color; 
+}
+
+span.template_color3 h2{
+  color:$lightdarkblue-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainblue-color),
+        to($lightdarkblue-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $darkblue-color;
+}
+
+span.template_color3 .border{
+   height: 3px;
+  clear: both;
+  //border-bottom: 1px dotted #FFF;
+  border-bottom: 1px dotted $mainblue-color;
+}
+
+
 #popupAboutClose, #popupProjectsClose, #popupContactClose, #popupPhotosClose {
 	right: 0;
 	top: 15px;
 	position: absolute;
+span.template_color4 .image {
+  border: 2px solid $lightdarksarga-color;
+}
+
+span.template_color4 p{
+  color:$lightdarksarga-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainsarga-color),
+        to($lightdarksarga-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+span.template_color4 a{
+  color: $mainsarga-color;
+  border-bottom: 1px solid $mainsarga-color; 
+}
+
+span.template_color4 h2{
+  color:$lightdarksarga-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($mainsarga-color),
+        to($lightdarksarga-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $darksarga-color;
+}
+
+span.template_color4 .border{
+   height: 3px;
+  clear: both;
+  //border-bottom: 1px dotted #FFF;
+  border-bottom: 1px dotted $mainsarga-color;
+}
+
 	display: block;
 	opacity: 0.5;
 	-webkit-transition:all .25s linear;
