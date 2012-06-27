@@ -311,10 +311,16 @@ function FullScreenBackground(theItem,imageWidth,imageHeight){
 function ImageViewMode(theMode){
 	$toolbar.data("imageViewMode", theMode);
 	FullScreenBackground($bgimg,$bgimg.data("newImageW"),$bgimg.data("newImageH"));
-	if(theMode=="full"){
+	/*if(theMode=="full"){
 		$toolbar_a.html("<img src='/assets/toolbar_n_icon.png' width='50' height='50'  />").attr("onClick", "ImageViewMode('normal');return false").attr("title", "Restore");
 	} else {
 		$toolbar_a.html("<img src='/assets/toolbar_fs_icon.png' width='50' height='50'  />").attr("onClick", "ImageViewMode('full');return false").attr("title", "Maximize");
+	}
+	*/
+	if(theMode=="full"){
+		$bgimg.attr("onClick", "ImageViewMode('normal');return false").attr("title", "Restore");
+	} else {
+		$bgimg.attr("onClick", "ImageViewMode('full');return false").attr("title", "Maximize");
 	}
 }
 

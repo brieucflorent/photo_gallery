@@ -19,6 +19,11 @@ class PhotosController < ApplicationController
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
     @allphotos = Photo.where("album_id !=?",@album.id ).order(:ordering)
     
+    if request.env['HTTP_USER_AGENT'].include?("Firefox")
+      flash[:notice] ="Please use chrome browser for better experience"
+    end 
+
+    
     #Dir.entries("app/assets/images/gallery/").each do |entry|
     #  if entry =~ /\d+\.jpg/
     #    @photos << Photo.new(:mainfile=>"/assets/gallery/" + entry,:thumbfile => "/assets/gallery/" + entry.gsub(/\.jpg/,'') + "_thumb.jpg" )

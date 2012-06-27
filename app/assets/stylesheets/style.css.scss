@@ -89,8 +89,19 @@ span.template_color1 a {
 	right:10px;
 	top:10px;
 	padding:5px;
-	background:url(fs_img_g_bg.png);
 }
+
+#ffmsg {
+  position:fixed;
+  z-index:3;
+  right:20px;
+  top:10px;
+  color:$lightdark-color;
+  font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
+  font-size: 15px;
+  padding:5px;
+}
+
 #toolbar img {
 	border:none;
 }
