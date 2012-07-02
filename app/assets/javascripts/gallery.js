@@ -31,7 +31,7 @@ $prevImageBtn=$(".prevImageBtn");
 var RED=0;
 var GREEN=1;
 var PINK=2;
-var colors=[["#A41030","#591015","#240606"],["#0DA096","#134A32","#0D2712"],["#D789E3","#931D69","#30172A"]];
+var colors=[["#A41030","#591015","#240606"],["#0DA096","#134A32","#0D2712"],["#D789E3","#931D69","#30172A"],["#00BCD6","#00677C","#005364"],["#F9E05B","#CDAF07","#CDAF07"]];
 
 function apply_color(albumcolor){	
 	$('hgroup').css("color", colors[albumcolor][1]);	

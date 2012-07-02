@@ -531,7 +531,8 @@ article {
   box-shadow: 0 0 25px #ccc;
 }
 /* Pop Up */
-#popupAbout, #popupProjects, #popupContact, #popupPhotos {
+
+#popupAbout, #popupContact, #popupProjects, #popupPhotos {
 	height: 600px;
 	width: 900px;
 	overflow: auto;
@@ -556,6 +557,9 @@ article {
 	margin-top: -50px;
 	visibility: hidden;
 }
+
+
+
 #popupAbout p, #popupProjects p, #popupContact p, #popupPhotos p {
 	padding-left: 10px;
 	font-size: 16px;
@@ -582,6 +586,8 @@ article {
 	padding-bottom: 2px;
 	margin: 0;
 }
+
+
 
 
 span.template_color0 .image {

@@ -5,10 +5,49 @@
 //@license: Feel free to use it, but keep this credits please!					
 /***************************/
 //About Page Pop Up
+
+
+
 			var popupAboutStatus = 0;
 			
-			function loadPopupAbout(){
+			function loadPopupAbout(){				
+				var albumcolor=0;
 				if(popupAboutStatus==0){
+					if ($("#popupAbout").parent().attr("class")== "popup_color0"){
+						albumcolor=0;
+					}
+					if ($("#popupAbout").parent().attr("class")== "popup_color1"){
+						albumcolor=1;
+					}
+					if ($("#popupAbout").parent().attr("class")== "popup_color2"){
+						albumcolor=2;
+					}
+					if ($("#popupAbout").parent().attr("class")== "popup_color3"){
+						albumcolor=3;
+					}
+					if ($("#popupAbout").parent().attr("class")== "popup_color4"){
+						albumcolor=4;
+					}
+
+					$("#popupAbout").css({
+							"border": "1px solid " + colors[albumcolor][0],
+							"color": colors[albumcolor][1]
+                    });
+                      $("#popupAbout h1").css({
+                            "color":colors[albumcolor][1],
+	                        "border-bottom": "1px dotted " +colors[albumcolor][0]
+                    });
+                    
+                    $("#popupAbout h1").css({                    
+      "background-image": "-webkit-gradient(linear,left top, left bottom,from(" + colors[albumcolor][0] +"),to(" + colors[albumcolor][1] +"))"
+                    });
+                    $("#popupAbout h1").css({
+    "-webkit-background-clip": "text",
+    "-webkit-text-fill-color": "transparent",
+    "-webkit-text-stroke-width": "1px",
+    "-webkit-text-stroke-color": colors[albumcolor][2],
+                    });
+                    
 					$("#popupAbout").fadeIn("slow");
 					popupAboutStatus = 1;
 				}
@@ -63,7 +102,44 @@
 			var popupProjectsStatus = 0;
 			
 			function loadPopupProjects(){
+				var albumcolor=0;
 				if(popupProjectsStatus==0){
+					if ($("#popupProjects").parent().attr("class")== "popup_color0"){
+						albumcolor=0;
+					}
+					if ($("#popupProjects").parent().attr("class")== "popup_color1"){
+						albumcolor=1;
+					}
+					if ($("#popupProjects").parent().attr("class")== "popup_color2"){
+						albumcolor=2;
+					}
+					if ($("#popupProjects").parent().attr("class")== "popup_color3"){
+						albumcolor=3;
+					}
+					if ($("#popupProjects").parent().attr("class")== "popup_color4"){
+						albumcolor=4;
+					}
+
+
+					$("#popupProjects").css({
+							"border": "1px solid " + colors[albumcolor][0],
+							"color": colors[albumcolor][1]
+                    });
+                    
+                    $("#popupProjects h1").css({
+                            "color":colors[albumcolor][1],
+	                        "border-bottom": "1px dotted " +colors[albumcolor][0]
+                    });
+                    
+                    $("#popupProjects h1").css({                    
+      "background-image": "-webkit-gradient(linear,left top, left bottom,from(" + colors[albumcolor][0] +"),to(" + colors[albumcolor][1] +"))"
+                    });
+                    $("#popupProjects h1").css({
+    "-webkit-background-clip": "text",
+    "-webkit-text-fill-color": "transparent",
+    "-webkit-text-stroke-width": "1px",
+    "-webkit-text-stroke-color": colors[albumcolor][2],
+                    });
 					$("#popupProjects").fadeIn("slow");
 					popupProjectsStatus = 1;
 				}
@@ -120,6 +196,42 @@
 			
 			function loadPopupPhotos(){
 				if(popupPhotosStatus==0){
+					if ($("#popupPhotos").parent().attr("class")== "popup_color0"){
+						albumcolor=0;
+					}
+					if ($("#popupPhotos").parent().attr("class")== "popup_color1"){
+						albumcolor=1;
+					}
+					if ($("#popupPhotos").parent().attr("class")== "popup_color2"){
+						albumcolor=2;
+					}
+					if ($("#popupPhotos").parent().attr("class")== "popup_color3"){
+						albumcolor=3;
+					}
+					if ($("#popupPhotos").parent().attr("class")== "popup_color4"){
+						albumcolor=4;
+					}
+
+
+					$("#popupPhotos").css({
+							"border": "1px solid " + colors[albumcolor][0],
+							"color": colors[albumcolor][1]
+                    });
+                    
+                    $("#popupPhotos h1").css({
+                            "color":colors[albumcolor][1],
+	                        "border-bottom": "1px dotted " +colors[albumcolor][0]
+                    });
+                    
+                    $("#popupPhotos h1").css({                    
+      "background-image": "-webkit-gradient(linear,left top, left bottom,from(" + colors[albumcolor][0] +"),to(" + colors[albumcolor][1] +"))"
+                    });
+                    $("#popupPhotos h1").css({
+    "-webkit-background-clip": "text",
+    "-webkit-text-fill-color": "transparent",
+    "-webkit-text-stroke-width": "1px",
+    "-webkit-text-stroke-color": colors[albumcolor][2],
+                    });
 					$("#popupPhotos").fadeIn("slow");
 					popupPhotosStatus = 1;
 				}
