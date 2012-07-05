@@ -277,6 +277,7 @@ function theNewImg_onload(){
 function FullScreenBackground(theItem,imageWidth,imageHeight){
 	var winWidth=$(window).width();
 	var winHeight=$(window).height();
+	var marginTop,rate;
 	if($toolbar.data("imageViewMode")!="original"){ //scale
 		var picHeight = imageHeight / imageWidth;
 		var picWidth = imageWidth / imageHeight;
@@ -288,6 +289,66 @@ function FullScreenBackground(theItem,imageWidth,imageHeight){
 				$(theItem).attr("height",winHeight);
 				$(theItem).attr("width",picWidth*winHeight);
 			};
+			
+		$(".direction.up").css("position","absolute");
+		$(".direction.up").css("left",(winWidth-$(theItem).width())/2);
+		$(".direction.up").css("right",(winWidth+$(theItem).width())/2);
+		$(".direction.up").css("top",0);
+		$(".direction.up").css("height",winHeight/2);
+		$(".direction.up").css("width",winWidth);
+		$(".direction.up").css("bottom",winHeight/2);
+		$(".direction.down").css("position","absolute");
+		$(".direction.down").css("height",winHeight/2);
+		$(".direction.down").css("width",winWidth);
+		$(".direction.down").css("left",0);
+		$(".direction.down").css("right",(winWidth+$(theItem).width())/2);
+		$(".direction.down").css("top",winHeight/2);
+		$(".direction.down").css("bottom",winHeight);
+		/*$(".direction.down").onclick(function(e){
+			$(theItem).click();
+			return false;
+		});*/
+		$(".direction.up").click(function(e){
+			ImageViewMode('normal');
+			$(".direction.up").css("height",0);
+		    $(".direction.up").css("width",0);
+			$(".direction.down").css("height",0);
+		    $(".direction.down").css("width",0);
+		
+			return false;
+		});		
+        $('.direction.up').mousemove(function(e){
+        	marginTop=$(theItem).data("margin-top");        	
+            rate = (-marginTop )*(winHeight/2 - e.pageY)/winHeight;
+            if (marginTop<0){
+               marginTop=marginTop + rate *2;
+               if (marginTop >0){
+               	marginTop=0;
+               } 
+               $(theItem).data("margin-top",marginTop);               
+      		   $(theItem).css("margin-top",marginTop);
+      		   
+            }
+        	//alert(e.pageY);
+    	    //alert("mouve move up");
+        });
+        $('.direction.down').mousemove(function(e){
+            marginTop=$(theItem).data("margin-top");
+            //alert(marginTop);        	
+            rate = - (e.pageY)/winHeight;
+            //alert(marginTop);
+            if (marginTop > -$(theItem).height()){
+               marginTop=marginTop + rate *100;
+               if (marginTop < -$(theItem).height()+winHeight){
+               	marginTop=-$(theItem).height()+winHeight;
+               } 
+               $(theItem).data("margin-top",marginTop);               
+      		   $(theItem).css("margin-top",marginTop);
+      		   
+            }
+        
+        	//alert("mouve move down");
+        });
 		} else { //normal size image mode
 			if ((winHeight / winWidth) > picHeight) {
 				$(theItem).attr("width",winWidth);
@@ -299,11 +360,13 @@ function FullScreenBackground(theItem,imageWidth,imageHeight){
 		}
 		$(theItem).css("margin-left",(winWidth-$(theItem).width())/2);
 		$(theItem).css("margin-top",(winHeight-$(theItem).height())/2);
+		$(theItem).data("margin-top",(winHeight-$(theItem).height())/2);
 	} else { //no scale
 		$(theItem).attr("width",imageWidth);
 		$(theItem).attr("height",imageHeight);
 		$(theItem).css("margin-left",(winWidth-imageWidth)/2);
 		$(theItem).css("margin-top",(winHeight-imageHeight)/2);
+		$(theItem).data("margin-top",(winHeight-imageHeight)/2);
 	}
 }
 
@@ -457,3 +520,5 @@ function loadthumbs(albumname,myPhotos,albumcolor){
 		}
 		return [curtop, curleft];
 	}
+	
+	
