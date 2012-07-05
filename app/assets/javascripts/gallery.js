@@ -304,10 +304,6 @@ function FullScreenBackground(theItem,imageWidth,imageHeight){
 		$(".direction.down").css("right",(winWidth+$(theItem).width())/2);
 		$(".direction.down").css("top",winHeight/2);
 		$(".direction.down").css("bottom",winHeight);
-		/*$(".direction.down").onclick(function(e){
-			$(theItem).click();
-			return false;
-		});*/
 		$(".direction.up").click(function(e){
 			ImageViewMode('normal');
 			$(".direction.up").css("height",0);
@@ -316,7 +312,17 @@ function FullScreenBackground(theItem,imageWidth,imageHeight){
 		    $(".direction.down").css("width",0);
 		
 			return false;
-		});		
+		});	
+		
+		$(".direction.down").click(function(e){
+			ImageViewMode('normal');
+			$(".direction.up").css("height",0);
+		    $(".direction.up").css("width",0);
+			$(".direction.down").css("height",0);
+		    $(".direction.down").css("width",0);
+		
+			return false;
+		});			
         $('.direction.up').mousemove(function(e){
         	marginTop=$(theItem).data("margin-top");        	
             rate = (-marginTop )*(winHeight/2 - e.pageY)/winHeight;
