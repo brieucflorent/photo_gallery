@@ -11,11 +11,16 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
+    
     @abouts = Album.where("menu = :about",:about => "about").order(:ordering)    
     @albumphotos = Album.where("menu = :photos",:photos => "photos").order(:ordering)
     @projects = Album.where(:menu => "projects").order(:ordering)    
     #@photos = Photo.find(:all, :order => "ordering")
-    @album = @albumphotos.first
+    if params[:id] 
+      @album=Album.find(params[:id])
+    else
+      @album = @albumphotos.first    
+    end
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
     @allphotos = Photo.where("album_id !=?",@album.id ).order(:ordering)
     
@@ -43,11 +48,35 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
-    @photo = Photo.find(params[:id])
+   @abouts = Album.where("menu = :about",:about => "about").order(:ordering)    
+    @albumphotos = Album.where("menu = :photos",:photos => "photos").order(:ordering)
+    @projects = Album.where(:menu => "projects").order(:ordering)    
+    #@photos = Photo.find(:all, :order => "ordering")
+    if params[:id] 
+      @album=Album.find(params[:id])
+    else
+      @album = @albumphotos.first    
+    end
+    @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
+    @allphotos = Photo.where("album_id !=?",@album.id ).order(:ordering)
+    
+    if request.env['HTTP_USER_AGENT'].include?("Firefox")
+      flash[:notice] ="Please use chrome browser for better experience"
+    end 
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @photo }
+    
+    #Dir.entries("app/assets/images/gallery/").each do |entry|
+    #  if entry =~ /\d+\.jpg/
+    #    @photos << Photo.new(:mainfile=>"/assets/gallery/" + entry,:thumbfile => "/assets/gallery/" + entry.gsub(/\.jpg/,'') + "_thumb.jpg" )
+    #  end
+    #end
+    if @photos.length == 0
+      redirect_to admin_photos_uploader_url
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @photos }
+      end
     end
   end
 

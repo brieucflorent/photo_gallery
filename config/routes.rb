@@ -12,6 +12,7 @@ Rottenpotatoes::Application.routes.draw do
   end
   
   get '/photos' => 'photos#index'
+  get '/photos/:id' => 'photos#index'
   
   post "photos/contacts"
   delete "photos/contacts_logoff"

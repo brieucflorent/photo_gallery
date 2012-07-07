@@ -410,6 +410,7 @@ function selectAlbum(albumid) {
 	loadthumbs(albumname,myPhotos,albumcolor);
 	apply_colorthumbs(albumcolor);
 	disablePopupPhotos();
+	window.location.hash='photos/' + albumid;
 }
 
 function selectProject(albumid) {
@@ -429,6 +430,7 @@ function selectProject(albumid) {
 	apply_colorthumbs(albumcolor);
 	//setTimeout(apply_colorthumbs(albumcolor), 3000);
     disablePopupProjects();
+	location.hash='photos/' + albumid;
 }
 
 function apply_colorthumbs(albumcolor){

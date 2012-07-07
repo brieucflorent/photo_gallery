@@ -114,7 +114,7 @@
                 %h2= project.name
                 %p.nomargin       
                   - if project.photos.length > 1
-                    %a{:href => "#", :onclick => "selectProject('" + project.id.to_s + "')", :title => "Let's have a look"}  
+                    %a{:href => "#", :onclick => "selectProject('" + project.id.to_s + "');return false;", :title => "Let's have a look"}  
                       %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/
                   - elsif project.photos.length > 0
                     %img.image{:alt => "", :src => project.photos.first.imagefile_url(:thumb)}>/    
@@ -138,7 +138,7 @@
               %span{:class => "template_color" + albumphoto.template_color.to_s}  
                 %h2= albumphoto.name
                 %p.nomargin
-                  %a{:href => "#", :onclick => "selectAlbum('" + albumphoto.id.to_s + "')", :title => "Let's have a look"}  
+                  %a{:href => "#", :onclick => "selectAlbum('" + albumphoto.id.to_s + "');return false;", :title => "Let's have a look"}  
                     %img.image{:alt => "", :src => albumphoto.photos.order(:ordering).first.imagefile_url(:thumb)}>/
                   - if not albumphoto.description.blank?
                     = albumphoto.description.html_safe
