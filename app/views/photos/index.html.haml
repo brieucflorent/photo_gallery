@@ -34,7 +34,7 @@
     %a.prevImageBtn{:href => "#", :title => "previous"}
     .direction.up
     .direction.down  
-    %img#bgimg{:alt => @photos.first.title, :src => @photos.first.imagefile_url, :title => @photos.first.title,:onclick => "ImageViewMode('full');return false"}/
+    %img#bgimg{:alt => @curphoto.title, :src => @curphoto.imagefile_url, :title => @curphoto.title,:onclick => "ImageViewMode('full');return false"}/
   #preloader
     %img{:alt => "", :height => "32", :src => "/assets/ajax-loader_dark.gif", :width => "32"}/
   #img_title

@@ -16,10 +16,12 @@ class PhotosController < ApplicationController
     @albumphotos = Album.where("menu = :photos",:photos => "photos").order(:ordering)
     @projects = Album.where(:menu => "projects").order(:ordering)    
     #@photos = Photo.find(:all, :order => "ordering")
-    if params[:id] 
-      @album=Album.find(params[:id])
+    if params[:id]
+      @curphoto=Photo.find(params[:id])
+      @album=@curphoto.album
     else
-      @album = @albumphotos.first    
+      @album = @albumphotos.first
+      @curphoto=@album.photos.first    
     end
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
     @allphotos = Photo.where("album_id !=?",@album.id ).order(:ordering)

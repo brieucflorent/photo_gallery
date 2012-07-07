@@ -258,6 +258,9 @@ function SwitchImage(img){
 	var theNewImg = new Image();
 	theNewImg.onload = CreateDelegate(theNewImg, theNewImg_onload);
 	theNewImg.src = img;
+	//alert(img.substr(68,1));
+	
+	window.history.replaceState("cururl","mylink",'/photos/' + img.substr(68,1))
 }
 
 //get new image dimensions
@@ -410,7 +413,7 @@ function selectAlbum(albumid) {
 	loadthumbs(albumname,myPhotos,albumcolor);
 	apply_colorthumbs(albumcolor);
 	disablePopupPhotos();
-	window.location.hash='photos/' + albumid;
+	//window.history.replaceState("cururl","mylink",'/photos/' + myPhotos[0].id)
 }
 
 function selectProject(albumid) {
@@ -430,7 +433,7 @@ function selectProject(albumid) {
 	apply_colorthumbs(albumcolor);
 	//setTimeout(apply_colorthumbs(albumcolor), 3000);
     disablePopupProjects();
-	location.hash='photos/' + albumid;
+	//window.history.replaceState("cururl","mylink",'/photos/' + myPhotos[0].id);
 }
 
 function apply_colorthumbs(albumcolor){
