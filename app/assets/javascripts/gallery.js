@@ -179,10 +179,13 @@ $toolbar.hover(
 //Clicking on thumbnail changes the background image
 $("#outer_container a").click(function(event){
 	event.preventDefault();
-	var $this=$(this);
+	var $this=$(this);	
 	GetNextPrevImages($this);
 	GetImageTitle($this);
-	SwitchImage(this);
+	//SwitchImage(this);
+	SwitchImage($this.attr("href"));
+	
+	//window.history.replaceState("cururl","mylink",'/photos/' + img.substr(68,1))
 	ShowHideNextPrev("show");
 }); 
 
@@ -258,9 +261,7 @@ function SwitchImage(img){
 	var theNewImg = new Image();
 	theNewImg.onload = CreateDelegate(theNewImg, theNewImg_onload);
 	theNewImg.src = img;
-	//alert(img.substr(68,1));
-	
-	window.history.replaceState("cururl","mylink",'/photos/' + img.substr(68,1))
+	window.history.replaceState("cururl","mylink",'/photos/' + img.split('/')[6])
 }
 
 //get new image dimensions
@@ -477,7 +478,8 @@ function loadthumbs(albumname,myPhotos,albumcolor){
 						var $this = $(this);
 						GetNextPrevImages($this);
 						GetImageTitle($this);
-						SwitchImage(this);
+						//SwitchImage(this);
+						SwitchImage($this.attr("href"));
 						ShowHideNextPrev("show");
 					});
 					$thumbScroller.mousemove(function(e) {
