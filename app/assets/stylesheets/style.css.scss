@@ -824,6 +824,10 @@ span.template_color4 .border{
   border-bottom: 1px dotted $mainsarga-color;
 }
 
+#popupAboutClose, #popupProjectsClose, #popupContactClose, #popupPhotosClose {
+  right: 0;
+  top: 15px;
+  position: absolute;
 	display: block;
 	opacity: 0.5;
 	-webkit-transition:all .25s linear;
