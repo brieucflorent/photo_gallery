@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
     case action_name
     when "index"
      "photo_index"
-    when "resume2"
+    when "resume"
       "resume"
     else
      "photo"
@@ -49,11 +49,8 @@ class PhotosController < ApplicationController
 
   end
   
-  def resume
-    send_file "app/assets/ZOresume.doc"
-  end
 
-  def resume2
+  def resume
     @resume = Album.where(:menu => "resume").first
     
     respond_to do |format|

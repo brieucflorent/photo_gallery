@@ -14,9 +14,8 @@ Rottenpotatoes::Application.routes.draw do
   get '/photos' => 'photos#index'
   get '/photos/:id' => 'photos#index'
   
-  get '/resume' => 'photos#resume'
   
-  get '/resume2' => 'photos#resume2'
+  get '/resume' => 'photos#resume'
   
   post "photos/contacts"
   delete "photos/contacts_logoff"
