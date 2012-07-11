@@ -46,6 +46,10 @@ class PhotosController < ApplicationController
     end
 
   end
+  
+  def resume
+    send_file "app/assets/ZOresume.doc"
+  end
 
   # GET /photos/1
   # GET /photos/1.json
