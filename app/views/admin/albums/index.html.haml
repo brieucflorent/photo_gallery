@@ -26,7 +26,7 @@
           %td= best_in_place album, :name, :path => [:admin,album]  
           %td= best_in_place album, :description,type: :textarea, :path => [:admin,album],sanitize: false  
           %td= best_in_place album, :ordering,:path => [:admin,album]  
-          %td= best_in_place album, :menu,:path => [:admin,album],:type => :select, :collection => [["about", "about"], ["projects", "projects"],["photos", "photos"], ["", "unspecified"]]  
+          %td= best_in_place album, :menu,:path => [:admin,album],:type => :select, :collection => [["about", "about"], ["projects", "projects"],["photos", "photos"],["resume", "resume"], ["", "unspecified"]]  
           %td= best_in_place album, :template_color,:path => [:admin,album],:type => :select, :collection => [[0, "red"], [1, "green"],[2, "pink"],[3, "blue"],[4, "yellow"]] 
           %td= link_to "View photos", admin_album_path(album)
           %td

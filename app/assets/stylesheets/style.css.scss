@@ -157,6 +157,12 @@ span.template_color1 a {
 	-ms-interpolation-mode: bicubic;
 }
 
+#bgimgresume {
+  image-rendering: optimizeQuality; 
+  -ms-interpolation-mode: bicubic;
+}
+
+
 #bgimg:hover {
   -webkit-box-shadow: 0 0 25px #ccc;
   -moz-box-shadow: 0 0 25px #ccc;

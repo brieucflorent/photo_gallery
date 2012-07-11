@@ -1,0 +1,10 @@
+%head
+  %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+  %link{:href => "/assets/style.css.scss", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+  %title Resume
+%body
+  %section#bg
+    %a{:href => "https://radiantdawngallery.s3.amazonaws.com/uploads/ZOresume.doc"}
+      %img#bgimg{:alt => @resume.photos.first.title, :src => @resume.photos.first.imagefile_url, :title => @resume.photos.first.title}/
+  #img_title
+  #toolbar

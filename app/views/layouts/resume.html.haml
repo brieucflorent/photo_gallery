@@ -1,0 +1,11 @@
+!!! 5
+
+-#-html_tag :manifest => "/application.manifest" do
+-html_tag do
+  = csrf_meta_tag
+  = javascript_include_tag 'application'
+  = javascript_include_tag 'jquery.easing.1.3.js','jquery.mousewheel.min.js'
+  = yield :head
+  = yield
+     
+%script{:src => "/assets/resume.js", :type => "text/javascript"}

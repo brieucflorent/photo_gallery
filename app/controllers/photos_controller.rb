@@ -4,6 +4,8 @@ class PhotosController < ApplicationController
     case action_name
     when "index"
      "photo_index"
+    when "resume2"
+      "resume"
     else
      "photo"
     end
@@ -51,6 +53,14 @@ class PhotosController < ApplicationController
     send_file "app/assets/ZOresume.doc"
   end
 
+  def resume2
+    @resume = Album.where(:menu => "resume").first
+    
+    respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @resume }
+    end
+  end
   # GET /photos/1
   # GET /photos/1.json
   def show
