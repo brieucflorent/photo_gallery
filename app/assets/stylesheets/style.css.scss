@@ -30,9 +30,20 @@ body {
 	background:#000;
 	font-family:'Century Gothic', arial, serif;
 }
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 }
+
+
+@font-face {
+    font-family: "EvelynsHand";
+    src: url(ufonts.com_evelynshand-regular.ttf);
+}  
+
+h1{
+    font-family: "EvelynsHand";
+}
+
 hgroup {
 	position:fixed;
 	z-index:3;
