@@ -29,7 +29,9 @@ body {
 	padding:0px;
 	background:#000;
 	//font-family:'Century Gothic', arial, serif;
-	font-family: "EvelynsHand";
+	//font-family: "EvelynsHand";
+	font-family: Arial, Helvetica, sans-serif;
+	
 }
 
 
@@ -284,6 +286,7 @@ ul.menu {
 	list-style: none;
 	//font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
   font-family: "EvelynsHand";
+  //font-family: Arial, Helvetica, sans-serif;
 	font-size:14px;
 	width:340px;
 	position:absolute;
@@ -685,6 +688,7 @@ span.template_color2 a{
 }
 
 span.template_color0 h2{
+  font-family: Arial, Helvetica, sans-serif;
   color:$lightdarkred-color;
   
       background-image: -webkit-gradient(linear,
@@ -699,6 +703,7 @@ span.template_color0 h2{
 }
 
 span.template_color1 h2{
+  font-family: Arial, Helvetica, sans-serif;
   color:$lightdark-color;
   
       background-image: -webkit-gradient(linear,
@@ -713,6 +718,7 @@ span.template_color1 h2{
 }
 
 span.template_color2 h2{
+  font-family: Arial, Helvetica, sans-serif;
   color:$lightdarkpink-color;
   
       background-image: -webkit-gradient(linear,
@@ -777,6 +783,7 @@ span.template_color3 a{
 }
 
 span.template_color3 h2{
+  font-family: Arial, Helvetica, sans-serif;
   color:$lightdarkblue-color;
   
       background-image: -webkit-gradient(linear,
@@ -826,6 +833,7 @@ span.template_color4 a{
 }
 
 span.template_color4 h2{
+  font-family: Arial, Helvetica, sans-serif;
   color:$lightdarksarga-color;
   
       background-image: -webkit-gradient(linear,
@@ -872,13 +880,15 @@ span.template_color4 .border{
 }
 form {
 	//font-family:'Century Gothic', arial, serif;
-	font-family: "EvelynsHand";
+	//font-family: "EvelynsHand";
+	font-family: Arial, Helvetica, sans-serif;
 	width: 350px;
 	margin-left: 25px;
 }
 input, textarea {
 	//font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
-	    font-family: "EvelynsHand";
+	    //font-family: "EvelynsHand";
+	    font-family: Arial, Helvetica, sans-serif;
 	//background-color: #fff;
 	background-color: $main-color;
 	//border: 1px solid #ccc;
