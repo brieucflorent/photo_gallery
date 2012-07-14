@@ -24,21 +24,30 @@ html, body {
 * {
 	outline:none;
 }
-body {
-	margin:0px;
-	padding:0px;
-	background:#000;
-	//font-family:'Century Gothic', arial, serif;
-	//font-family: "EvelynsHand";
-	font-family: Arial, Helvetica, sans-serif;
-	
-}
 
 
 @font-face {
     font-family: "EvelynsHand";
     src: url(ufonts.com_evelynshand-regular.ttf);
 }  
+
+
+@font-face {
+    font-family: "LinotypeDidotRoman";
+    src: url(LinotypeDidotRoman.ttf);
+}  
+
+body {
+	margin:0px;
+	padding:0px;
+	background:#000;
+	//font-family:'Century Gothic', arial, serif;
+	//font-family: "EvelynsHand";
+	//font-family: Arial, Helvetica, sans-serif;
+	font-family:"LinotypeDidotRoman";
+	
+}
+
 
 h1,h2, h3, h4, h5, h6{
     font-family: "EvelynsHand";
@@ -876,14 +885,17 @@ span.template_color4 .border{
 form {
 	//font-family:'Century Gothic', arial, serif;
 	//font-family: "EvelynsHand";
-	font-family: Arial, Helvetica, sans-serif;
+	//font-family: Arial, Helvetica, sans-serif;
+	font-family:"LinotypeDidotRoman";
 	width: 350px;
 	margin-left: 25px;
 }
 input, textarea {
 	//font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
-	    //font-family: "EvelynsHand";
-	    font-family: Arial, Helvetica, sans-serif;
+	//font-family: "EvelynsHand";
+	//font-family: Arial, Helvetica, sans-serif;
+  font-family:"LinotypeDidotRoman";
+    
 	//background-color: #fff;
 	background-color: $main-color;
 	//border: 1px solid #ccc;
