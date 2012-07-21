@@ -23,7 +23,7 @@ class PhotosController < ApplicationController
       @album=@curphoto.album
     else
       @album = @albumphotos.first
-      @curphoto=@album.photos.first    
+      @curphoto=@album.photos.sort { |a,b| a.ordering <=> b.ordering }.first    
     end
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
     @allphotos = Photo.where("album_id !=?",@album.id ).order(:ordering)
