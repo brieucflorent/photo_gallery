@@ -1,0 +1,12 @@
+!!! 5
+
+-#-html_tag :manifest => "/application.manifest" do
+-html_tag do
+  = csrf_meta_tag
+  = javascript_include_tag 'application','posts'
+  = javascript_include_tag 'jquery.easing.1.3.js','jquery.autosize.js'
+  = javascript_include_tag 'blog.js'
+  = javascript_include_tag 'nav.js'
+  = yield :head
+  = yield
+     

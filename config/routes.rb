@@ -1,6 +1,11 @@
 Rottenpotatoes::Application.routes.draw do
 
 
+
+  resources :posts,:path => "blog" do
+    resources :comments
+  end
+  
   root :to => "photos#index"
   #devise_for :users,:controllers => {:registrations => 'registrations' }
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

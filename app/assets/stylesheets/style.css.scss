@@ -182,6 +182,7 @@ span.template_color1 a {
 	-ms-interpolation-mode: bicubic;
 }
 
+
 #bgimgresume {
   image-rendering: optimizeQuality; 
   -ms-interpolation-mode: bicubic;
@@ -564,7 +565,49 @@ article {
   -moz-box-shadow: 0 0 25px #ccc;
   box-shadow: 0 0 25px #ccc;
 }
+
 /* Pop Up */
+
+#bgblog{
+  //width: 300px;
+  //height:100%;
+  //font-family: "EvelynsHand";
+  font-family:"LinotypeDidotRoman";
+  //color:$lightdark-color;
+  color:$main-color;
+  font-size:14px;
+  //width:340px;
+  //position:absolute;
+  //top:0%;
+  //left:40%
+}
+
+#blog {
+  //height: 600px;
+  width: 900px;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.80);
+  //background-color: rgba(13, 160, 150, 0.80);//main-color
+  //border: 1px solid #cecece;
+  border: 1px solid $main-color;
+  z-index: 15;
+  padding: 20px;
+  //color: #FFF;
+  color: $main-color;
+  //color:$lightdark-color;
+  -webkit-box-shadow: 0px 0px 4px #000 inset;
+  -moz-box-shadow: 0px 0px 4px #000 inset;
+  box-shadow: 0px 0px 4px #000 inset;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  //margin-top: -50px;
+}
+
+
 
 #popupAbout, #popupContact, #popupProjects, #popupPhotos {
 	height: 600px;
@@ -594,13 +637,13 @@ article {
 
 
 
-#popupAbout p, #popupProjects p, #popupContact p, #popupPhotos p {
+#popupAbout p, #popupProjects p, #popupContact p, #popupPhotos p, #blog p {
 	padding-left: 10px;
 	font-size: 16px;
 	line-height: 24px;
 }
 
-#popupAbout h1, #popupProjects h1, #popupContact h1, #popupPhotos h1 {
+#popupAbout h1, #popupProjects h1, #popupContact h1, #popupPhotos h1, #blog h1 {
 	text-align: left;
 	font-size: 30px;
 	letter-spacing: 1px;
@@ -918,15 +961,8 @@ input, textarea {
 	transition: all 0.5s ease-in-out;
 	//color: #fff;
 	//color: $main-color;
-	  color:$lightdark-color;
+	color:$lightdark-color;
   
-      background-image: -webkit-gradient(linear,
-        left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
-      );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 textarea {
 	min-height: 200px;
@@ -1021,3 +1057,94 @@ input[type=submit] {
 	-ms-transform: rotate(-90deg);
 	transform: rotate(-90deg);
 }
+
+.comment{
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+//background-color: white;
+background-color: rgba(0, 0, 0, 0.80);
+color: $main-color;
+cursor: text;
+height: auto;
+margin-left:60px;
+padding: 5px 7px;
+  border: 1px solid $lightdark-color;
+  width: 300px;
+  min-height: 30px;
+  display: block;
+  margin-bottom: 16px;
+  margin-top: 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.newcomment{
+  display:none;
+  margin-left:60px;
+  width: 600px;
+  
+  vertical-align:bottom;
+  //overflow: auto;
+}
+
+.newcomment img{
+  float:left;
+}
+.newcomment input[type=submit] {
+  font-size: 16px;
+  padding: 10px;
+  width: 150px;
+  background: none;
+  opacity: 1.0;
+}
+
+.newcomment textarea {
+  font-family:"LinotypeDidotRoman";    
+  //background-color: $main-color;
+  border: 1px solid $lightdark-color;
+  width: 300px;
+  min-height: 20px;
+  margin-bottom: 16px;
+  margin-top: 0px;
+  color:$lightdark-color;
+  float:left;
+  margin-left:10px;
+  
+}
+
+.buttons{
+  //display:inline;
+  //position:absolute;
+  clear: both;
+  //bottom: 0;
+  margin-left:55px;
+}
+
+.newcomment input {
+  display:inline; 
+  font-family:"LinotypeDidotRoman";
+  background-color: $main-color;
+  border: 1px solid $lightdark-color;
+  min-height: 15px;
+  margin-bottom: 16px;
+  margin-top: 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  color:$lightdark-color;
+  
+}
+

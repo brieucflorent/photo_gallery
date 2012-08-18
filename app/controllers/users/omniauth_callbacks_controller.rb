@@ -6,6 +6,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
       flash[:notice] = "Signed in successfully."
+       omniauth.info.image ? avatar =  access_token.info.image : avatar = "avatar.jpg" 
+       authentication.user.update_attributes(:avatar => avatar)
       sign_in_and_redirect(:user, authentication.user)
     else
       @user = User.find_for_facebook_oauth(omniauth, current_user)
@@ -25,15 +27,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def google
+  def google_oauth2
     omniauth=request.env["omniauth.auth"]
 
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
-      flash[:notice] = "Signed in successfully."
+      flash[:notice] = "Signed in successfully."      
+      omniauth['uid'] ? avatar = "https://plus.google.com/s2/photos/profile/" + omniauth['uid'] + "?sz=40" : avatar = "avatar.jpg" 
+      authentication.user.update_attributes(:avatar => avatar)
       sign_in_and_redirect(:user, authentication.user)
     else
-      @user = User.find_for_open_id(request.env["omniauth.auth"], current_user)
+      @user = User.find_for_google_oauth(omniauth, current_user)
 
       if @user.persisted?
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
@@ -49,7 +53,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def google_apps
     omniauth=request.env["omniauth.auth"]
-    @user = User.find_for_googleapps_oauth(request.env["omniauth.auth"], current_user)
+    @user = User.find_for_google_oauth(request.env["omniauth.auth"], current_user)
 
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"

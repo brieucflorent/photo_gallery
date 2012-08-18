@@ -17,11 +17,16 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  require 'openid/store/filesystem' 
+  #require 'openid/store/filesystem' 
 
   #config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
-  config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
+  #config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
 
+  
+
+  #provider :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], {access_type: 'online', approval_prompt: ''}
+  config.omniauth :google_oauth2, "861594325606.apps.googleusercontent.com","7LUuYVu3mxyXNb5RvmrVhaMB", {access_type: 'online', approval_prompt: ''}
+  
   config.omniauth :facebook,'297603910317240', 'fd4b4cb3a41d58f0a7e35b4f39ffa189'
   #config.omniauth :google,'861594325606.apps.googleusercontent.com', '7LUuYVu3mxyXNb5RvmrVhaMB'
   #config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'

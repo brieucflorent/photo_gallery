@@ -59,7 +59,8 @@ gem 'rack-raw-upload', :git => 'git://github.com/newbamboo/rack-raw-upload.git'
 gem 'fog', "~> 1.3.1"
 gem 'omniauth-facebook'
 #gem 'omniauth-google'
-gem 'omniauth-google-apps'
+#gem 'omniauth-google-apps'
+gem 'omniauth-google-oauth2'
 gem 'devise', "2.0"
 gem 'best_in_place'
 gem 'newrelic_rpm'

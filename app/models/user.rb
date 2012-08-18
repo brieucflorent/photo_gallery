@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name,:avatar
 
   
   # Setup accessible (or protected) attributes for your model
@@ -24,10 +24,12 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     #if user = self.find_by_first_name_and_last_name(data.first_name,data.last_name)
+    access_token.info.image ? avatar =  access_token.info.image : avatar = "avatar.jpg" 
     if user = self.find(:first,:conditions => [ "lower(first_name) = ? and lower(last_name)=?", data.first_name.downcase,data.last_name.downcase])
+       user.update_attributes(:avatar => avatar)
        user
     else # Create a user with a stub password.
-      user=self.create!(:email => data.email, :first_name => data.first_name, :last_name => data.last_name,:password => Devise.friendly_token[0,20])
+      user=self.create!(:email => data.email, :first_name => data.first_name, :last_name => data.last_name,:password => Devise.friendly_token[0,20],:avatar => avatar)
     end
     
     user.apply_omniauth(access_token)
@@ -48,12 +50,14 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.find_for_googleapps_oauth(access_token, signed_in_resource=nil)
+  def self.find_for_google_oauth(access_token, signed_in_resource=nil)
     data = access_token['info']
+    data['image'] ? avatar =  data['image'] : avatar = "avatar.jpg" 
     if user = User.where(:email => data['email']).first
+      user.update_attributes(:avatar => avatar)
       user
     else #create a user with stub pwd
-      user=User.create!(:email => data['email'], :first_name => data['first_name'],:last_name => data['last_name'], :password => Devise.friendly_token[0,20])
+      user=User.create!(:email => data['email'], :first_name => data['first_name'],:last_name => data['last_name'], :password => Devise.friendly_token[0,20],:avatar => avatar)
     end
     user.apply_omniauth(access_token)
     user

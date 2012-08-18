@@ -6,7 +6,7 @@
       %li= link_to current_user.first_name + "_sign_out", destroy_user_session_url, :method => 'delete'
     - if current_user.blank?
       %li= link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
-      %li= link_to image_tag( 'google_32.png'), '/users/auth/google'
+      %li= link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'
 
 = form_for ([@album, @photo])  do |f|
   -if @photo.errors.any?
