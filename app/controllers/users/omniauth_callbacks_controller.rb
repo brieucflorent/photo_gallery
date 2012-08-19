@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
       flash[:notice] = "Signed in successfully."
-       omniauth.info.image ? avatar =  access_token.info.image : avatar = "avatar.jpg" 
+       omniauth.info.image ? avatar =  omniauth.info.image : avatar = "avatar.jpg" 
        authentication.user.update_attributes(:avatar => avatar)
       sign_in_and_redirect(:user, authentication.user)
     else
