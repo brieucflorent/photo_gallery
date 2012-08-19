@@ -129,6 +129,9 @@ Rottenpotatoes::Application.routes.draw do
      get "albums/:id/select_album",:controller => 'albums',:action => 'select_album'
      resources :photos
      resources :albums
+     resources :posts,:path => "blog" do
+       resources :comments
+     end
      
   end
 

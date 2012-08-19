@@ -1,7 +1,7 @@
 %head
   %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
   %link{:href => "/assets/style.css.scss", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
-  %title Zita blog
+  %title Blog
 %body
   %hgroup
     #albumname
@@ -34,9 +34,10 @@
       .customScrollBox
         .container
           .content
+            = link_to 'New Post', new_admin_post_path     
             - @posts.each do |post|
               %h2
-                = post.title
+                = best_in_place post, :title
               .date
                 %span.day
                   = post.created_at.day
@@ -45,18 +46,11 @@
                 %span.year
                   = post.created_at.year
               %p.nomargin
-                = post.content
+                = best_in_place post, :content,type: :textarea
+                %a.delete_post{"data-confirm" => "Are you sure you want to delete this blog?", "data-method" => "delete", :href => admin_post_path(post),:rel => "follow"} Destroy
                 %br/
                 .commenthist
-                  - if post.comments.length < 2
-                    = post.comments.length.to_s + " Comments"
-                  - if post.comments.length > 1
-                    = link_to post.comments.length.to_s + " Comments",'#',:id => 'comments-link'                  
-                    .popupComments                  
-                      - post.comments[0...-1].each do |comment|
-                        .commenthist_unit
-                          %img{:alt => comment.user.first_name, :src => comment.user.avatar, :title => comment.user.first_name}/                  
-                          = comment.body
+                  = post.comments.length.to_s + " Comments"
                   - if post.comments.length > 0
                     .commenthist_unit
                       %img{:alt => post.comments.last.user.first_name, :src => post.comments.last.user.avatar, :title => post.comments.last.user.first_name}/                  

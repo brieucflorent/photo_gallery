@@ -1,0 +1,3 @@
+$(".comment").css({"display":"block"});
+$(".newcomment").css({"display":"none"});
+$(".commenthist").append("<div class='commenthist_unit'><img alt='<%= @comment.user.first_name %>' src='<%= @comment.user.avatar %>' title='<%= @comment.user.first_name %>'><%= @comment.body %></div>");  

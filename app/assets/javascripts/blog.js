@@ -31,23 +31,29 @@ var commentStatus=0;
 					"margin-top": textheight	});
 				
 				$(".comment").click(function(){
-					
-				$(".newcomment").css({
-					"display": "block"	});
-					
-				$(".comment").css({"display":"none"});
+      				$(".newcomment").css({"display": "block"	});
+				    $(".comment").css({"display":"none"});
 				});
 				
                 $('.newcomment textarea').autosize();
+                
                 $('.cancel').click(function(event){	
                  	event.preventDefault();
                 	$(".comment").css({"display":"block"});
                 	$(".newcomment").css({"display":"none"});
                 });
-                $('.submit').bind('ajax:success', function(event,xhr,status) {
-                         // insert the failure message inside the "#account_settings" element
-                         alert("hellobrieuc");
-                 });
-				$(".newcomment").css({
-					"display": "none"	});
+                
+                $('#comments-link').click(function(event){
+                 	if (commentStatus == 0){
+                 		commentStatus = 1;
+                	    $(".popupComments").css({"display":"block"});
+                	}else{
+                		commentStatus = 0;
+                    	$(".popupComments").css({"display":"none"});	
+                	}	
+                 	event.preventDefault();
+                });
+                
 			});
+			
+
