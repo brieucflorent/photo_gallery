@@ -1,7 +1,7 @@
 %head
   %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
   %link{:href => "/assets/style.css.scss", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
-  %title Zita blog
+  %title Blog
 %body
   %hgroup
     #albumname
@@ -24,23 +24,23 @@
               %p.nomargin
                 = post.content
                 %br/
-                .commenthist
+                .commenthist{:id => "ch"+ post.id.to_s}
                   - if post.comments.length < 2
                     = post.comments.length.to_s + " Comments"
                   - if post.comments.length > 1
-                    = link_to post.comments.length.to_s + " Comments",'#',:id => 'comments-link'                  
-                    .popupComments                  
+                    = link_to post.comments.length.to_s + " Comments",'#',:class => "comments-link",:id => 'cl' + post.id.to_s
+                    .popupComments{:id => "pc"+ post.id.to_s}   
                       - post.comments[0...-1].each do |comment|
-                        .commenthist_unit
+                        .commenthist_units
                           %img{:alt => comment.user.first_name, :src => comment.user.avatar, :title => comment.user.first_name}/                  
                           = comment.body
                   - if post.comments.length > 0
                     .commenthist_unit
                       %img{:alt => post.comments.last.user.first_name, :src => post.comments.last.user.avatar, :title => post.comments.last.user.first_name}/                  
                       = post.comments.last.body
-              .comment
+              %span{:class => "comment",:id => "c"+ post.id.to_s}
                 Add a comment...
-              .newcomment
+              .newcomment{:id => "nc" + post.id.to_s}
                 - if not current_user.blank?
                   %img{:alt => current_user.first_name, :src => current_user.avatar, :title => current_user.first_name}/
                   = form_tag('/blog/'+ post.id.to_s + '/comments',:remote => true) do
@@ -51,7 +51,7 @@
                 - if current_user.blank?
                   = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
                   = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'
-                .border
+              .border
         .dragger_container
           .dragger
         %a.scrollUpBtn{:href => "#"}
