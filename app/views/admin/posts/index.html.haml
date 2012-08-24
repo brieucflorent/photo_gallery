@@ -14,7 +14,7 @@
             = link_to 'New Post', new_admin_post_path     
             - @posts.each do |post|
               %h2
-                = best_in_place post, :title
+                = best_in_place post, :title,:path => [:admin,post]
               .date
                 %span.day
                   = post.created_at.day
@@ -23,7 +23,7 @@
                 %span.year
                   = post.created_at.year
               %p.nomargin
-                = best_in_place post, :content,type: :textarea
+                = best_in_place post, :content,type: :textarea,:path => [:admin,post]
                 %a.delete_post{"data-confirm" => "Are you sure you want to delete this blog?", "data-method" => "delete", :href => admin_post_path(post),:rel => "follow"} Destroy
                 %br/
                 .commenthist
