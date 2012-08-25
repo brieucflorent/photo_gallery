@@ -32,20 +32,8 @@
                     .commenthist_unit
                       %img{:alt => post.comments.last.user.first_name, :src => post.comments.last.user.avatar, :title => post.comments.last.user.first_name}/                  
                       = post.comments.last.body
-              .comment
-                Add a comment...
-              .newcomment
-                - if not current_user.blank?
-                  %img{:alt => current_user.first_name, :src => current_user.avatar, :title => current_user.first_name}/
-                  = form_tag('/blog/'+ post.id.to_s + '/comments',:remote => true) do
-                    = text_area_tag 'content',nil, :rows => 5,:cols => 25                   
-                    .buttons#buttons
-                      = submit_tag 'Post comment',:class => "submit"
-                      = submit_tag 'Cancel',:class => "cancel"  
-                - if current_user.blank?
-                  = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
-                  = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'
-                .border
+              = link_to "Edit this post","/admin/editor" + post_path(post)         
+              .border
         .dragger_container
           .dragger
         %a.scrollUpBtn{:href => "#"}

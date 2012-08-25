@@ -1,12 +1,65 @@
-%p#notice= notice
+%head
+  %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+  %link{:href => "/assets/style.css.scss", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+  %title Blog
+%body
+  %hgroup
+    #albumname
+      %h1 
+        Blog
+  %blogsection#bgblog
+    %blogarticle#blog.blog
+      .customScrollBox
+        .container
+          .content
+            %h2{:id=> "title"+ @post.id.to_s,"data-mercury"=> "full"}
+              = @post.title
+            .date
+              %span.day
+                = @post.created_at.day
+              %span.month
+                = @post.created_at.strftime("%b")  
+              %span.year
+                = @post.created_at.year
+            %p.nomargin
+              .mercury-region{:id => "post_content" + @post.id.to_s,"data-mercury" => "full"}
+                = raw(@post.content)
+              %br/
+              .commenthist{:id => "ch"+ @post.id.to_s}
+                - if @post.comments.length < 2
+                  = @post.comments.length.to_s + " Comments"
+                - if @post.comments.length > 1
+                  = link_to @post.comments.length.to_s + " Comments",'#',:class => "comments-link",:id => 'cl' + @post.id.to_s
+                  .popupComments{:id => "pc"+ @post.id.to_s}   
+                    - @post.comments[0...-1].each do |comment|
+                      .commenthist_units
+                        %img{:alt => comment.user.first_name, :src => comment.user.avatar, :title => comment.user.first_name}/                  
+                        = comment.body
+                - if @post.comments.length > 0
+                  .commenthist_unit
+                    %img{:alt => @post.comments.last.user.first_name, :src => @post.comments.last.user.avatar, :title => @post.comments.last.user.first_name}/                  
+                    = @post.comments.last.body
+            %span{:class => "comment",:id => "c"+ @post.id.to_s}
+              Add a comment...
+            .newcomment{:id => "nc" + @post.id.to_s}
+              - if not current_user.blank?
+                %img{:alt => current_user.first_name, :src => current_user.avatar, :title => current_user.first_name}/
+                = form_tag('/blog/'+ @post.id.to_s + '/comments',:remote => true) do
+                  = text_area_tag 'content',nil, :rows => 5,:cols => 25                   
+                  .buttons#buttons
+                    = submit_tag 'Post comment',:class => "submit"
+                    = submit_tag 'Cancel',:class => "cancel"  
+              - if current_user.blank?
+                = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+                = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'
+            = link_to "Edit this post","/admin/editor" + post_path(@post)
+            \|
+            = link_to 'Back', admin_posts_path 
+            .border
+        .dragger_container
+          .dragger
+        %a.scrollUpBtn{:href => "#"}
+        %a.scrollDownBtn{:href => "#"}
+         
 
-%p
-  %b Title:
-  = @post.title
-%p
-  %b Content:
-  = @post.content
-
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+%br

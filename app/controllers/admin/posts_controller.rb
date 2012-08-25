@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::AdminController
   layout :resolve_layout
   def resolve_layout
     case action_name
-    when "index"
+    when "index",'show'
      "blog"
     else
      "application"
@@ -79,6 +79,21 @@ class Admin::PostsController < Admin::AdminController
     end
   end
 
+  def mercury_update
+    #page = Page.find(params[:id])
+    #page.name = params[:content][:page_name][:value]
+    #page.content = params[:content][:page_content][:value]
+    #page.save!
+    params[:content].keys.each do |key|
+      if key.start_with?("post_content")
+        @post = Post.find(key.gsub(/post_content/,''))
+        @post.content = params[:content][key][:value]
+        @post.save
+      end
+    end
+    
+    render text: ''
+  end
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy

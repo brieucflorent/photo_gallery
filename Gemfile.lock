@@ -11,6 +11,14 @@ GIT
   specs:
     rack-offline (0.6.1)
 
+GIT
+  remote: https://github.com/jejacks0n/mercury.git
+  revision: b006b1f0ffe66dc78516ec59cf692036558d6744
+  specs:
+    mercury-rails (0.8.0)
+      coffee-rails
+      railties (~> 3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -61,6 +69,7 @@ GEM
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     chunky_png (1.2.5)
+    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -188,6 +197,12 @@ GEM
       oauth2 (~> 0.6.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.7)
+    paperclip (3.1.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -292,10 +307,12 @@ DEPENDENCIES
   jquery-rails
   launchy
   mechanize
+  mercury-rails!
   mini_magick
   newrelic_rpm
   omniauth-facebook
   omniauth-google-oauth2
+  paperclip
   pg
   rack-offline!
   rack-raw-upload!

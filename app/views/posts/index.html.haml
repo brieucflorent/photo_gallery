@@ -5,14 +5,15 @@
 %body
   %hgroup
     #albumname
-      %h1 Blog
+      %h1 
+        Blog
   %blogsection#bgblog
     %blogarticle#blog.blog
       .customScrollBox
         .container
           .content
             - @posts.each do |post|
-              %h2
+              %h2{:id=> "title"+ post.id.to_s,"data-mercury"=> "full"}
                 = post.title
               .date
                 %span.day
@@ -22,7 +23,8 @@
                 %span.year
                   = post.created_at.year
               %p.nomargin
-                = post.content
+                .mercury-region{:id => "post_content" + post.id.to_s,"data-mercury" => "full"}
+                  = raw(post.content)
                 %br/
                 .commenthist{:id => "ch"+ post.id.to_s}
                   - if post.comments.length < 2

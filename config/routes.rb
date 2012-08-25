@@ -2,6 +2,20 @@ Rottenpotatoes::Application.routes.draw do
 
 
 
+    namespace :mercury do
+      resources :images
+    end
+
+  #mount Mercury::Engine => '/'
+  
+  
+  
+  scope '/mercury' do
+    match ':type/:resource' => "mercury#resource"
+    match 'snippets/:name/options' => "mercury#snippet_options"
+    match 'snippets/:name/preview' => "mercury#snippet_preview"
+  end
+
   resources :posts,:path => "blog" do
     resources :comments
   end
@@ -130,9 +144,10 @@ Rottenpotatoes::Application.routes.draw do
      resources :photos
      resources :albums
      resources :posts,:path => "blog" do
+       member { put :mercury_update }
        resources :comments
      end
-     
+     match '/editor(/*requested_uri)' => "mercury#edit", :as => :mercury_editor
   end
 
   # You can have the root of your site routed with "root"
