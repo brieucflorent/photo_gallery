@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   layout :resolve_layout
   def resolve_layout
     case action_name
-    when "index","show"
+    when "index","show",'new'
      "blog"
     else
      "application"
@@ -31,5 +31,13 @@ class PostsController < ApplicationController
     end
   end
 
+
+  def new
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json 
+    end
+  end
 
 end

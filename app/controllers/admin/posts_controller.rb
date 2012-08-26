@@ -7,7 +7,7 @@ class Admin::PostsController < Admin::AdminController
     when "index",'show'
      "blog"
     when 'new'
-       "blog_new"
+       "blog_new" 
     else
      "application"
     end
@@ -86,13 +86,26 @@ class Admin::PostsController < Admin::AdminController
     #page.name = params[:content][:page_name][:value]
     #page.content = params[:content][:page_content][:value]
     #page.save!
+    if params[:content].has_key?("new_title") and params[:content].has_key?("new_post_content")
+      @post= Post.new
+      @post.title= params[:content]["new_title"][:value]
+      @post.content=params[:content]["new_post_content"][:value]
+      @post.save
+    else
     params[:content].keys.each do |key|
       if key.start_with?("post_content")
         @post = Post.find(key.gsub(/post_content/,''))
         @post.content = params[:content][key][:value]
         @post.save
       end
+      if key.start_with?("title")
+        @post = Post.find(key.gsub(/title/,''))
+        @post.title = params[:content][key][:value]
+        @post.save
+      end
+    end  
     end
+    
     
     render text: ''
   end

@@ -459,5 +459,5 @@ jQuery(window).on('mercury:ready', function() {
 	);
 
 jQuery(window).on('mercury:saved',function(){
-	window.location = window.location.href.replace(/\/admin\/editor\//i, '/');
+	window.location = window.location.href.replace(/\/editor\//i, '/').replace(/\/new/i, '/');
 });
