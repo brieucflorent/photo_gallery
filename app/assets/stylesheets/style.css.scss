@@ -1064,7 +1064,7 @@ input[type=submit] {
 	transform: rotate(-90deg);
 }
 
-.comment{
+.comment,.commentbox{
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
@@ -1073,10 +1073,12 @@ background-color: rgba(0, 0, 0, 0.80);
 color: $main-color;
 cursor: text;
 height: auto;
-margin-left:60px;
+//margin-left:60px;
 padding: 5px 7px;
   border: 1px solid $lightdark-color;
-  width: 300px;
+  //width: 300px;
+  
+  //clear: both;
   min-height: 30px;
   display: block;
   margin-bottom: 16px;
@@ -1094,9 +1096,49 @@ padding: 5px 7px;
   transition: all 0.5s ease-in-out;
 }
 
+.comment{
+  width: 300px;
+}
+
+.commentbox{
+  clear: both;
+}
+
+
+.commenthist_unit{
+  //display: block;
+}
+
+
+
+.commenthist_unit img{
+  //vertical-align:top;
+  float:left;
+  padding-right: 10px;
+}
+
+.commenthist_box{
+  //display: inline;  
+  
+}
+
+.commenthist_unit .time{
+  //position: static;
+  //top: 0px;
+  //right: 0px;
+  //line-height:1;
+  font-size:13px;
+  //display: inline;
+}
+.commenthist_unit .mycom{
+//  position: block;
+ // margin: 0;
+ // padding-top: 2px;
+}
+
 .newcomment{
   display:none;
-  margin-left:60px;
+  //margin-left:60px;
   width: 600px;
   
   vertical-align:bottom;
