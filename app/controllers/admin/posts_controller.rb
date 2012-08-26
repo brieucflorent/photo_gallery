@@ -6,6 +6,8 @@ class Admin::PostsController < Admin::AdminController
     case action_name
     when "index",'show'
      "blog"
+    when 'new'
+       "blog_new"
     else
      "application"
     end

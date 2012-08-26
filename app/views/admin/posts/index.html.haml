@@ -23,7 +23,7 @@
                 %span.year
                   = post.created_at.year
               %p.nomargin
-                = best_in_place post, :content,type: :textarea,:path => [:admin,post]
+                = raw(post.content)
                 %a.delete_post{"data-confirm" => "Are you sure you want to delete this blog?", "data-method" => "delete", :href => admin_post_path(post),:rel => "follow"} Destroy
                 %br/
                 .commenthist
