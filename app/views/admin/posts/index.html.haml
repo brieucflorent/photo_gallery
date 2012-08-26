@@ -11,7 +11,7 @@
       .customScrollBox
         .container
           .content
-            = link_to 'New Post', new_admin_post_path     
+            = link_to 'New Blog entry', new_admin_post_path     
             - @posts.each do |post|
               %h2
                 = best_in_place post, :title,:path => [:admin,post]
