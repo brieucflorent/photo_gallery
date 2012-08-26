@@ -1098,6 +1098,7 @@ padding: 5px 7px;
 
 .comment{
   width: 300px;
+  margin-top:20px;
 }
 
 .commentbox{
@@ -1107,6 +1108,7 @@ padding: 5px 7px;
 
 .commenthist_unit{
   //display: block;
+  margin-top:10px;
 }
 
 
@@ -1114,7 +1116,7 @@ padding: 5px 7px;
 .commenthist_unit img{
   //vertical-align:top;
   float:left;
-  padding-right: 10px;
+  padding-right:10px;
 }
 
 .commenthist_box{
@@ -1134,12 +1136,14 @@ padding: 5px 7px;
 //  position: block;
  // margin: 0;
  // padding-top: 2px;
+  font-size:15px;
 }
 
 .newcomment{
   display:none;
   //margin-left:60px;
   width: 600px;
+  margin-top:20px;
   
   vertical-align:bottom;
   //overflow: auto;

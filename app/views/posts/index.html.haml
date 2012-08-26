@@ -35,17 +35,20 @@
                       .popupComments{:id => "pc"+ post.id.to_s}   
                         - post.comments[0...-1].each do |comment|
                           .commenthist_unit
-                            %img{:alt => comment.user.first_name, :src => comment.user.avatar, :title => comment.user.first_name}/                  
-                            = comment.body
+                            %img{:alt => comment.user.first_name, :src => comment.user.avatar, :title => comment.user.first_name}/
+                            %span.time{:title => comment.created_at.strftime('%a %d %b %Y')}
+                              = comment.created_at.strftime('%I:%M:%S %p')                  
+                            %br/  
+                            %span.mycom                                          
+                              = comment.body
                     - if post.comments.length > 0
                       .commenthist_unit
-                        %p.nomargin
-                          %img{:alt => post.comments.last.user.first_name, :src => post.comments.last.user.avatar, :title => post.comments.last.user.first_name}/
-                          %span.time{:title => post.comments.last.created_at.strftime('%a %d %b %Y')}
-                            = post.comments.last.created_at.strftime('%I:%M:%S %p')
-                          %br/  
-                          %span.mycom                    
-                            = post.comments.last.body
+                        %img{:alt => post.comments.last.user.first_name, :src => post.comments.last.user.avatar, :title => post.comments.last.user.first_name}/
+                        %span.time{:title => post.comments.last.created_at.strftime('%a %d %b %Y')}
+                          = post.comments.last.created_at.strftime('%I:%M:%S %p')
+                        %br/  
+                        %span.mycom                    
+                          = post.comments.last.body
                   %span{:class => "comment",:id => "c"+ post.id.to_s}
                     Add a comment...
                   .newcomment{:id => "nc" + post.id.to_s}
