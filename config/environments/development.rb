@@ -8,6 +8,9 @@ Rottenpotatoes::Application.configure do
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
+  config.time_zone="Pacific Time (US & Canada)"
+  config.active_record.default_timezone= :local
+
 
   config.static_cache_control = "public, max-age=2592000"
   # Show full error reports and disable caching
