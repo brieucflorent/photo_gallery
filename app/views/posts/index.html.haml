@@ -13,7 +13,7 @@
         .container
           .content
             - @posts.each do |post|
-              %span{:id=> "title"+ post.id.to_s,"data-mercury"=> "simple"}
+              %h2{:id=> "title"+ post.id.to_s,"data-mercury"=> "simple"}
                 = raw(post.title)
               .date{:title => post.created_at.strftime('%I:%M:%S %p')}
                 %span.day
