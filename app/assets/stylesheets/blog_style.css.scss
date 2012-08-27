@@ -3,7 +3,7 @@ $lightdarkred-color:#591015;
 $darkred-color:#240606;
 
 $main-color:#0DA096;
-$lightdark-color:#134A32;
+$lightdarksarga-color:#134A32;
 $dark-color:#0D2712;
 
 $mainpink-color:#D789E3;
@@ -66,16 +66,16 @@ hgroup {
   font-family:"LinotypeDidotRoman";
 	font-size: 30px;
 	letter-spacing: 1px;
-    color:$lightdark-color;
+    color:$lightdarksarga-color;
     background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
+        from($mainsarga-color),
+        to($lightdarksarga-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;  
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: $dark-color;
+    -webkit-text-stroke-color: $darksarga-color;
     
 }
 hgroup h1 {
@@ -113,7 +113,7 @@ span.template_color0 a {
 }
 
 span.template_color1 a {
-  color: $main-color;
+  color: $mainsarga-color;
 }
 
 #toolbar {
@@ -130,7 +130,7 @@ span.template_color1 a {
   right:20px;
   top:10px;
   width:250px;
-  color:$lightdark-color;
+  color:$lightdarksarga-color;
   //font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
   //font-family: "EvelynsHand"; 
   font-family:"LinotypeDidotRoman";
@@ -147,16 +147,16 @@ span.template_color1 a {
 	right:10px;
 	bottom: 60%;
 	padding:10px;
-  color:$lightdark-color;
+  color:$lightdarksarga-color;
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
+        from($mainsarga-color),
+        to($lightdarksarga-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $dark-color;  
+    -webkit-text-stroke-color: $darksarga-color;  
 	//font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	//font-family: "EvelynsHand";
 	 font-family:"LinotypeDidotRoman";
@@ -243,7 +243,7 @@ span.template_color1 a {
 	height:100%;
 }
 #outer_container .thumbScroller img {
-	border:3px solid $lightdark-color;
+	border:3px solid $lightdarksarga-color;
 }
 
 
@@ -379,16 +379,16 @@ ul.menu li span span.link, ul.menu li span span.descr, ul.menu li div.box a {
 	
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
+        from($mainsarga-color),
+        to($lightdarksarga-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $dark-color;
+    -webkit-text-stroke-color: $darksarga-color;
 }
 ul.menu li span span.link {
-  color:$lightdark-color;
+  color:$lightdarksarga-color;
 	font-size:26px;
 	float:left;
 	clear:both;
@@ -509,16 +509,16 @@ ul.menuleft li span span.link, ul.menuleft li span span.descr, ul.menuleft li di
 	text-transform:uppercase;
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
+        from($mainsarga-color),
+        to($lightdarksarga-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $dark-color;
+    -webkit-text-stroke-color: $darksarga-color;
 }
 ul.menuleft li span span.link {
-  color:$lightdark-color;
+  color:$lightdarksarga-color;
 	font-size:26px;
 	float:left;
 	clear:both;
@@ -579,8 +579,8 @@ article {
   //height:100%;
   //font-family: "EvelynsHand";
   font-family:"LinotypeDidotRoman";
-  //color:$lightdark-color;
-  color:$main-color;
+  //color:$lightdarksarga-color;
+  color:$mainsarga-color;
   font-size:14px;
   //width:340px;
   //position:absolute;
@@ -593,14 +593,14 @@ article {
   width: 1200px;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.80);
-  //background-color: rgba(13, 160, 150, 0.80);//main-color
+  //background-color: rgba(13, 160, 150, 0.80);//mainsarga-color
   //border: 1px solid #cecece;
-  border: 1px solid $main-color;
+  border: 1px solid $mainsarga-color;
   z-index: 15;
   padding: 20px;
   //color: #FFF;
-  color: $main-color;
-  //color:$lightdark-color;
+  color: $mainsarga-color;
+  //color:$lightdarksarga-color;
   -webkit-box-shadow: 0px 0px 4px #000 inset;
   -moz-box-shadow: 0px 0px 4px #000 inset;
   box-shadow: 0px 0px 4px #000 inset;
@@ -620,14 +620,14 @@ article {
 	width: 900px;
 	overflow: auto;
 	background-color: rgba(0, 0, 0, 0.80);
-	//background-color: rgba(13, 160, 150, 0.80);//main-color
+	//background-color: rgba(13, 160, 150, 0.80);//mainsarga-color
 	//border: 1px solid #cecece;
-	border: 1px solid $main-color;
+	border: 1px solid $mainsarga-color;
 	z-index: 15;
 	padding: 20px;
 	//color: #FFF;
-	//color: $main-color;
-	color:$lightdark-color;
+	//color: $mainsarga-color;
+	color:$lightdarksarga-color;
 	-webkit-box-shadow: 0px 0px 4px #000 inset;
 	-moz-box-shadow: 0px 0px 4px #000 inset;
 	box-shadow: 0px 0px 4px #000 inset;
@@ -653,19 +653,19 @@ article {
 	text-align: left;
 	font-size: 30px;
 	letter-spacing: 1px;
-  color:$lightdark-color;
+  color:$lightdarksarga-color;
 	
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
+        from($mainsarga-color),
+        to($lightdarksarga-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $dark-color;
+    -webkit-text-stroke-color: $darksarga-color;
     
-	border-bottom: 1px dotted $main-color;
+	border-bottom: 1px dotted $mainsarga-color;
 	padding-bottom: 2px;
 	margin: 0;
 }
@@ -678,7 +678,7 @@ span.template_color0 .image {
 }
 
 span.template_color1 .image {
-  border: 2px solid $lightdark-color;
+  border: 2px solid $lightdarksarga-color;
 }
 
 span.template_color2 .image {
@@ -698,12 +698,12 @@ span.template_color0 p{
 }
 
 span.template_color1 p{
-  color:$lightdark-color;
+  color:$lightdarksarga-color;
   
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
+        from($mainsarga-color),
+        to($lightdarksarga-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -724,8 +724,8 @@ span.template_color2 p{
 
 #mysession a { 
   //color: #FFF;
-  color: $main-color;
-    //color:$lightdark-color;
+  color: $mainsarga-color;
+    //color:$lightdarksarga-color;
   
   margin-left: 25px;
 }
@@ -736,8 +736,8 @@ span.template_color0 a{
 }
 
 span.template_color1 a{
-  color: $main-color;
-  border-bottom: 1px solid $main-color; 
+  color: $mainsarga-color;
+  border-bottom: 1px solid $mainsarga-color; 
 }
 
 span.template_color2 a{
@@ -760,17 +760,17 @@ span.template_color0 h2{
 }
 
 span.template_color1 h2{
-  color:$lightdark-color;
+  color:$lightdarksarga-color;
   
       background-image: -webkit-gradient(linear,
         left top, left bottom,
-        from($main-color),
-        to($lightdark-color)
+        from($mainsarga-color),
+        to($lightdarksarga-color)
       );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $dark-color;
+    -webkit-text-stroke-color: $darksarga-color;
 }
 
 span.template_color2 h2{
@@ -791,7 +791,7 @@ span.template_color2 h2{
   height: 3px;
   clear: both;
   //border-bottom: 1px dotted #FFF;
-  border-bottom: 1px dotted $main-color;
+  border-bottom: 1px dotted $mainsarga-color;
 }
 
 span.template_color0 .border{
@@ -805,7 +805,7 @@ span.template_color1 .border{
    height: 3px;
   clear: both;
   //border-bottom: 1px dotted #FFF;
-  border-bottom: 1px dotted $main-color;
+  border-bottom: 1px dotted $mainsarga-color;
 }
 
 span.template_color2 .border{
@@ -946,11 +946,11 @@ input {
   font-family:"LinotypeDidotRoman";
     
 	//background-color: #fff;
-	//background-color: $main-color;
+	//background-color: $mainsarga-color;
 	//border: 1px solid #ccc;
 	//color: #fff;
-	//color: $main-color;
-	color:$main-color;
+	//color: $mainsarga-color;
+	color:$mainsarga-color;
   
   font-size: 30px;
   letter-spacing: 1px;
@@ -987,19 +987,22 @@ textarea{
 	transform: rotate(-90deg);
 }
 
-.comment{
+
+.comment,.commentbox{
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 //background-color: white;
 background-color: rgba(0, 0, 0, 0.80);
-color: $main-color;
+color: $mainsarga-color;
 cursor: text;
 height: auto;
-margin-left:60px;
+//margin-left:60px;
 padding: 5px 7px;
-  border: 1px solid $lightdark-color;
-  width: 300px;
+  border: 1px solid $lightdarksarga-color;
+  //width: 300px;
+  
+  //clear: both;
   min-height: 30px;
   display: block;
   margin-bottom: 16px;
@@ -1017,10 +1020,54 @@ padding: 5px 7px;
   transition: all 0.5s ease-in-out;
 }
 
+.comment{
+  width: 300px;
+  margin-top:20px;
+}
+
+.commentbox{
+  clear: both;
+}
+
+
+.commenthist_unit{
+  //display: block;
+  margin-top:10px;
+}
+
+
+
+.commenthist_unit img{
+  //vertical-align:top;
+  float:left;
+  padding-right:10px;
+}
+
+.commenthist_box{
+  //display: inline;  
+  
+}
+
+.commenthist_unit .time{
+  //position: static;
+  //top: 0px;
+  //right: 0px;
+  //line-height:1;
+  font-size:13px;
+  //display: inline;
+}
+.commenthist_unit .mycom{
+//  position: block;
+ // margin: 0;
+ // padding-top: 2px;
+  font-size:15px;
+}
+
 .newcomment{
   display:none;
-  margin-left:60px;
+  //margin-left:60px;
   width: 600px;
+  margin-top:20px;
   
   vertical-align:bottom;
   //overflow: auto;
@@ -1043,13 +1090,13 @@ padding: 5px 7px;
 
 .newcomment textarea {
   font-family:"LinotypeDidotRoman";    
-  //background-color: $main-color;
-  border: 1px solid $lightdark-color;
+  //background-color: $mainsarga-color;
+  border: 1px solid $lightdarksarga-color;
   width: 300px;
   min-height: 20px;
   margin-bottom: 16px;
   margin-top: 0px;
-  color:$main-color;
+  color:$mainsarga-color;
   float:left;
   margin-left:10px;
   
@@ -1066,8 +1113,8 @@ padding: 5px 7px;
 .newcomment input {
   display:inline; 
   font-family:"LinotypeDidotRoman";
-  background-color: $main-color;
-  border: 1px solid $lightdark-color;
+  background-color: $mainsarga-color;
+  border: 1px solid $lightdarksarga-color;
   min-height: 15px;
   margin-bottom: 16px;
   margin-top: 8px;
@@ -1077,7 +1124,6 @@ padding: 5px 7px;
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  color:$main-color;
+  color:$mainsarga-color;
   
 }
-
