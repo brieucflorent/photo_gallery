@@ -42,7 +42,9 @@ $(window).load(function() {
                 	$(".comment").css({"display":"block"});
                 	$(".newcomment").css({"display":"none"});
                 });
-                
+                $(".day").click(function(event) {
+                	window.location="/blog/"+event.target.id;
+                });
                 $('.comments-link').click(function(event){
                 	//alert(event.target.id.split("l")[1]);
                 	var chid="#pc"+event.target.id.split("l")[1]
