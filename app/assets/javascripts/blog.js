@@ -3,16 +3,19 @@ function centerBlog(){
 				var windowWidth = document.documentElement.clientWidth;
 				var windowHeight = document.documentElement.clientHeight;
 				//var popupAboutHeight = $("#blog").height();
-				var popupAboutWidth = $("#blog").width();
+				//var popupAboutWidth = $("#blog").width();
+				var popupAboutWidth = windowWidth *70/100;
 				$("#blog").css({
 					"position": "absolute",
 					"top": windowHeight * 5/100,
 					"left": windowWidth/2-popupAboutWidth/2,
-					"height":windowHeight * 80/100
+					"height":windowHeight * 80/100,
+					"width":popupAboutWidth
 				});
 			}
 
 $(window).load(function() {
+	
 	centerBlog();
 	//on window resize scale image and reset thumbnail scroller
 	$(window).resize(function() {
