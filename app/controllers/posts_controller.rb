@@ -12,7 +12,12 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.order("created_at DESC")
+    
+    @search = Post.search(params[:q])
+    @posts = @search.result
+   # @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+    #@posts = Post.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

@@ -955,6 +955,7 @@ input {
   font-size: 30px;
   letter-spacing: 1px;
 }
+
 textarea{
   min-height: 400px;
 }
@@ -1091,6 +1092,8 @@ padding: 5px 7px;
 .newcomment textarea {
   font-family:"LinotypeDidotRoman";    
   //background-color: $mainsarga-color;
+  
+  background-color: #000;
   border: 1px solid $lightdarksarga-color;
   width: 300px;
   min-height: 20px;
@@ -1100,10 +1103,22 @@ padding: 5px 7px;
   float:left;
   margin-left:10px;
   
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  
 }
 
 .buttons{
-  display:inline;
+  //display:inline;
   //position:absolute;
   clear: both;
   //bottom: 0;
@@ -1124,6 +1139,80 @@ padding: 5px 7px;
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  color:$mainsarga-color;
-  
+  color:$mainsarga-color; 
+}
+
+
+#blogsearch {
+  //height: 600px;
+  //width: 1200px;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.80);
+  //background-color: rgba(13, 160, 150, 0.80);//mainsarga-color
+  //border: 1px solid #cecece;
+  border: 1px solid $mainsarga-color;
+  z-index: 15;
+  padding: 20px;
+  //color: #FFF;
+  color: $mainsarga-color;
+  //color:$lightdarksarga-color;
+  -webkit-box-shadow: 0px 0px 4px #000 inset;
+  -moz-box-shadow: 0px 0px 4px #000 inset;
+  box-shadow: 0px 0px 4px #000 inset;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  //margin-top: -50px;
+}
+
+#blogsearch input[type=submit] {
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  background: none;
+  opacity: 1.0;
+}
+
+#blogsearch input {
+  font-family:"LinotypeDidotRoman";
+  background-color: #000;
+  border: 1px solid $lightdarksarga-color;
+  min-height: 10px;
+  margin-bottom: 16px;
+  margin-top: 8px;
+  width: 250px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  color:$mainsarga-color; 
+}
+
+#blogsearch select {
+  //font-family:"LinotypeDidotRoman";
+  //background:transparent;
+  background-color: #000;
+  color:$mainsarga-color; 
+}
+
+#blogsearch select option{
+  //font-family:"LinotypeDidotRoman";
+  //background:transparent;
+  background-color: #000;
+  color:$mainsarga-color; 
+}
+
+
+#blogsearch form {
+  //font-family:'Century Gothic', arial, serif;
+  //font-family: "EvelynsHand";
+  //font-family: Arial, Helvetica, sans-serif;
+  font-family:"LinotypeDidotRoman";
+  //width: 350px;
+  margin-left: 0px;
 }

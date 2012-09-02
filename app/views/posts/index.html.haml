@@ -7,11 +7,29 @@
     #albumname
       %h1 
         Blog
+  %blogsearch#blogsearch
+    = search_form_for @search do |f|
+      .field
+        = f.label :title_cont, "Title contains"
+        = f.text_field :title_cont 
+      .field
+        Sort:
+        = f.sort_fields do |s| 
+          = s.sort_select 
+      .actions
+        = f.submit "Search"
+    %p    
+      Do you want to receive an email when I post a new blog?
+    - if not current_user.blank?
+      = best_in_place current_user, :alert_blogs,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"]  
+    - if current_user.blank?
+      = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+      = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'  
   %blogsection#bgblog
     %blogarticle#blog.blog
       .customScrollBox
         .container
-          .content
+          .content   
             - @posts.each do |post|
               %h2{:id=> "title"+ post.id.to_s,"data-mercury"=> "simple"}
                 = raw(post.title)

@@ -55,7 +55,10 @@ class Admin::PostsController < Admin::AdminController
     @post = Post.new(params[:post])
 
     respond_to do |format|
-      if @post.save
+      if @post.save        
+        User.where(:alert_blogs => true).each do |myuser|  
+            UserMailer.sendalert_blog(myuser,post_url(@post)).deliver  
+        end
         format.html { redirect_to admin_posts_url, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else

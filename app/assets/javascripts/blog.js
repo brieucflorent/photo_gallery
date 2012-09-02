@@ -8,14 +8,29 @@ function centerBlog(){
 				$("#blog").css({
 					"position": "absolute",
 					"top": windowHeight * 5/100,
-					"left": windowWidth/2-popupAboutWidth/2,
-					"height":windowHeight * 80/100,
+					"left": windowWidth-popupAboutWidth-windowWidth*3/100,
+					"height":windowHeight * 85/100,
 					"width":popupAboutWidth
 				});
 			}
 
+function positionBlogSearch(){
+				var windowWidth = document.documentElement.clientWidth;
+				var windowHeight = document.documentElement.clientHeight;
+				//var popupAboutHeight = $("#blog").height();
+				//var popupAboutWidth = $("#blog").width();
+				var popupAboutWidth = windowWidth *20/100;
+				$("#blogsearch").css({
+					"position": "absolute",
+					"top": windowHeight * 20/100,
+					"left": 10,
+					"height":windowHeight * 60/100,
+					"width":popupAboutWidth
+				});
+			}
+			
 $(window).load(function() {
-	
+	positionBlogSearch();
 	centerBlog();
 	//on window resize scale image and reset thumbnail scroller
 	$(window).resize(function() {

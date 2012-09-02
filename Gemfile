@@ -68,3 +68,4 @@ gem "rack-offline", :git => "git://github.com/wycats/rack-offline.git"
 gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git'
 gem 'paperclip'
 gem 'redactor-rails'
+gem 'ransack'
