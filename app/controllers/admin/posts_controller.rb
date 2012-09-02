@@ -53,14 +53,14 @@ class Admin::PostsController < Admin::AdminController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    valid =false
     respond_to do |format|
       if @post.save        
-        User.where(:alert_blogs => true).each do |myuser|  
-            UserMailer.sendalert_blog(myuser,post_url(@post)).deliver  
+        User.where(:alert_blogs => :true).each do |myuser|
+           UserMailer.sendalert_blog(myuser,post_url(@post)).deliver  
         end
         format.html { redirect_to admin_posts_url, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
+        format.json { render json: @post, status: :created, location: @post }        
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
