@@ -24,7 +24,7 @@ function positionBlogSearch(){
 				var windowHeight = document.documentElement.clientHeight;
 				//var popupAboutHeight = $("#blog").height();
 				//var popupAboutWidth = $("#blog").width();
-				var popupAboutWidth = windowWidth *20/100;
+				var popupAboutWidth = windowWidth *22/100;
 				$("#blogsearch").css({
 					"position": "absolute",
 					"top": windowHeight * 20/100,
