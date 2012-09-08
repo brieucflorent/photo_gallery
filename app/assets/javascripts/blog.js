@@ -1,3 +1,8 @@
+$(function() {
+  //$("#q_created_at_gt").datepicker();
+  $("#q_created_at_gt").datepicker({dateFormat: 'yy-mm-dd'});
+  $("#q_created_at_lt").datepicker({dateFormat: 'yy-mm-dd'});
+});
   
 function centerBlog(){
 				var windowWidth = document.documentElement.clientWidth;

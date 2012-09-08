@@ -1,6 +1,7 @@
 %head
   %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
   %link{:href => "/assets/blog_style.css.scss", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+  %link{:href => "/assets/ui-lightness/jquery-ui-1.7.3.custom.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
   %title Blog
 %body
   %hgroup
@@ -9,15 +10,41 @@
         Blog
   %blogsearch#blogsearch
     = search_form_for @search do |f|
-      .field
-        = f.label :title_cont, "Title contains"
-        = f.text_field :title_cont 
-      .field
-        Sort:
-        = f.sort_fields do |s| 
-          = s.sort_select 
-      .actions
-        = f.submit "Search"
+      %table
+        %tr
+          %td
+            .field
+              = f.label :title_cont, "Title contains"
+          %td
+            .field  
+              = f.text_field :title_cont
+        %tr
+          %td
+            .field    
+              = f.label :created_at_gt, "After "
+          %td
+            .field
+              = f.text_field :created_at_gt
+        %tr
+          %td
+            .field    
+              = f.label :created_at_lt, "Before "
+          %td
+            .field
+              = f.text_field :created_at_lt
+        %tr
+          %td
+            .field
+              Sort:
+          %td
+            .field  
+              = f.sort_fields do |s| 
+                = s.sort_select
+        %tr
+          %td         
+            .actions
+              = f.submit "Search"
+          %td    
     %p    
       Do you want to receive an email when I post a new blog?
     - if not current_user.blank?
