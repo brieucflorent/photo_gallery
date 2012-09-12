@@ -4,12 +4,8 @@
   %link{:href => "/assets/ui-lightness/jquery-ui-1.7.3.custom.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
   %title Blog
 %body
-  %hgroup
-    #albumname
-      %h1 
-        Blog
   %blogsearch#blogsearch
-    = search_form_for @search do |f|
+    = search_form_for @search, :remote => true do |f|
       %table
         %tr
           %td
@@ -24,7 +20,7 @@
               = f.label :created_at_gt, "After "
           %td
             .field
-              = f.text_field :created_at_gt
+              = f.text_field :created_at_gt        
         %tr
           %td
             .field    
@@ -45,13 +41,16 @@
             .actions
               = f.submit "Search"
           %td    
+    %p
+      #searchresults
+    .border    
     %p    
       Do you want to receive an email when I post a new blog?
     - if not current_user.blank?
       = best_in_place current_user, :alert_blogs,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"]  
     - if current_user.blank?
       = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
-      = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'  
+      = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'    
   %blogsection#bgblog
     %blogarticle#blog.blog
       .customScrollBox
