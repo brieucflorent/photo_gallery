@@ -40,6 +40,7 @@ $(window).load(function() {
 	//on window resize scale image and reset thumbnail scroller
 	$(window).resize(function() {
      	centerBlog();
+     	positionBlogSearch();
 	});
 
 	//load 1st image

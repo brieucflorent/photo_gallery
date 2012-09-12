@@ -5,7 +5,7 @@
   %title Blog
 %body
   %blogsearch#blogsearch
-    %h3 Search Blog
+    %h2 Search Blog
     = search_form_for @search, :remote => true do |f|
       %table
         %tr
@@ -45,7 +45,7 @@
     %p
       #searchresults
     .border    
-    %h3 Recent Posts
+    %h2 Recent Posts
     %table
       - @posts[0..5].each do |post|
         %tr
@@ -54,11 +54,11 @@
     .border                   
     %p    
       Do you want to receive an email when I post a new blog?
-    - if not current_user.blank?
-      = best_in_place current_user, :alert_blogs,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"]  
-    - if current_user.blank?
-      = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
-      = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'    
+      - if not current_user.blank?
+        = best_in_place current_user, :alert_blogs,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"]  
+      - if current_user.blank?
+        = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+        = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'    
   %blogsection#bgblog
     %blogarticle#blog.blog
       .customScrollBox
