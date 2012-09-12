@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     
     @search = Post.search(params[:q])
     @posts = @search.result
+    @posts.sort! {|a,b| a.created_at <=> b.created_at}.reverse!
    # @search.build_condition if @search.conditions.empty?
     @search.build_sort if @search.sorts.empty?
     #@posts = Post.order("created_at DESC")

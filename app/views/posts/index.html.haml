@@ -5,6 +5,7 @@
   %title Blog
 %body
   %blogsearch#blogsearch
+    %h2 Search Blog
     = search_form_for @search, :remote => true do |f|
       %table
         %tr
@@ -44,6 +45,13 @@
     %p
       #searchresults
     .border    
+    %h2 Recent Posts
+    %table
+      - @posts[0..5].each do |post|
+        %tr
+          %td
+            = link_to post.title,post_path(post)
+    .border                   
     %p    
       Do you want to receive an email when I post a new blog?
     - if not current_user.blank?
