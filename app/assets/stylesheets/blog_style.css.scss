@@ -1176,6 +1176,13 @@ padding: 5px 7px;
   opacity: 1.0;
 }
 
+
+input:focus,input[type=submit]:hover,a:hover{
+  -webkit-box-shadow: 0 0 25px #ccc;
+  -moz-box-shadow: 0 0 25px #ccc;
+  box-shadow: 0 0 25px #ccc;
+}
+
 #blogsearch input {
   font-family:"LinotypeDidotRoman";
   background-color: #000;
@@ -1184,6 +1191,7 @@ padding: 5px 7px;
   margin-bottom: 6px;
   margin-top: 4px;
   width: 250px;
+  font-size: 20px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
@@ -1191,6 +1199,10 @@ padding: 5px 7px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
   color:$mainsarga-color; 
+}
+
+input#q_created_at_gt,input#q_created_at_lt{
+  width: 120px;
 }
 
 #blogsearch select {
