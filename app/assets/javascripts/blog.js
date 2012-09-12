@@ -24,12 +24,12 @@ function positionBlogSearch(){
 				var windowHeight = document.documentElement.clientHeight;
 				//var popupAboutHeight = $("#blog").height();
 				//var popupAboutWidth = $("#blog").width();
-				var popupAboutWidth = windowWidth *22/100;
+				var popupAboutWidth = windowWidth *23/100;
 				$("#blogsearch").css({
 					"position": "absolute",
 					"top": windowHeight * 5/100,
 					"left": 10,
-					"height":windowHeight * 60/100,
+					"height":windowHeight * 70/100,
 					"width":popupAboutWidth
 				});
 			}
