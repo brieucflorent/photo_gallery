@@ -3,10 +3,61 @@
   %link{:href => "/assets/blog_style.css.scss", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
   %title Blog
 %body
-  %hgroup
-    #albumname
-      %h1 
-        Blog
+  %blogsearch#blogsearch
+    %h2 Search Blog
+    = search_form_for @search,:url => post_path(@post), :remote => true do |f|
+      %table
+        %tr
+          %td
+            .field
+              = f.label :title_cont, "Title contains"
+          %td
+            .field  
+              = f.text_field :title_cont
+        %tr
+          %td
+            .field    
+              = f.label :created_at_gt, "After "
+          %td
+            .field
+              = f.text_field :created_at_gt        
+        %tr
+          %td
+            .field    
+              = f.label :created_at_lt, "Before "
+          %td
+            .field
+              = f.text_field :created_at_lt
+        %tr
+          %td
+            .field
+              Sort:
+          %td
+            .field  
+              = f.sort_fields do |s| 
+                = s.sort_select
+        %tr
+          %td         
+            .actions
+              = f.submit "Search"
+          %td    
+    %p
+      #searchresults
+    .border    
+    %h2 Recent Posts
+    %table
+      - @posts[0..5].each do |post|
+        %tr
+          %td
+            = link_to post.title,post_path(post)
+    .border                   
+    %p    
+      Do you want to receive an email when I post a new blog?
+      - if not current_user.blank?
+        = best_in_place current_user, :alert_blogs,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"]  
+      - if current_user.blank?
+        = link_to image_tag( 'facebook_32.png'), '/users/auth/facebook'
+        = link_to image_tag( 'google_32.png'), '/users/auth/google_oauth2'    
   %blogsection#bgblog
     %blogarticle#blog.blog
       .customScrollBox
