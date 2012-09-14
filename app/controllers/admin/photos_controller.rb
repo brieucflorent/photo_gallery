@@ -74,7 +74,7 @@ class Admin::PhotosController < Admin::AdminController
         if @photo.save
           @photo.title=@photo.imagefile.to_s.split('/').last.split('.jpg').first
           @photo.save
-          User.find(:alert_photos => true).each do |myuser|  
+          User.where(:alert_photos => :true).each do |myuser|  
               UserMailer.sendalert_photo(myuser,photo_url(@photo)).deliver  
           end
           respond_to do |format|
