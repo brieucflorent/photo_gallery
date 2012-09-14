@@ -34,8 +34,7 @@
 							"color": colors[albumcolor][1]
                     });
                       $("#popupAbout h1").css({
-                            "color":colors[albumcolor][1],
-	                        "border-bottom": "1px dotted " +colors[albumcolor][0]
+                            "color":colors[albumcolor][1]
                     });
                     
                     $("#popupAbout h1").css({                    

@@ -649,7 +649,7 @@ article {
 	line-height: 24px;
 }
 
-#popupAbout h1, #popupProjects h1, #popupContact h1, #popupPhotos h1, #blog h1 {
+#popupProjects h1, #popupContact h1, #popupPhotos h1, #blog h1 {
 	text-align: left;
 	font-size: 30px;
 	letter-spacing: 1px;
@@ -670,6 +670,25 @@ article {
 	margin: 0;
 }
 
+#popupAbout h1 {
+  text-align: left;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color:$lightdark-color;
+  
+      background-image: -webkit-gradient(linear,
+        left top, left bottom,
+        from($main-color),
+        to($lightdark-color)
+      );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $dark-color;
+    
+  padding-bottom: 2px;
+  margin: 0;
+}
 
 
 
