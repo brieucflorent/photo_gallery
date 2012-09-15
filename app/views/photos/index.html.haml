@@ -93,7 +93,11 @@
               = label_tag 'message'
               = text_area_tag 'body',nil, :rows => 10,:cols => 25
               = submit_tag 'Send', :confirm => 'Are you sure?'
-            #notice     
+            #notice
+          %p    
+            Do you want to receive an email when I post a new photo?
+            - if not current_user.blank?
+              = best_in_place current_user, :alert_photos,:type => :checkbox, :collection => ["No, thanks", "Yes, of course!"]         
           %br/
           //%iframe.map{:width => "425",:height => "350", :src => "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Irvine,+CA,+United+States&aq=0&oq=irvine&sll=33.683947,-117.794694&sspn=0.198548,0.418854&t=h&g=Irvine,+CA,+United+States&ie=UTF8&hq=&hnear=Irvine,+Orange,+California&ll=33.669783,-117.846909&spn=0.099719,0.146255&z=12&iwloc=A&output=embed"}
           .border
