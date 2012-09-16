@@ -1,3 +1,8 @@
+$("#searchresults").empty();
+<% if @posts.length >0%>
 <% @posts.each do |post|%>
 $("#searchresults").append("<a href='/blog/<%= post.id %>'> <%=post.title %> </a>");  
+<% end %>
+<% else %>
+$("#searchresults").append("No results");  
 <% end %>
