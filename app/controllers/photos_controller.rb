@@ -22,8 +22,10 @@ class PhotosController < ApplicationController
       @curphoto=Photo.find(params[:id])
       @album=@curphoto.album
     else
-      @album = @albumphotos.first
-      @curphoto=@album.photos.sort { |a,b| a.ordering <=> b.ordering }.first    
+      #@album = @albumphotos.first
+      @album = @albumphotos[rand(@albumphotos.length)]
+      #@curphoto=@album.photos.sort { |a,b| a.ordering <=> b.ordering }.first
+      @curphoto=@album.photos[rand(@album.photos.length)]    
     end
     @photos = @album.photos.sort { |a,b| a.ordering <=> b.ordering }
     @allphotos = Photo.where("album_id !=?",@album.id ).order(:ordering)
