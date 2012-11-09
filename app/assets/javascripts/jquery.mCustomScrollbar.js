@@ -368,9 +368,9 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 			//var imageArray = ['images/gallery/2.jpg', 'images/gallery/3.jpg', 'images/gallery/4.jpg', 'images/gallery/5.jpg', 'images/gallery/6.jpg'];
             //var myPhotos=["https://radiant.gallery.s3.amazonaws.com/uploads/photo/imagefile/23/DSC6667.jpg?AWSAccessKeyId=AKIAIOWAKMSK3N5JQ6OA&Signature=WbYiC7l%2FZ0GYMZJGvqzTYR%2B%2ByUg%3D&Expires=1335866537","https://radiant.gallery.s3.amazonaws.com/uploads/photo/imagefile/24/zita_redmodel.jpg?AWSAccessKeyId=AKIAIOWAKMSK3N5JQ6OA&Signature=CsmhlXq0PbtWsoeVnEt%2FciTaHDI%3D&Expires=1335866537"]
             var hidden = $('body').append('<div id="img-cache" style="display:none/>').children('#img-cache');
-			$.each(myPhotos, function (i, val) {
-			  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
-			});
+			//$.each(myPhotos, function (i, val) {
+			//  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
+			//});
 			
 			
 			/*myPhotosJSON = $("#all_other_photos_json").html();
