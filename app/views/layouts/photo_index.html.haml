@@ -12,8 +12,6 @@
   = yield :head
   = yield
 
-%script#curphoto_json{:type => "text/json"}
-  = @curphoto.to_json.html_safe     
 %script#my_photos_json{:type => "text/json"}
   = @photos.to_json.html_safe
 %script#my_albums_json{:type => "text/json"}

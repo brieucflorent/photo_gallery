@@ -402,7 +402,7 @@ function selectAlbum(albumid) {
 
 	var myAlbumsJSON = $("#my_albums_json").html(), myAlbums = $.parseJSON(myAlbumsJSON);
 	var myPhotosJSON = $("#my_albumphotos_json" + albumid).html(), myPhotos = $.parseJSON(myPhotosJSON);
-	var curPhotoJSON = $("#curphoto_json").html(), curPhoto = $.parseJSON(curPhotoJSON);
+	//var curPhotoJSON = $("#curphoto_json").html(), curPhoto = $.parseJSON(curPhotoJSON);
 	var albumname = "test";
 	$.each(myAlbums, function(i, val) {
 		if(val.id == albumid) {
@@ -423,10 +423,10 @@ function selectAlbum(albumid) {
             //var hidden = $('body').append('<div id="img-cache" style="display:none/>').children('#img-cache');
             var hidden = $('#img-cache');
             
-			$('<img/>').attr('src', curPhoto.imagefile.url).appendTo(hidden);
-			$.each(myPhotos, function (i, val) {
-			  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
-			});
+			//$('<img/>').attr('src', curPhoto.imagefile.url).appendTo(hidden);
+			//$.each(myPhotos, function (i, val) {
+			//  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
+		//	});
 			
 	//window.history.replaceState("cururl","mylink",'/photos/' + myPhotos[0].id)
 }
