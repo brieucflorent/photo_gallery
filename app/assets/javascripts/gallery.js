@@ -402,6 +402,7 @@ function selectAlbum(albumid) {
 
 	var myAlbumsJSON = $("#my_albums_json").html(), myAlbums = $.parseJSON(myAlbumsJSON);
 	var myPhotosJSON = $("#my_albumphotos_json" + albumid).html(), myPhotos = $.parseJSON(myPhotosJSON);
+	var curPhotoJSON = $("#curphoto_json").html(), curPhoto = $.parseJSON(curPhotoJSON);
 	var albumname = "test";
 	$.each(myAlbums, function(i, val) {
 		if(val.id == albumid) {
@@ -421,6 +422,8 @@ function selectAlbum(albumid) {
             //var myPhotos=["https://radiant.gallery.s3.amazonaws.com/uploads/photo/imagefile/23/DSC6667.jpg?AWSAccessKeyId=AKIAIOWAKMSK3N5JQ6OA&Signature=WbYiC7l%2FZ0GYMZJGvqzTYR%2B%2ByUg%3D&Expires=1335866537","https://radiant.gallery.s3.amazonaws.com/uploads/photo/imagefile/24/zita_redmodel.jpg?AWSAccessKeyId=AKIAIOWAKMSK3N5JQ6OA&Signature=CsmhlXq0PbtWsoeVnEt%2FciTaHDI%3D&Expires=1335866537"]
             //var hidden = $('body').append('<div id="img-cache" style="display:none/>').children('#img-cache');
             var hidden = $('#img-cache');
+            
+			$('<img/>').attr('src', curPhoto.imagefile.url).appendTo(hidden);
 			$.each(myPhotos, function (i, val) {
 			  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
 			});
