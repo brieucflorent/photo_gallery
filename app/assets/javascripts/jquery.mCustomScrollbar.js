@@ -371,7 +371,10 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 			//$.each(myPhotos, function (i, val) {
 			//  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
 			//});
-			
+			setTimeout(function(){
+				$.each(myPhotos, function (i, val) {
+			  $('<img/>').attr('src', val.imagefile.url).appendTo(hidden);
+			});},10000);
 			
 			/*myPhotosJSON = $("#all_other_photos_json").html();
             myPhotos     = $.parseJSON(myPhotosJSON);
