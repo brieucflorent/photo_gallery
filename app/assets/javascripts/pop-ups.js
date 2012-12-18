@@ -72,12 +72,15 @@
 				}
 				$("#popupAbout").css({
 					"position": "absolute",
-					"top": windowHeight/2-popupHeight/2,
+					"margin-top": windowHeight/2-popupHeight/2,
 					"left": windowWidth/2-popupWidth/2,
 					"height": popupHeight,
 					"width": popupWidth
 				});
-			}
+				//$("#popupAbout").offset({top:windowHeight/2-popupHeight/2, left:windowWidth/2-popupWidth/2});
+				//alert($("#popupAbout").offset().top);
+				//alert(windowHeight/2-popupHeight/2);
+			};
 			
 			
 			$(document).ready(function(){
@@ -173,7 +176,7 @@
 				}
 				$("#popupProjects").css({
 					"position": "absolute",
-					"top": windowHeight/2-popupHeight/2,
+					"margin-top": windowHeight/2-popupHeight/2,
 					"left": windowWidth/2-popupWidth/2,
 					"height":popupHeight,
 					"width":popupWidth
@@ -274,7 +277,7 @@
 				}
 				$("#popupPhotos").css({
 					"position": "absolute",
-					"top": windowHeight/2-popupHeight/2,
+					"margin-top": windowHeight/2-popupHeight/2,
 					"left": windowWidth/2-popupWidth/2,
 					"height":popupHeight,
 					"width":popupWidth
@@ -343,7 +346,7 @@
 				}
 				$("#popupContact").css({
 					"position": "absolute",
-					"top": windowHeight/2-popupHeight/2,
+					"margin-top": windowHeight/2-popupHeight/2,
 					"left": windowWidth/2-popupWidth/2,
 					"height":popupHeight,
 					"width":popupWidth
@@ -400,7 +403,7 @@
 				var popupBlogWidth = $("#popupBlog").width();
 				$("#popupBlog").css({
 					"position": "absolute",
-					"top": windowHeight/2-popupBlogHeight/2,
+					"margin-top": windowHeight/2-popupBlogHeight/2,
 					"left": windowWidth/2-popupBlogWidth/2
 				});
 			}
