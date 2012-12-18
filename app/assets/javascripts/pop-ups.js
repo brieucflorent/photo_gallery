@@ -81,6 +81,7 @@
 					disablePopupProjects();
 					disablePopupContact();
 					disablePopupBlog();
+          disablePopupPhotos();
 					centerPopupAbout();
 					loadPopupAbout();
 				    $("#popupAbout").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);	
@@ -172,7 +173,8 @@
 					"visibility": "visible"	});
 					disablePopupAbout();
 					disablePopupContact();
-					disablePopupBlog();					
+					disablePopupPhotos();
+          disablePopupBlog();					
 					centerPopupProjects();
 					loadPopupProjects();
 				    $("#popupProjects").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);						
@@ -268,6 +270,7 @@
 					"visibility": "visible"	});
 					disablePopupAbout();
 					disablePopupContact();
+					disablePopupProjects();
 					disablePopupBlog();					
 					centerPopupPhotos();
 					loadPopupPhotos();
@@ -323,6 +326,7 @@
 				$("#popupContact").css({
 					"visibility": "visible"	});
 					disablePopupAbout();
+					disablePopupPhotos();
 					disablePopupProjects();
 					disablePopupBlog();					
 					centerPopupContact();
