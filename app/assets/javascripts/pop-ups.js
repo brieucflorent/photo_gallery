@@ -65,7 +65,7 @@
 				var popupHeight = $("#popupAbout").height();
 				var popupWidth = $("#popupAbout").width();
 				if (popupHeight > windowHeight){
-					popupHeight=windowHeight;
+					popupHeight=windowHeight -5;
 				}
 				if (popupWidth > windowWidth){
 					popupWidth = windowWidth;
@@ -74,8 +74,8 @@
 					"position": "absolute",
 					"top": windowHeight/2-popupHeight/2,
 					"left": windowWidth/2-popupWidth/2,
-					"height":popupHeight,
-					"width":popupWidth
+					"height": popupHeight,
+					"width": popupWidth
 				});
 			}
 			
@@ -89,7 +89,7 @@
 					disablePopupProjects();
 					disablePopupContact();
 					disablePopupBlog();
-          disablePopupPhotos();
+                    disablePopupPhotos();
 					centerPopupAbout();
 					loadPopupAbout();
 				    $("#popupAbout").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);	
@@ -166,7 +166,7 @@
 				var popupHeight = $("#popupProjects").height();
 				var popupWidth = $("#popupProjects").width();
 				if (popupHeight > windowHeight){
-					popupHeight=windowHeight;
+					popupHeight=windowHeight -5;
 				}
 				if (popupWidth > windowWidth){
 					popupWidth = windowWidth;
@@ -190,7 +190,7 @@
 					disablePopupAbout();
 					disablePopupContact();
 					disablePopupPhotos();
-          disablePopupBlog();					
+                    disablePopupBlog();					
 					centerPopupProjects();
 					loadPopupProjects();
 				    $("#popupProjects").mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);						
@@ -267,7 +267,7 @@
 				var popupHeight = $("#popupPhotos").height();
 				var popupWidth = $("#popupPhotos").width();
 				if (popupHeight > windowHeight){
-					popupHeight=windowHeight;
+					popupHeight=windowHeight -5;
 				}
 				if (popupWidth > windowWidth){
 					popupWidth = windowWidth;
@@ -336,7 +336,7 @@
 				var popupHeight = $("#popupContact").height();
 				var popupWidth = $("#popupContact").width();
 				if (popupHeight > windowHeight){
-					popupHeight=windowHeight;
+					popupHeight=windowHeight -5;
 				}
 				if (popupWidth > windowWidth){
 					popupWidth = windowWidth;
